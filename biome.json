@@ -21,11 +21,18 @@
   "html": {
     "experimentalFullSupportEnabled": true
   },
+  "json": {
+    "formatter": {
+      "lineWidth": 20
+    }
+  },
   "javascript": {
     "formatter": {
-      "indentWidth": 4,
       "indentStyle": "space",
-      "quoteStyle": "double"
+      "indentWidth": 4,
+      "jsxQuoteStyle": "double",
+      "quoteStyle": "double",
+      "semicolons": "always"
     }
   },
   "assist": {
@@ -38,7 +45,11 @@
   },
   "overrides": [
     {
-      "includes": ["**/*.svelte", "**/*.astro", "**/*.vue"],
+      "includes": [
+        "**/*.svelte",
+        "**/*.astro",
+        "**/*.vue"
+      ],
       "linter": {
         "rules": {
           "style": {
@@ -48,6 +59,26 @@
           "correctness": {
             "noUnusedVariables": "off",
             "noUnusedImports": "off"
+          }
+        }
+      }
+    },
+    {
+      "includes": [
+        "**/*.tsx",
+        "**/*.ts"
+      ],
+      "linter": {
+        "rules": {
+          "complexity": {
+            "noExcessiveLinesPerFunction": {
+              "level": "warn",
+              "options": {
+                "maxLines": 30,
+                "skipBlankLines": true,
+                "skipIifes": true
+              }
+            }
           }
         }
       }
