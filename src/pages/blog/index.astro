@@ -6,6 +6,7 @@ import Footer from "../../components/Footer.astro";
 import FormattedDate from "../../components/FormattedDate.astro";
 import Header from "../../components/Header.astro";
 import { SITE_DESCRIPTION, SITE_TITLE } from "../../consts";
+import DesignSystemProvider from "../../components/design-system/DesignSystemProvider.astro";
 
 const posts = (await getCollection("blog")).sort(
     (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
@@ -16,7 +17,8 @@ const posts = (await getCollection("blog")).sort(
 <html lang="de">
 	<head>
 		<title>{SITE_TITLE}</title>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+        <DesignSystemProvider/>
+        <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
 		<style>
 			main {
 				width: 960px;

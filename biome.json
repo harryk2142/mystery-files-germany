@@ -35,6 +35,8 @@
       "semicolons": "always"
     }
   },
+  "css": {
+  },
   "assist": {
     "enabled": true,
     "actions": {

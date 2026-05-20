@@ -1,0 +1,10 @@
+/*
+Nicht einbinden,
+dient lediglich dazu,
+damit IDE den falschen Fehler wegen fehlender Variable nicht mehr anzeigt
+*/
+:root {
+    --font-roboto: "Roboto";
+    --font-lato: "Lato";
+    --font-playfair-display: "Playfair Display";
+}
