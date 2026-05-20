@@ -18,6 +18,9 @@
       "recommended": true
     }
   },
+  "html": {
+    "experimentalFullSupportEnabled": true
+  },
   "javascript": {
     "formatter": {
       "indentWidth": 4,
