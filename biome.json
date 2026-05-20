@@ -20,6 +20,8 @@
   },
   "javascript": {
     "formatter": {
+      "indentWidth": 4,
+      "indentStyle": "space",
       "quoteStyle": "double"
     }
   },
@@ -33,11 +35,7 @@
   },
   "overrides": [
     {
-      "includes": [
-        "**/*.svelte",
-        "**/*.astro",
-        "**/*.vue"
-      ],
+      "includes": ["**/*.svelte", "**/*.astro", "**/*.vue"],
       "linter": {
         "rules": {
           "style": {

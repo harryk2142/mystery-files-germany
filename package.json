@@ -10,7 +10,11 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "update-latest": "pnpm update --latest"
+    "update-latest": "pnpm update --latest",
+    "format": "biome format --write",
+    "format:check": "biome format --check",
+    "lint": "biome lint .",
+    "check": "biome check "
   },
   "dependencies": {
     "@astrojs/mdx": "5.0.6",
