@@ -10,6 +10,7 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
+    "astro:sync": "astro sync",
     "update-latest": "pnpm update --latest",
     "format": "biome format --write",
     "format:check": "biome format --check",

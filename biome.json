@@ -36,6 +36,10 @@
     }
   },
   "css": {
+    "formatter": {
+      "indentWidth": 4,
+      "lineWidth": 120
+    }
   },
   "assist": {
     "enabled": true,

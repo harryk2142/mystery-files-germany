@@ -9,7 +9,22 @@
   ],
   "compilerOptions": {
     "strictNullChecks": true,
+    "verbatimModuleSyntax": true,
     "jsx": "react-jsx",
-    "jsxImportSource": "preact"
+    "jsxImportSource": "preact",
+    "paths": {
+      "@components/*": [
+        "./src/components/*"
+      ],
+      "@layouts/*": [
+        "./src/layouts/*"
+      ],
+      "@features/*": [
+        "./src/features/*"
+      ],
+      "@design-system/*": [
+        "./src/design-system/*"
+      ]
+    }
   }
 }

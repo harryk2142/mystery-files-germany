@@ -1,6 +1,9 @@
 :root {
     color-scheme: light;
 
+    --container-max-width: 1200px;
+    --container-padding: 16px;
+
     --color-page: #f7f7f4;
     --color-surface: #ffffff;
     --color-surface-muted: #efefeb;

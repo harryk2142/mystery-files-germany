@@ -9,6 +9,7 @@ import { defineConfig, fontProviders } from "astro/config";
 export default defineConfig({
     site: "https://the-ai-files.de",
     integrations: [mdx(), sitemap(), preact()],
+    output: "static",
     server: {
         port: 3000,
     },
