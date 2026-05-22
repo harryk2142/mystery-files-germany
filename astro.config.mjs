@@ -4,6 +4,7 @@ import mdx from "@astrojs/mdx";
 import preact from "@astrojs/preact";
 import sitemap from "@astrojs/sitemap";
 import { defineConfig, fontProviders } from "astro/config";
+import rehypeExternalLinks from "rehype-external-links";
 
 // https://astro.build/config
 export default defineConfig({
@@ -12,6 +13,9 @@ export default defineConfig({
     output: "static",
     server: {
         port: 3000,
+    },
+    markdown: {
+        rehypePlugins: [rehypeExternalLinks, { target: "_blank" }],
     },
     fonts: [
         {
