@@ -15,7 +15,10 @@ export default defineConfig({
         port: 3000,
     },
     markdown: {
-        rehypePlugins: [rehypeExternalLinks, { target: "_blank" }],
+        rehypePlugins: [[rehypeExternalLinks, { target: "_blank", rel: [] }]],
+        shikiConfig: {
+            theme: "dark-plus",
+        },
     },
     fonts: [
         {
