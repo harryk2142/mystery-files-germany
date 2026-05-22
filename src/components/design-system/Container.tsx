@@ -3,11 +3,12 @@ import styles from "./Container.module.css";
 
 type Variant = "s" | "m" | "l";
 
+import type { HTMLAttributes } from "astro/types";
+
 type ContainerProps = {
     children?: ComponentChildren;
     variant?: Variant;
-    class?: string;
-};
+} & HTMLAttributes<"div">;
 
 export function Container({
     children,
