@@ -50,7 +50,17 @@
     "enabled": true,
     "actions": {
       "source": {
-        "organizeImports": "on",
+        "organizeImports": {
+          "level": "on",
+          "options": {
+            "groups": [
+              ":NODE:",
+              ":BLANK_LINE:",
+              ":PACKAGE:",
+              ":BLANK_LINE:"
+            ]
+          }
+        },
         "useSortedAttributes": {
           "options": {
             "sortOrder": "natural"

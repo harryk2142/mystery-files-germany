@@ -1,4 +1,5 @@
 import type { ComponentChildren } from "preact";
+
 import styles from "./Container.module.css";
 
 type Variant = "s" | "m" | "l";
