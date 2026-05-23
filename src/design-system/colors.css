@@ -1,8 +1,11 @@
 .emerald {
     color: #fff;
+
     background-color: #008a00;
 }
+
 .hover-emerald:hover {
     color: #fff;
+
     background-color: color-mix(in srgb, #008a00, #016e01 90%);
 }

@@ -40,8 +40,10 @@
   },
   "css": {
     "formatter": {
-      "indentWidth": 4,
-      "lineWidth": 120
+      "enabled": false
+    },
+    "linter": {
+      "enabled": false
     }
   },
   "assist": {
@@ -49,8 +51,13 @@
     "actions": {
       "source": {
         "organizeImports": "on",
-        "useSortedAttributes": "on",
-        "useSortedProperties": "on"
+        "useSortedAttributes": {
+          "options": {
+            "sortOrder": "natural"
+          },
+          "level": "on"
+        },
+        "useSortedProperties": "off"
       }
     }
   },

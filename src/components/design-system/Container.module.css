@@ -1,10 +1,11 @@
 .container {
-    width: 100%;
-    max-width: var(--container-max-width, 1200px);
-    padding-right: var(--container-padding, 16px);
-    padding-left: var(--container-padding, 16px);
     margin-right: auto;
     margin-left: auto;
+    padding-right: var(--container-padding, 16px);
+    padding-left: var(--container-padding, 16px);
+
+    width: 100%;
+    max-width: var(--container-max-width, 1200px);
 }
 
 .s {

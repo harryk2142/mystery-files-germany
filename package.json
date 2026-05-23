@@ -11,11 +11,14 @@
     "preview": "astro preview",
     "astro": "astro",
     "astro:sync": "astro sync",
+    "astro:check": "astro check",
     "update-latest": "pnpm update --latest",
     "format": "biome format --write",
     "format:check": "biome format --check",
     "lint": "biome lint .",
-    "check": "biome check "
+    "check": "biome check ",
+    "biome:check:write": "biome check --write .",
+    "style:lint": "stylelint --fix \"**/*.css\""
   },
   "dependencies": {
     "@astrojs/mdx": "5.0.6",
@@ -34,6 +37,12 @@
     "@biomejs/biome": "2.4.15",
     "astro-pagefind": "2.0.0",
     "concurrently": "9.2.1",
+    "postcss-html": "1.8.1",
+    "stylelint": "17.12.0",
+    "stylelint-config-html": "1.1.0",
+    "stylelint-config-recess-order": "7.7.0",
+    "stylelint-config-standard": "40.0.0",
+    "stylelint-order": "8.1.1",
     "tsx": "4.22.3"
   }
 }
