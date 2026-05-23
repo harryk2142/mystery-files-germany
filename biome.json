@@ -70,6 +70,9 @@
       ],
       "linter": {
         "rules": {
+          "suspicious": {
+            "noExplicitAny": "info"
+          },
           "style": {
             "useConst": "off",
             "useImportType": "off"
@@ -83,11 +86,16 @@
     },
     {
       "includes": [
+        "**/*.js",
+        "**/*.mjs",
         "**/*.tsx",
         "**/*.ts"
       ],
       "linter": {
         "rules": {
+          "suspicious": {
+            "noExplicitAny": "error"
+          },
           "complexity": {
             "noExcessiveLinesPerFunction": {
               "level": "warn",

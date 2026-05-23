@@ -6,6 +6,14 @@ import sitemap from "@astrojs/sitemap";
 import { defineConfig, fontProviders } from "astro/config";
 import rehypeExternalLinks from "rehype-external-links";
 
+function remarkReadingTime() {
+    return (tree, file) => {
+        const text = file.value; // Der gesamte Text der Markdown-Datei
+        const words = text.trim().split(/\s+/).length;
+        const minutes = Math.ceil(words / 200);
+        file.data.astro.frontmatter.minutesRead = `${minutes} Min. Lesezeit`;
+    };
+}
 // https://astro.build/config
 export default defineConfig({
     site: "https://the-ai-files.de",
@@ -15,6 +23,7 @@ export default defineConfig({
         port: 3000,
     },
     markdown: {
+        // remarkPlugins: [remarkReadingTime],
         rehypePlugins: [[rehypeExternalLinks, { target: "_blank", rel: [] }]],
         shikiConfig: {
             theme: "dark-plus",

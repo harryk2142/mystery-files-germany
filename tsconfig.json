@@ -8,6 +8,7 @@
     "dist"
   ],
   "compilerOptions": {
+    "noImplicitAny": false,
     "target": "ESNext",
     "module": "ESNext",
     "resolveJsonModule": true,
