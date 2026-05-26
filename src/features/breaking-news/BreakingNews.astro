@@ -1,0 +1,64 @@
+---
+import { BreakingNewsItem } from "./BreakingNewsItem";
+---
+<section id={"section-breaking-news-ticker"}>
+    <div id={"breaking-news-ticker-header"} class={"text"}>
+        <span>BREAKING NEWS</span>
+    </div>
+    <div id={"ticker-container"}>
+        <div class={"ticker-item"}>
+            <BreakingNewsItem client:visible/>
+            <span> +++ </span>
+            <BreakingNewsItem client:visible/>
+            <span> +++ </span>
+            <BreakingNewsItem client:visible/>
+            <span> +++ </span>
+            <BreakingNewsItem client:visible/>
+            <span> +++ </span>
+            <BreakingNewsItem client:visible/>
+            <span> +++ </span>
+            <BreakingNewsItem client:visible/>
+            <span> +++ </span>
+            <BreakingNewsItem client:visible/>
+        </div>
+    </div>
+</section>
+<style>
+    .ticker-item::before, .ticker-item::after {
+        content: " ++ ";
+    }
+
+    #section-breaking-news-ticker {
+        border: 1px solid lightgray;
+        border-radius: 16px;
+        padding: 8px;
+
+        #breaking-news-ticker-header {
+            font-size: 1.25rem;
+            font-weight: bold;
+        }
+
+        #ticker-container {
+            overflow: hidden;
+            white-space: nowrap;
+            width: 100%;
+
+            .ticker-item {
+                animation: marquee 120s linear infinite;
+                display: inline-block;
+                font-size: 1.25rem;
+                white-space: nowrap;
+            }
+        }
+    }
+
+    @keyframes marquee {
+        0% {
+            //transform: translateX(100%);
+            transform: translateX(5%);
+        }
+        100% {
+            transform: translateX(-100%);
+        }
+    }
+</style>
