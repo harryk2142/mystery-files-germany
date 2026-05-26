@@ -1,6 +1,5 @@
 ---
 import type { HTMLAttributes } from "astro/types";
-
 type Variant = "s" | "m" | "l";
 type Props = {
     variant?: Variant,
@@ -11,24 +10,5 @@ const {variant = "m", class: list, ...rest} = Astro.props;
     <slot/>
 </div>
 <style>
-    .container {
-        margin-left: auto;
-        margin-right: auto;
-        max-width: var(--container-max-width, 1200px);
-        padding-left: var(--container-padding, 16px);
-        padding-right: var(--container-padding, 16px);
-        width: 100%;
-    }
-
-    .s {
-        --container-max-width: 800px;
-    }
-
-    .m {
-        --container-max-width: 1200px;
-    }
-
-    .l {
-        --container-max-width: 1400px;
-    }
+    @import url("./Container.module.css");
 </style>
