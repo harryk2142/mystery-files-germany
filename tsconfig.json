@@ -28,6 +28,9 @@
       "@features/*": [
         "./src/features/*"
       ],
+      "@assets/*": [
+        "./src/assets/*"
+      ],
       "@design-system/*": [
         "./src/design-system/*"
       ]

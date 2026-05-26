@@ -8,6 +8,7 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
+    "generate:favicons": "tsx scripts/generateFavicons.ts",
     "preview": "astro preview",
     "astro": "astro",
     "astro:sync": "astro sync",

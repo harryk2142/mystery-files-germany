@@ -25,3 +25,11 @@ pnpm-debug.log*
 
 # generated pagefind
 public/_pagefind
+
+# generated images
+public/logo.png
+public/favicon.png
+
+# Generierte PWA-Assets
+public/logo-*.png
+public/manifest.json
