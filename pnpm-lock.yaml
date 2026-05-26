@@ -69,6 +69,9 @@ importers:
       stylelint-order:
         specifier: 8.1.1
         version: 8.1.1(stylelint@17.12.0(typescript@6.0.3))
+      tasuku:
+        specifier: 2.3.0
+        version: 2.3.0
       tsx:
         specifier: 4.22.3
         version: 4.22.3
@@ -2567,6 +2570,9 @@ packages:
   table@6.9.0:
     resolution: {integrity: sha512-9kY+CygyYM6j02t5YFHbNz2FN5QmYGv9zAjVp4lCDjlCw7amdckXlEt/bjMhUIfj4ThGRE4gCUH5+yGnNuPo5A==}
     engines: {node: '>=10.0.0'}
+
+  tasuku@2.3.0:
+    resolution: {integrity: sha512-9Jtk+XAnttslCw4i9RceSZGr2PT5TLn0vUyWnoP2SdlSYzkiYRY6kB5qnPi5IQ/Em8e4oBow1rpaA39iijTIrA==}
 
   tiny-inflate@1.0.3:
     resolution: {integrity: sha512-pkY1fj1cKHb2seWDy0B16HeWyczlJA9/WW3u3c4z/NiWDsO3DOU5D7nhTLE9CF0yXv/QZFY7sEJmj24dK+Rrqw==}
@@ -5931,6 +5937,8 @@ snapshots:
       slice-ansi: 4.0.0
       string-width: 4.2.3
       strip-ansi: 6.0.1
+
+  tasuku@2.3.0: {}
 
   tiny-inflate@1.0.3: {}
 

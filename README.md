@@ -13,3 +13,6 @@
 | `pnpm astro check`     |                                                  |
 | `pnpm astro sync`      |                                                  |
 
+https://iconify.design/
+https://simpleicons.org/
+https://github.com/eremannisto/astro-metadata/tree/main

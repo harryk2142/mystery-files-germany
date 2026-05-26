@@ -29,6 +29,7 @@ public/_pagefind
 # generated images
 public/logo.png
 public/favicon.png
+public/images/blog
 
 # Generierte PWA-Assets
 public/logo-*.png

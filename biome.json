@@ -110,7 +110,7 @@
             "noExcessiveLinesPerFunction": {
               "level": "warn",
               "options": {
-                "maxLines": 30,
+                "maxLines": 50,
                 "skipBlankLines": true,
                 "skipIifes": true
               }

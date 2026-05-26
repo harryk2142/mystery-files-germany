@@ -9,6 +9,7 @@
     "dev": "astro dev",
     "build": "astro build",
     "generate:favicons": "tsx scripts/generateFavicons.ts",
+    "generate:blogpostImages": "tsx scripts/generateBlogpostImages.ts",
     "preview": "astro preview",
     "astro": "astro",
     "astro:sync": "astro sync",
@@ -44,6 +45,7 @@
     "stylelint-config-astro": "2.0.0",
     "stylelint-config-standard": "40.0.0",
     "stylelint-order": "8.1.1",
+    "tasuku": "2.3.0",
     "tsx": "4.22.3"
   }
 }
