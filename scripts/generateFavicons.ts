@@ -18,7 +18,7 @@ import sharp, {
 
 const { format } = sharp; // Or access via sharp.format if it exists on the default export
 
-import { SITE_TITLE } from "../src/consts.ts";
+import { BLOG_NAME } from "../src/consts.ts";
 
 const SOURCE_IMAGE = path.join(process.cwd(), "src/assets/images/logo.png");
 const TARGET_DIR = path.join(process.cwd(), "public");
@@ -44,6 +44,22 @@ type Size = {
 };
 // Definition der benötigten Standardgrößen für moderne Webseiten
 const SIZES: Size[] = [
+    {
+        size: 16,
+        name: `${FAVICON_NAME}-16.png`,
+        purpose: "favicon",
+        forManifest: false,
+        format: format.png,
+        options: { compressionLevel: 9, quality: 100 },
+    },
+    {
+        size: 32,
+        name: `${FAVICON_NAME}-32.png`,
+        purpose: "favicon",
+        forManifest: false,
+        format: format.png,
+        options: { compressionLevel: 9, quality: 100 },
+    },
     {
         size: 64,
         name: "favicon.png",
@@ -101,8 +117,8 @@ async function generateIcons() {
 async function generateManifest() {
     // 3. Web App Manifest (manifest.json) dynamisch erstellen
     const manifest = {
-        name: SITE_TITLE, // Hier Ihren App-Namen eintragen
-        short_name: SITE_TITLE,
+        name: BLOG_NAME, // Hier Ihren App-Namen eintragen
+        short_name: BLOG_NAME,
         start_url: "/",
         display: "standalone",
         background_color: "#ffffff",

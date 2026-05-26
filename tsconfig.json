@@ -31,6 +31,15 @@
       "@assets/*": [
         "./src/assets/*"
       ],
+      "@styles/*": [
+        "./src/styles/*"
+      ],
+      "@consts": [
+        "./src/consts"
+      ],
+      "@assets": [
+        "./src/assets"
+      ],
       "@design-system/*": [
         "./src/design-system/*"
       ]

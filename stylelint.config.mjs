@@ -7,6 +7,7 @@ export default {
     ],
     plugins: ["@stylistic/stylelint-plugin"],
     rules: {
+        "no-invalid-double-slash-comments": "off",
         "declaration-empty-line-before": null,
         "@stylistic/max-empty-lines": 1,
         "at-rule-empty-line-before": [
