@@ -17,7 +17,13 @@ let smallCounter = 0;
 let ogCounter = 0;
 let twitterCounter = 0;
 
-const transform = async (src, dest, quality, width, height) => {
+const transform = async (
+    src: string,
+    dest: string,
+    quality: number,
+    width: number,
+    height: number,
+) => {
     const metadata = await sharp(src).metadata();
 
     // Calculate the source and the target aspect ratio

@@ -1,5 +1,5 @@
 ---
-import { SITE_TITLE } from "../consts";
+import { BLOG_NAME } from "../consts";
 import { Container } from "./design-system/Container";
 import HeaderLink from "./HeaderLink.astro";
 ---
@@ -7,7 +7,7 @@ import HeaderLink from "./HeaderLink.astro";
 <header>
     <Container>
         <nav>
-            <h2><a href="/">{SITE_TITLE}</a></h2>
+            <h2><a href="/">{BLOG_NAME}</a></h2>
             <div class="internal-links">
                 <HeaderLink href="/">Home</HeaderLink>
                 <HeaderLink href="/blog">Blog</HeaderLink>
@@ -54,7 +54,7 @@ import HeaderLink from "./HeaderLink.astro";
 <style>
   header {
     background: white;
-    box-shadow: 0 2px 8px rgb(var(--black), 5%);
+    box-shadow: 0 2px 8px rgb(var(--color-black), 5%);
     margin: 0;
     padding: 0 1em;
   }
@@ -77,13 +77,13 @@ import HeaderLink from "./HeaderLink.astro";
 
   nav a {
     border-bottom: 4px solid transparent;
-    color: var(--black);
+    color: var(--color-black);
     padding: 1em 0.5em;
     text-decoration: none;
   }
 
   nav a.active {
-    border-bottom-color: var(--accent);
+    border-bottom-color: var(--color-accent);
     text-decoration: none;
   }
 
