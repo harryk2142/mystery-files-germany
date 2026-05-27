@@ -1,0 +1,100 @@
+---
+export type Props = {
+    url: {
+        current: string;
+        prev: string | undefined;
+        next: string | undefined;
+    };
+    urlToFirst: string;
+    urlToLast: string;
+    currentPage: number;
+    lastPage: number;
+};
+const { urlToFirst, urlToLast, currentPage, lastPage, url } = Astro.props;
+
+const showFirst = currentPage > 2;
+const showLast = currentPage + 2 <= lastPage;
+---
+
+<nav class="pagination">
+    {
+        showFirst ? (
+            <a href={urlToFirst}>
+                <span class="ascii">&#60;&#60;</span>
+            </a>
+        ) : null
+    }
+    {showFirst ? <div class="dots">&bull;&bull;&bull;</div> : null}
+    {
+        url.prev ? (
+            <a class="previous" href={url.prev}>
+                <span class="ascii">&#60;</span>
+            </a>
+        ) : null
+    }
+    {currentPage - 1 > 0 ? <a href={url.prev}>{currentPage - 1}</a> : null}
+    <a class="active" href={url.current}>{currentPage}</a>
+    {currentPage < lastPage ? <a href={url.next}>{currentPage + 1}</a> : null}
+    {
+        url.next ? (
+            <a href={url.next}>
+                <span class="ascii">&#62;</span>
+            </a>
+        ) : null
+    }
+    {showLast ? <div class="dots">&bull;&bull;&bull;</div> : null}
+    {
+        showLast ? (
+            <a href={urlToLast}>
+                <span class="ascii">&#62;&#62;</span>
+            </a>
+        ) : null
+    }
+</nav>
+
+<style>
+    .pagination {
+        display: flex;
+        flex-direction: row;
+        height: 2.5rem;
+
+        a {
+            display: flex;
+
+            font-size: 1.5rem;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid var(--color-primary);
+            color: var(--color-accent);
+            text-decoration: none;
+            border-radius: 5px;
+            aspect-ratio: 1;
+        }
+
+        a:hover {
+            background-color: #d4d5d2;
+        }
+
+        a.active {
+            color: var(--color-secondary);
+            background-color: var(--color-accent);
+        }
+
+        .dots {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .dots::before,
+        .dots::after {
+            content: " ";
+            white-space: pre;
+        }
+    }
+
+    @media (width < 900px) {
+        .dots {
+            display: none;
+        }
+    }
+</style>

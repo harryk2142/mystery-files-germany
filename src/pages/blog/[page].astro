@@ -1,0 +1,187 @@
+---
+import { type CollectionEntry, getCollection } from "astro:content";
+import NavigationBar from "@components/design-system/NavigationBar.astro";
+import type { Page } from "astro";
+import Pagination, { type Props as PageProps } from "../../components/widgets/Pagination.astro";
+import { BLOG_NAME } from "@consts";
+import BlogpostCard from "@components/design-system/BlogpostCard.astro";
+import Meta from "@components/Meta.astro";
+import DesignSystemSetup from "@design-system/DesignSystemSetup.astro";
+import Matomo from "@components/Matomo.astro";
+
+export async function getStaticPaths({ paginate }) {
+    const posts = (await getCollection("blog"))
+        .filter((e) => !e.data.draft)
+        .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+    return paginate(posts, {
+        pageSize: 12,
+    });
+}
+
+type Props = {
+    page: Page<CollectionEntry<"blog">>;
+};
+const { page }: Props = Astro.props;
+
+const data = page.data.map((post) => post);
+
+const { currentPage, lastPage, url } = page;
+
+const description = "Seite " + currentPage + " von " + lastPage;
+const title = BLOG_NAME + " - Seite " + currentPage;
+
+const prefix =
+    "/" +
+    url.current
+        .split("/")
+        .filter((e) => e.length > 0)
+        .slice(0, -1)
+        .join("/") +
+    "/";
+const urlToFirst = prefix + 1;
+const urlToLast = prefix + lastPage;
+const paginationProps: PageProps = {
+    currentPage,
+    url,
+    lastPage,
+    urlToFirst,
+    urlToLast,
+};
+---
+
+<html lang="de">
+    <head>
+        <title>{title}</title>
+        <Meta description={description} title={title} />
+        <Matomo />
+        <DesignSystemSetup />
+    </head>
+    <body data-pagefind-ignore>
+        <NavigationBar />
+        <main>
+            <div class="wrapper">
+                <h1 class="mt-m">
+                    Seite {currentPage} von {lastPage}
+                </h1>
+                <article class="pagination-container">
+                    <Pagination {...paginationProps}  currentPage={currentPage} lastPage={lastPage}  url={url} urlToFirst={urlToFirst} urlToLast={urlToLast} />
+                </article>
+                <div></div>
+                <section id="blogposts">
+                    <div class="grid mt-xl">
+                        {
+                            data.map((item, index) => {
+                                return (<div class="grid-item" id={"blogpost-" + index}>
+                                    <!--<article class={"card"}>-->
+                                        {
+                                        item.data.heroImage.src?.src && (
+                                                    <BlogpostCard
+                                                            pubDate={item.data.pubDate}
+                                                            title={item.data.title}
+                                                            thumbnail={item.data.heroImage.src.src}
+                                                            thumbnailAlt={""}
+                                                            thumbnailSmall=""
+                                                            url={"/blog/" + item.id}
+                                                    />
+                                        )
+                                    }
+                                    <!--</article>-->
+                                </div>)
+                            })
+                        }
+                    </div>
+                </section>
+                <article class="pagination-container mt-xl">
+                    <Pagination {...paginationProps} />
+                </article>
+            </div>
+        </main>
+    </body>
+</html>
+<style>
+    h1 {
+        text-align: center;
+        display: block;
+    }
+
+    //.card{
+    //    height: 100%;
+    //}
+
+    .pagination-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    #blogposts {
+        margin-top: 4px;
+        padding-inline: 4px;
+        width: 100%;
+        container-name: blogposts;
+        container-type: inline-size;
+    }
+
+    .grid {
+        display: grid;
+        gap: var(--space-2);
+        .grid-item {
+            padding: 2px;
+            transition-duration: 0.1s;
+        }
+    }
+
+    @container blogposts (min-width: 1000px) {
+        .grid {
+            grid-template-columns: auto auto auto auto;
+            .grid-item {
+                height: 24rem;
+            }
+            .grid-item:hover {
+                z-index: 100;
+                transform: translateY(-10px) scale(1.1);
+            }
+        }
+    }
+
+    @container blogposts (max-width: 1000px) and (min-width: 700px) {
+        .grid {
+            grid-template-columns: auto auto auto;
+            .grid-item {
+                height: 26rem;
+            }
+            .grid-item:hover {
+                z-index: 100;
+                transform: translateY(-10px) scale(1.05);
+            }
+        }
+    }
+
+    @container blogposts (max-width: 700px) and (min-width: 500px) {
+        .grid {
+            grid-template-columns: auto auto;
+            grid-auto-rows: 1fr;
+            .grid-item {
+                height: 28rem;
+            }
+
+            .grid-item:hover {
+                z-index: 100;
+                transform: translateY(-10px) scale(1.02);
+            }
+        }
+    }
+
+    @container blogposts (max-width: 500px) {
+        .grid {
+            .grid-item {
+                height: 30rem;
+            }
+
+            .grid-item:hover {
+                z-index: 100;
+                transform: translateY(-10px) scale(1.01);
+            }
+        }
+    }
+</style>

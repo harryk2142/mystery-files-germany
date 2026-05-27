@@ -1,17 +1,7 @@
 // Importiere nur den Vertrag aus dem anderen Ordner
 
-import {
-    addDoc,
-    collection,
-    doc,
-    getDoc,
-    getDocs,
-    increment,
-    orderBy,
-    query,
-    serverTimestamp,
-    setDoc,
-} from "@firebase/firestore";
+import { addDoc, collection, doc, getDoc, getDocs, increment, orderBy, query, serverTimestamp, setDoc } from "@firebase/firestore";
+
 import type { BlogRepository, Comment } from "../blog-interactions/types";
 import { db } from "./config";
 
@@ -29,7 +19,9 @@ export const firestoreBlogRepository: BlogRepository = {
             {
                 likeCount: increment(1),
             },
-            { merge: true },
+            {
+                merge: true,
+            },
         );
     },
     getLikes: async (slug: string): Promise<number> => {
@@ -89,7 +81,9 @@ export const firestoreBlogRepository: BlogRepository = {
             {
                 commentCount: increment(1),
             },
-            { merge: true },
+            {
+                merge: true,
+            },
         );
     },
 

@@ -4,13 +4,16 @@ import DesignSystemSetup from "@design-system/DesignSystemSetup.astro";
 import { Image } from "astro:assets";
 import type { CollectionEntry } from "astro:content";
 import BaseHead from "../components/BaseHead.astro";
-import Footer from "../components/Footer.astro";
 import FormattedDate from "../components/FormattedDate.astro";
 import Header from "../components/Header.astro";
+import { ActionBar } from "@features/action-bar/ActionBar";
+import { CommentsContainer } from "@features/comments/CommentsContainer";
+import Wrapper from "@components/design-system/Wrapper.astro";
 
 type Props = CollectionEntry<"blog">["data"];
 
-const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
+const { slug } = Astro.params;
+const { title, description, pubDate,headline, updatedDate, heroImage } = Astro.props;
 ---
 
 <html lang="de">
@@ -96,7 +99,17 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
           <slot />
         </div>
       </article>
+        <ActionBar client:load headline={headline} title={title} slug={slug || ""}} />
+
+        {slug && (
+            <div>
+                <section id="comments-section">
+                    <Wrapper variant="s">
+                        <CommentsContainer slug={slug as string} client:visible/>
+                    </Wrapper>
+                </section>
+            </div>
+        )}
     </main>
-    <Footer />
   </body>
 </html>

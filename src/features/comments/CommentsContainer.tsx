@@ -29,11 +29,17 @@ export const CommentsContainer = ({ slug }: Props) => {
             }
         };
         void loadComments();
-    }, [slug]);
+    }, [
+        slug,
+    ]);
 
     // Funktion zum Hinzufügen (mit Default-Parameter für parentId)
     const handleAddComment = async (authorName: string, text: string, parentId: string | null = null) => {
-        await firestoreBlogRepository.addComment(slug, { authorName, text, parentId });
+        await firestoreBlogRepository.addComment(slug, {
+            authorName,
+            text,
+            parentId,
+        });
 
         // Nach dem Speichern laden wir die frische Liste vom Server
         const updatedData = await firestoreBlogRepository.getComments(slug);
@@ -58,9 +64,7 @@ export const CommentsContainer = ({ slug }: Props) => {
                 {mainComments.length === 0 ? (
                     <p>Noch keine Kommentare vorhanden. Mach den Anfang!</p>
                 ) : (
-                    mainComments.map((comment) => (
-                        <SingleComment allComments={comments} comment={comment} onReply={handleAddComment} />
-                    ))
+                    mainComments.map((comment) => <SingleComment allComments={comments} comment={comment} onReply={handleAddComment} />)
                 )}
             </div>
         </div>
@@ -80,9 +84,7 @@ const SingleComment = ({
     const [showReplyForm, setShowReplyForm] = useState(false);
 
     // Suche alle direkten Antworten auf diesen speziellen Kommentar
-    const replies = allComments
-        .filter((c) => c.parentId === comment.id)
-        .sort((a, b) => a.createdAt.getTime() - b.createdAt.getTime());
+    const replies = allComments.filter((c) => c.parentId === comment.id).sort((a, b) => a.createdAt.getTime() - b.createdAt.getTime());
 
     return (
         <div className="comment-wrapper">
@@ -90,8 +92,7 @@ const SingleComment = ({
                 <div className="comment-header">
                     <span className="comment-author">{comment.authorName}</span>
                     <span className="comment-date">
-                        {comment.createdAt.toLocaleDateString("de-DE")} -{" "}
-                        {comment.createdAt.toLocaleTimeString("de-DE")}
+                        {comment.createdAt.toLocaleDateString("de-DE")} - {comment.createdAt.toLocaleTimeString("de-DE")}
                     </span>
                 </div>
 
@@ -127,13 +128,7 @@ const SingleComment = ({
 };
 
 // === 3. FORMULAR UI ===
-const CommentFormUI = ({
-    onSubmit,
-    isReply,
-}: {
-    onSubmit: (name: string, text: string) => Promise<void>;
-    isReply: boolean;
-}) => {
+const CommentFormUI = ({ onSubmit, isReply }: { onSubmit: (name: string, text: string) => Promise<void>; isReply: boolean }) => {
     const namePlaceholder = "Anonym";
     const [name, setName] = useState("");
     const [text, setText] = useState("");

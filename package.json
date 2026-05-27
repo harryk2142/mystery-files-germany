@@ -6,7 +6,7 @@
     "node": ">=22.12.0"
   },
   "scripts": {
-    "dev": "astro dev",
+    "dev": "concurrently \"astro dev\" \"firebase emulators:start\"",
     "build": "astro build",
     "generate:favicons": "tsx scripts/generateFavicons.ts",
     "generate:blogpostImages": "tsx scripts/generateBlogpostImages.ts",
