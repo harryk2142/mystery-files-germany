@@ -1,10 +1,11 @@
 ---
+import BlogpostCard from "@components/design-system/BlogpostCard.astro";
 import Container from "@components/design-system/Container.astro";
-import MainLayout from "@layouts/MainLayout.astro";
 import { BLOG_NAME, SITE_DESCRIPTION_SHORT } from "@consts";
 import BreakingNews from "@features/breaking-news/BreakingNews.astro";
+import MainLayout from "@layouts/MainLayout.astro";
+
 import { getCollection, type InferEntrySchema, type RenderedContent } from "astro:content";
-import BlogpostCard from "@components/design-system/BlogpostCard.astro";
 
 const shuffle = (array: {
     id: string;
@@ -51,22 +52,21 @@ const latest = posts[0];
                                     else if (index % 8 === 0) cardClass = "card-big";
                                     else if (index % 3 === 0) cardClass = "card-portrait";
                                     // else if (index % 3 === 0) cardClass = "card-landscape";
-                                            return (
-                                        <article class={`${cardClass}`}>{
-                                            post.data.heroImage.src?.src && (
-                                                <BlogpostCard
-                                                    pubDate={post.data.pubDate}
-                                                    title={post.data.title}
-                                                    thumbnail={post.data.heroImage.src.src}
-                                                    thumbnailAlt={""}
-                                                    thumbnailSmall=""
-                                                    url={"/blog/"+post.id}
-                                                />
-                                            )
-                                        }
 
-
-                                        </article>
+                                    return (
+                                            <article class={`${cardClass}`}>{
+                                                post.data.heroImage.src?.src && (
+                                                            <BlogpostCard
+                                                                    pubDate={post.data.pubDate}
+                                                                    thumbnail={post.data.heroImage.src.src}
+                                                                    thumbnailAlt={""}
+                                                                    thumbnailSmall=""
+                                                                    title={post.data.title}
+                                                                    url={"/blog/" + post.id}
+                                                            />
+                                                )
+                                            }
+                                            </article>
                                     )
                                 }
                             )
@@ -81,112 +81,122 @@ const latest = posts[0];
 
 </MainLayout>
 <style>
-    .grid-container{
-        container-name: grid-container;
-        container-type: inline-size;
-        display: flex;
-        flex-direction: column;
+  .grid-container {
+    container-name: grid-container;
+    container-type: inline-size;
+    display: flex;
+    flex-direction: column;
+  }
+
+  #container-main {
+    container-name: container-main;
+    container-type: inline-size;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  #grid-container {
+    * > * {
+      height: 20rem;
+    }
+  }
+
+  #area-title {
+    h1 {
+      /*font-size: clamp(1.25rem, 3vw, 1.5rem);line-height: 1;*/
+    }
+  }
+
+  #section-latest-blogpost {
+    position: relative;
+  }
+
+  /* --- Desktop --- */
+  @container container-main (min-width: 900px) {
+    .grid-blogposts {
+      display: grid;
+      gap: 16px;
+      grid-auto-flow: dense; /* SEHR WICHTIG: Füllt Löcher automatisch auf! */
+      grid-auto-rows: minmax(120px, auto);
+      grid-template-columns: repeat(8, 1fr);
+
     }
 
-    #container-main {
-        container-name: container-main;
-        container-type: inline-size;
-        display: flex;
-        flex-direction: column;
-        width: 100%;
+    .card-featured {
+      grid-column: span 8;
+      grid-row: span 4;
     }
 
-    #grid-container {
-        * > {
-            height: 20rem;
-        }
+    .card-big {
+      grid-column: span 4;
+      grid-row: span 4;
     }
 
-    #area-title {
-        h1 {
-            //font-size: clamp(1.25rem, 3vw, 1.5rem);
-            //line-height: 1;
-        }
+    .card-landscape {
+      grid-column: span 4;
+      grid-row: span 2;
     }
 
-    #section-latest-blogpost {
-        position: relative;
+    .card-portrait {
+      grid-column: span 2;
+      grid-row: span 4;
     }
 
-    /* --- Desktop --- */
-    @container container-main (min-width: 900px) {
-        .grid-blogposts  {
-            display: grid;
-            gap: 16px;
-            grid-auto-flow: dense; /* SEHR WICHTIG: Füllt Löcher automatisch auf! */
-            grid-auto-rows: minmax(120px, auto);
-            grid-template-columns: repeat(8, 1fr);
+    .card-small {
+      grid-column: span 2;
+      grid-row: span 4;
+    }
+  }
 
-        }
-        .card-featured {
-            grid-column: span 8;
-            grid-row: span 4;
-        }
-        .card-big {
-            grid-column: span 4;
-            grid-row: span 4;
-        }
-        .card-landscape {
-            grid-column: span 4;
-            grid-row: span 2;
-        }
-        .card-portrait {
-            grid-column: span 2;
-            grid-row: span 4;
-        }
-        .card-small {
-            grid-column: span 2;
-            grid-row: span 4;
-        }
+  /* --- Tablet --- */
+  @container container-main (650px < width) and (width < 900px) {
+    .grid-blogposts {
+      display: grid;
+      gap: 16px;
+      grid-auto-flow: dense; /* SEHR WICHTIG: Füllt Löcher automatisch auf! */
+      grid-auto-rows: minmax(240px, auto);
+      grid-template-columns: repeat(4, 1fr);
+
     }
 
-    /* --- Tablet --- */
-    @container container-main (650px < width) and (width < 900px) {
-        .grid-blogposts  {
-            display: grid;
-            gap: 16px;
-            grid-auto-flow: dense; /* SEHR WICHTIG: Füllt Löcher automatisch auf! */
-            grid-auto-rows: minmax(240px, auto);
-            grid-template-columns: repeat(4, 1fr);
-
-        }
-        .card-featured {
-            grid-column: span 4;
-            grid-row: span 2;
-        }
-        .card-big {
-            grid-column: span 2;
-            grid-row: span 2;
-        }
-        .card-landscape {
-            grid-column: span 2;
-            grid-row: span 2;
-        }
-        .card-portrait {
-            grid-column: span 2;
-            grid-row: span 2;
-        }
-        .card-small {
-            grid-column: span 2;
-            grid-row: span 2;
-        }
+    .card-featured {
+      grid-column: span 4;
+      grid-row: span 2;
     }
 
-    /* --- Mobile --- */
-    @container container-main (width <= 650px) {
-        .grid-blogposts  {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-            .card{
-                height: 28rem;
-            }
-        }
+    .card-big {
+      grid-column: span 2;
+      grid-row: span 2;
     }
+
+    .card-landscape {
+      grid-column: span 2;
+      grid-row: span 2;
+    }
+
+    .card-portrait {
+      grid-column: span 2;
+      grid-row: span 2;
+    }
+
+    .card-small {
+      grid-column: span 2;
+      grid-row: span 2;
+    }
+  }
+
+  /* --- Mobile --- */
+  @container container-main (width <= 650px) {
+    .grid-blogposts {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+
+      .card {
+        height: 28rem;
+      }
+    }
+  }
 
 </style>

@@ -1,8 +1,9 @@
 ---
+import { BLOG_NAME, BLOG_SUBNAME } from "@consts";
+
 import { Image } from "astro:assets";
 import logo from "../../assets/logo.png";
 import NavigationAnchor from "./NavigationAnchor.astro";
-import { BLOG_NAME, BLOG_SUBNAME } from "@consts";
 ---
 <div id="nav-bar" data-pagefind-ignore class="sticky">
     <div class="wrapper">
@@ -22,6 +23,7 @@ import { BLOG_NAME, BLOG_SUBNAME } from "@consts";
                         aria-label="Menü öffnen"
                         aria-expanded="false"
                         aria-controls="menu"
+                        type="button"
                     >
                         <span></span>
                         <span></span>
@@ -128,8 +130,8 @@ import { BLOG_NAME, BLOG_SUBNAME } from "@consts";
     }
 
     .burger-container {
-        //padding-inline: 0.5rem;
-        //padding-top:1.25rem;
+        /* padding-inline: 0.5rem; */
+        /* padding-top:1.25rem; */
         align-items: center;
         aspect-ratio: 1;
         background: none;
@@ -145,9 +147,9 @@ import { BLOG_NAME, BLOG_SUBNAME } from "@consts";
     }
 
     .burger {
-        //margin-right: 1rem;
+        /* margin-right: 1rem; */
 
-        //width: 30px;
+        /* width: 30px; */
         aspect-ratio: 1;
 
         background: none;
@@ -196,7 +198,7 @@ import { BLOG_NAME, BLOG_SUBNAME } from "@consts";
     }
 
     .menu {
-        //transition: opacity 0.25s ease, transform 0.25s ease;
+        /* transition: opacity 0.25s ease, transform 0.25s ease; */
         align-items: center;
         background-color: var(--color-primary);
         color: var(--color-text);
