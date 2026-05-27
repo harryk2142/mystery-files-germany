@@ -1,4 +1,5 @@
 ---
+
 import DesignSystemSetup from "@design-system/DesignSystemSetup.astro";
 
 import { Image } from "astro:assets";
@@ -7,7 +8,7 @@ import BaseHead from "../../components/BaseHead.astro";
 import Footer from "../../components/Footer.astro";
 import FormattedDate from "../../components/FormattedDate.astro";
 import Header from "../../components/Header.astro";
-import { SITE_DESCRIPTION, SITE_TITLE } from "../../consts";
+import { SITE_DESCRIPTION_SHORT, BLOG_NAME } from "../../consts";
 
 const posts = (await getCollection("blog")).sort(
     (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
@@ -17,9 +18,9 @@ const posts = (await getCollection("blog")).sort(
 <!doctype html>
 <html lang="de">
     <head>
-        <title>{SITE_TITLE}</title>
+        <title>{BLOG_NAME}</title>
         <DesignSystemSetup/>
-        <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION}/>
+        <BaseHead title={BLOG_NAME} description={SITE_DESCRIPTION_SHORT}/>
         <style>
           main {
             width: 960px;
@@ -115,7 +116,7 @@ const posts = (await getCollection("blog")).sort(
                         posts.map((post) => (
                                 <li>
                                     <a href={`/blog/${post.id}/`}>
-                                        {post.data.heroImage && post.data.heroImage.src && (
+                                        {post.data.heroImage.src && (
                                                 <Image
                                                     alt=""
                                                     height={360}
