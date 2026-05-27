@@ -10,26 +10,6 @@ type Props = {
 
 const { pubDate, thumbnail, thumbnailAlt, thumbnailSmall, title, url } = Astro.props;
 ---
-<!--<a class="card-link" href={url}>-->
-<!--    <article class="card">-->
-<!--        <div class="card-image-container">-->
-<!--            <img src={thumbnail} alt={thumbnailAlt} class="card-image" />-->
-<!--        </div>-->
-<!--        <div class="card-content">-->
-<!--            <span class="card-date">-->
-<!--                <time data-pagefind-sort="date" datetime={pubDate.toISOString()}>-->
-<!--                    {pubDate.toLocaleDateString("de-DE", {-->
-<!--                        year: "numeric",-->
-<!--                        month: "short",-->
-<!--                        day: "numeric",-->
-<!--                    })}-->
-<!--                </time>-->
-<!--            </span>-->
-<!--            <span class="card-summary">{title}</span>-->
-<!--        </div>-->
-
-<!--    </article>-->
-<!--</a>-->
 <a href={url}>
     <div class="card">
         <div class="card-image-container">
@@ -49,24 +29,24 @@ const { pubDate, thumbnail, thumbnailAlt, thumbnailSmall, title, url } = Astro.p
         </div>
     </div>
 </a>
-    <!--<a class="card-link card" href={url}>-->
-    <!--    <div class="card-image-container">-->
-    <!--        <img src={thumbnail} alt={thumbnailAlt} class="card-image" />-->
-    <!--    </div>-->
-    <!--    <div class="card-content">-->
-    <!--        <span class="card-date">-->
-    <!--            <time data-pagefind-sort="date" datetime={pubDate.toISOString()}>-->
-    <!--                {pubDate.toLocaleDateString("de-DE", {-->
-    <!--                    year: "numeric",-->
-    <!--                    month: "short",-->
-    <!--                    day: "numeric",-->
-    <!--                })}-->
-    <!--            </time>-->
-    <!--        </span>-->
-    <!--        <span class="card-summary">{title}</span>-->
-    <!--    </div>-->
-    <!--</a>-->
 <style>
+    .card {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        overflow: hidden;
+        container-type: size;
+        container-name: card;
+        width: 100%;
+        /*padding: var(--space-5);*/
+        border: 2px solid var(--color-border);
+        border-radius: var(--radius-md);
+        background: var(--color-surface);
+    }
+
+    .card:hover {
+        box-shadow: var(--box-shadow);
+    }
     a{
         text-decoration: none;
     }

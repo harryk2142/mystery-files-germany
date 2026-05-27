@@ -1,11 +1,11 @@
 ---
-import { BLOG_NAME } from "../consts";
-import { Container } from "./design-system/Container";
+import { BLOG_NAME } from "@consts";
+import { Wrapper } from "./design-system/Wrapper";
 import HeaderLink from "./HeaderLink.astro";
 ---
 
 <header>
-  <Container>
+  <Wrapper>
     <nav>
       <h2><a href="/">{BLOG_NAME}</a></h2>
       <div class="internal-links">
@@ -43,7 +43,7 @@ import HeaderLink from "./HeaderLink.astro";
         </a>
       </div>
     </nav>
-  </Container>
+  </Wrapper>
 </header>
 <style>
   header {

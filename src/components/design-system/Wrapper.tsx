@@ -1,6 +1,6 @@
 import type { ComponentChildren } from "preact";
 
-import styles from "./Container.module.css";
+import styles from "./Wrapper.module.css";
 
 type Variant = "s" | "m" | "l";
 
@@ -11,15 +11,7 @@ type ContainerProps = {
     variant?: Variant;
 } & HTMLAttributes<"div">;
 
-export function Container({
-    children,
-    variant = "m",
-    class: className,
-}: ContainerProps) {
+export function Wrapper({ children, variant = "m", class: className }: ContainerProps) {
     const variantClass = variant !== "m" ? styles[variant] : "";
-    return (
-        <div class={`${styles.container} ${variantClass} ${className ?? ""}`}>
-            {children}
-        </div>
-    );
+    return <div class={`${styles.container} ${variantClass} ${className ?? ""}`}>{children}</div>;
 }
