@@ -10,17 +10,17 @@ const isActive = href === pathname || href === "/" + (subpath?.[0] || "");
 ---
 
 <!-- biome-ignore lint/a11y/useAnchorContent: slot -->
-<a href={href} class:list={[className, {active: isActive}]} {...props}>
-	<slot />
+<a href={href} class:list={[className, { active: isActive }]} {...props}>
+  <slot />
 </a>
 <style>
-	a {
-		display: inline-block;
-		text-decoration: none;
-	}
+  a {
+    display: inline-block;
+    text-decoration: none;
+  }
 
-	a.active {
-		font-weight: bolder;
-		text-decoration: underline;
-	}
+  a.active {
+    font-weight: bolder;
+    text-decoration: underline;
+  }
 </style>

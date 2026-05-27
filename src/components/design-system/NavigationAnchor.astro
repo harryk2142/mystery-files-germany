@@ -14,33 +14,33 @@ const isActive = (href as string).split("/")[1] === pathname.split("/")[1];
 ---
 
 <a class:list={[{ active: isActive }]} href={href}>
-    <slot />
+  <slot />
 </a>
 <style>
+  a {
+    //font-size: 2rem;
+    //transition: background-color 0.2s ease;
+    background-color: var(--color-primary);
+    border-bottom: 8px solid transparent;
+    border-top: 8px solid transparent;
+    color: var(--color-secondary);
+    padding: 8px 16px;
+    position: relative;
+    text-decoration: none;
+  }
+
+  a.active {
+    border-bottom-color: var(--color-secondary);
+  }
+
+  a:hover {
+    background-color: var(--color-secondary);
+    color: var(--color-primary);
+  }
+
+  @media (width >= 768px) {
     a {
-        //font-size: 2rem;
-        //transition: background-color 0.2s ease;
-        background-color: var(--color-primary);
-        border-bottom: 8px solid transparent;
-        border-top: 8px solid transparent;
-        color: var(--color-secondary);
-        padding: 8px 16px;
-        position: relative;
-        text-decoration: none;
+      //font-size: 1.25rem;
     }
-
-    a.active {
-        border-bottom-color: var(--color-secondary);
-    }
-
-    a:hover {
-        background-color: var(--color-secondary);
-        color: var(--color-primary);
-    }
-
-    @media (width >= 768px) {
-        a {
-            //font-size: 1.25rem;
-        }
-    }
+  }
 </style>

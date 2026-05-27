@@ -103,6 +103,9 @@
       ],
       "linter": {
         "rules": {
+          "style": {
+            "useTemplate": "info"
+          },
           "suspicious": {
             "noExplicitAny": "error"
           },

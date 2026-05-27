@@ -5,80 +5,83 @@ import { BLOG_NAME, SITE_DESCRIPTION_SHORT } from "@consts";
 import BreakingNews from "@features/breaking-news/BreakingNews.astro";
 import MainLayout from "@layouts/MainLayout.astro";
 
-import { getCollection, type InferEntrySchema, type RenderedContent } from "astro:content";
+import {
+  getCollection,
+  type InferEntrySchema,
+  type RenderedContent
+} from "astro:content";
 
-const shuffle = (array: {
+const shuffle = (
+  array: {
     id: string;
     body?: string;
     collection: "blog";
     data: InferEntrySchema<"blog">;
     rendered?: RenderedContent;
     filePath?: string;
-}[],) => {
-    return array
-        .map((entry) => ({sort: Math.random(), value: entry}))
-        .sort((a, b) => a.sort - b.sort)
-        .map((entry) => entry.value);
+  }[]
+) => {
+  return array
+    .map((entry) => ({ sort: Math.random(), value: entry }))
+    .sort((a, b) => a.sort - b.sort)
+    .map((entry) => entry.value);
 };
 // const posts = (await getCollection("blog")).filter((e) => !e.data.draft).sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 const posts = shuffle(await getCollection("blog"))
-    .filter((e) => !e.data.draft)
-    .slice(0, 12);
+  .filter((e) => !e.data.draft)
+  .slice(0, 12);
 // .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 
 const latest = posts[0];
 ---
-<MainLayout title={"Startseite von " + BLOG_NAME} description={SITE_DESCRIPTION_SHORT}>
-    <main>
-        <Container variant="m">
-            <section>
-                <BreakingNews/>
-            </section>
-        </Container>
-        <Container>
-            <div>
-                <section id="area-title" class="box text-center">
-                    <span>Welcome to</span>
-                    <h1>{BLOG_NAME}</h1>
-                </section>
-                <div id="container-main" class="box">
-                    <div class="grid-blogposts">
-                        {
-                            posts.map((post, index) => {
 
+<MainLayout
+  title={"Startseite von " + BLOG_NAME}
+  description={SITE_DESCRIPTION_SHORT}
+>
+  <main>
+    <Container variant="m">
+      <section>
+        <BreakingNews />
+      </section>
+    </Container>
+    <Container>
+      <div>
+        <section id="area-title" class="box text-center">
+          <span>Welcome to</span>
+          <h1>{BLOG_NAME}</h1>
+        </section>
+        <div id="container-main" class="box">
+          <div class="grid-blogposts">
+            {
+              posts.map((post, index) => {
+                let cardClass = "card-small";
+                if (index === 0) cardClass = "card-featured";
+                else if (index % 8 === 0) cardClass = "card-big";
+                else if (index % 3 === 0) cardClass = "card-portrait";
+                // else if (index % 3 === 0) cardClass = "card-landscape";
 
-                                    let cardClass = "card-small";
-                                    if (index === 0) cardClass = "card-featured";
-                                    else if (index % 8 === 0) cardClass = "card-big";
-                                    else if (index % 3 === 0) cardClass = "card-portrait";
-                                    // else if (index % 3 === 0) cardClass = "card-landscape";
-
-                                    return (
-                                            <article class={`${cardClass}`}>{
-                                                post.data.heroImage.src?.src && (
-                                                            <BlogpostCard
-                                                                    pubDate={post.data.pubDate}
-                                                                    thumbnail={post.data.heroImage.src.src}
-                                                                    thumbnailAlt={""}
-                                                                    thumbnailSmall=""
-                                                                    title={post.data.title}
-                                                                    url={"/blog/" + post.id}
-                                                            />
-                                                )
-                                            }
-                                            </article>
-                                    )
-                                }
-                            )
-                        }
-                    </div>
-                </div>
-
-            </div>
-
-        </Container>
-    </main>
-
+                return (
+                  <article class={`${cardClass}`}>
+                    {post.data.heroImage.src?.src && (
+                      <BlogpostCard
+                        pubDate={post.data.pubDate}
+                        thumbnail={post.data.heroImage.src.src}
+                        thumbnailAlt={""}
+                        thumbnailSmall=""
+                        title={post.data.title}
+                        url={"/blog/" + post.id}
+                      />
+                    )}
+                  </article>
+                );
+              })
+            }
+          </div>
+        </div>
+      </div>
+    </Container>
+  </main>
 </MainLayout>
 <style>
   .grid-container {
@@ -120,7 +123,6 @@ const latest = posts[0];
       grid-auto-flow: dense; /* SEHR WICHTIG: Füllt Löcher automatisch auf! */
       grid-auto-rows: minmax(120px, auto);
       grid-template-columns: repeat(8, 1fr);
-
     }
 
     .card-featured {
@@ -157,7 +159,6 @@ const latest = posts[0];
       grid-auto-flow: dense; /* SEHR WICHTIG: Füllt Löcher automatisch auf! */
       grid-auto-rows: minmax(240px, auto);
       grid-template-columns: repeat(4, 1fr);
-
     }
 
     .card-featured {
@@ -198,5 +199,4 @@ const latest = posts[0];
       }
     }
   }
-
 </style>

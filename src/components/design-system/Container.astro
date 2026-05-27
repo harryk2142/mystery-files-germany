@@ -2,13 +2,14 @@
 import type { HTMLAttributes } from "astro/types";
 type Variant = "s" | "m" | "l";
 type Props = {
-    variant?: Variant,
+  variant?: Variant;
 } & HTMLAttributes<"div">;
-const {variant = "m", class: list, ...rest} = Astro.props;
+const { variant = "m", class: list, ...rest } = Astro.props;
 ---
+
 <div class:list={["container", variant, list]} {...rest}>
-    <slot/>
+  <slot />
 </div>
 <style>
-    @import url("./Container.module.css");
+  @import url("./Container.module.css");
 </style>
