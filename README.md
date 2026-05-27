@@ -16,3 +16,4 @@
 https://iconify.design/
 https://simpleicons.org/
 https://github.com/eremannisto/astro-metadata/tree/main
+https://www.larrymyers.com/posts/how-to-create-an-astro-markdown-plugin/
