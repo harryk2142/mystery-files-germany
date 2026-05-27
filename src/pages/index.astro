@@ -88,9 +88,6 @@ const latest = posts[0];
         flex-direction: column;
     }
 
-    .grid-blogposts{
-    }
-
     #container-main {
         container-name: container-main;
         container-type: inline-size;
@@ -120,9 +117,9 @@ const latest = posts[0];
     @container container-main (min-width: 900px) {
         .grid-blogposts  {
             display: grid;
+            gap: 16px;
             grid-auto-flow: dense; /* SEHR WICHTIG: Füllt Löcher automatisch auf! */
             grid-auto-rows: minmax(120px, auto);
-            gap: 16px;
             grid-template-columns: repeat(8, 1fr);
 
         }
@@ -152,9 +149,9 @@ const latest = posts[0];
     @container container-main (650px < width) and (width < 900px) {
         .grid-blogposts  {
             display: grid;
+            gap: 16px;
             grid-auto-flow: dense; /* SEHR WICHTIG: Füllt Löcher automatisch auf! */
             grid-auto-rows: minmax(240px, auto);
-            gap: 16px;
             grid-template-columns: repeat(4, 1fr);
 
         }
