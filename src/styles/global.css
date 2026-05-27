@@ -1,164 +1,44 @@
-/*
-  The CSS in this style tag is based off of Bear Blog's default CSS.
-  https://github.com/HermanMartinus/bearblog/blob/297026a877bc2ab2b3bdfbd6b9f7961c350917dd/templates/styles/blog/default.css
-  License MIT: https://github.com/HermanMartinus/bearblog/blob/master/LICENSE.md
- */
-
+/* https://www.joshwcomeau.com/css/custom-css-reset/ */
 :root {
-  --accent: #2337ff;
-  --accent-dark: #000d8a;
-  --black: 15, 18, 25;
-  --gray: 96, 115, 159;
-  --gray-light: 229, 233, 240;
-  --gray-dark: 34, 41, 57;
-  --gray-gradient: rgb(var(--gray-light), 50%), #fff;
-  --box-shadow:
-    0 2px 6px rgb(var(--gray), 25%), 0 8px 24px rgb(var(--gray), 33%),
-    0 16px 32px rgb(var(--gray), 33%);
+  --line-tight: 1.15;
+  --line-base: 1.6;
+  --line-loose: 1.8;
+  --text-xs: 0.8125rem;
+  --text-sm: 0.9375rem;
+  --text-base: 1rem;
+  --text-md: 1.125rem;
+  --text-lg: 1.375rem;
+  --text-xl: 1.75rem;
+  --text-2xl: clamp(2rem, 5vw, 3.25rem);
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-l: 1rem;
+  --radius-xl: 2rem;
+  --radius-circle: 50%;
+  --shadow-soft: 0 0.5rem 2rem rgb(0 0 0 / 6%);
+  --box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
+  color-scheme: light;
+}
+
+html {
+  background: var(--color-page);
+  color: var(--color-text);
+  font-family: var(--font-base), sans-serif;
 }
 
 body {
-  background: linear-gradient(var(--gray-gradient)) no-repeat;
-  background-size: 100% 600px;
-  color: rgb(var(--gray-dark));
-
-  /* font-family: var(--font-atkinson); */
-  font-family: var(--font-roboto), sans-serif;
-  font-size: 20px;
-  line-height: 1.7;
+  color: var(--color-text);
+  font-size: var(--text-base);
   margin: 0;
+  min-height: 100vh;
   overflow-wrap: break-word;
-  padding: 0;
-  text-align: left;
-}
-
-main {
-  margin: auto;
-  max-width: calc(100% - 2em);
-  padding: 3em 1em;
-  width: 720px;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  color: rgb(var(--black));
-  line-height: 1.2;
-  margin: 0 0 0.5rem;
 }
 
 h1 {
-  font-size: 3.052em;
-}
-
-h2 {
-  font-size: 2.441em;
-}
-
-h3 {
-  font-size: 1.953em;
-}
-
-h4 {
-  font-size: 1.563em;
-}
-
-h5 {
-  font-size: 1.25em;
-}
-
-strong,
-b {
+  font-size: var(--text-2xl);
   font-weight: 700;
 }
 
-a {
-  color: var(--accent);
-}
-
-a:hover {
-  color: var(--accent);
-}
-
-p {
-  margin-bottom: 1em;
-}
-
-.prose p {
-  margin-bottom: 2em;
-}
-
-textarea {
-  font-size: 16px;
-  width: 100%;
-}
-
-input {
-  font-size: 16px;
-}
-
-table {
-  width: 100%;
-}
-
-img {
-  border-radius: 8px;
-  height: auto;
-  max-width: 100%;
-}
-
-code {
-  background-color: rgb(var(--gray-light));
-  border-radius: 2px;
-  padding: 2px 5px;
-}
-
-pre {
-  border-radius: 8px;
-  padding: 1.5em;
-}
-
-pre > code {
-  all: unset;
-}
-
-blockquote {
-  border-left: 4px solid var(--accent);
-  font-size: 1.333em;
-  margin: 0;
-  padding: 0 0 0 20px;
-}
-
-hr {
-  border: none;
-  border-top: 1px solid rgb(var(--gray-light));
-}
-
-@media (width <= 720px) {
-  body {
-    font-size: 18px;
-  }
-
-  main {
-    padding: 1em;
-  }
-}
-
-.sr-only {
-  border: 0;
-
-  /* modern browsers, clip-path works inwards from each corner */
-  clip-path: inset(50%);
-  height: 1px;
-  margin: 0;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-
-  /* added line to stop words getting smushed together (as they go onto separate lines and some screen readers do not understand line feeds as a space */
-  white-space: nowrap;
-  width: 1px;
+h2 {
+  font-size: var(--text-xl);
 }
