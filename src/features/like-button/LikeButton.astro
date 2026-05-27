@@ -1,0 +1,66 @@
+---
+type Props = {
+    slug: string;
+};
+
+const { slug } = Astro.props;
+---
+
+<button class="like-btn" data-slug={slug}>
+    👍 Artikel liken
+</button>
+
+<style>
+    /* Ein bisschen grundlegendes Styling, pass das gerne an dein Design an */
+    .like-btn {
+        padding: 8px 16px;
+        background-color: #f3f4f6;
+        border: 1px solid #d1d5db;
+        border-radius: 6px;
+        cursor: pointer;
+        font-weight: bold;
+        transition: background-color 0.2s;
+    }
+    .like-btn:hover {
+        background-color: #e5e7eb;
+    }
+    .like-btn:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+    }
+</style>
+
+<script>
+    // Wir importieren den Adapter, den wir vorhin gebaut haben
+    import { firestoreBlogRepository } from '../firebase/firestoreAdapter';
+
+    // Astro bündelt dieses Skript und führt es im Browser des Nutzers aus.
+    // Da es mehrere Buttons auf einer Seite geben könnte, suchen wir alle:
+    const buttons = document.querySelectorAll('.like-btn');
+
+    buttons.forEach((button) => {
+        button.addEventListener('click', async () => {
+            // 1. Slug aus dem geklickten Button auslesen
+            const slug = button.getAttribute('data-slug');
+
+            if (!slug) return;
+
+            try {
+                // 2. Button kurz deaktivieren, um Doppel-Klicks zu verhindern
+                button.setAttribute('disabled', 'true');
+                const originalText = button.innerHTML;
+                button.innerHTML = 'Wird geliked...';
+
+                // 3. Unsere Firebase-Logik aufrufen
+                await firestoreBlogRepository.incrementLikes(slug);
+
+                // 4. Feedback an den Nutzer
+                button.innerHTML = '❤️ Geliked!';
+
+            } catch (error) {
+                console.error("Fehler beim Liken:", error);
+                button.removeAttribute('disabled');
+            }
+        });
+    });
+</script>
