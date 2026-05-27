@@ -1,0 +1,210 @@
+---
+type Props = {
+    pubDate: Date;
+    thumbnail: string;
+    thumbnailAlt: string;
+    thumbnailSmall: string;
+    title: string;
+    url: string;
+};
+
+const { pubDate, thumbnail, thumbnailAlt, thumbnailSmall, title, url } = Astro.props;
+---
+<!--<a class="card-link" href={url}>-->
+<!--    <article class="card">-->
+<!--        <div class="card-image-container">-->
+<!--            <img src={thumbnail} alt={thumbnailAlt} class="card-image" />-->
+<!--        </div>-->
+<!--        <div class="card-content">-->
+<!--            <span class="card-date">-->
+<!--                <time data-pagefind-sort="date" datetime={pubDate.toISOString()}>-->
+<!--                    {pubDate.toLocaleDateString("de-DE", {-->
+<!--                        year: "numeric",-->
+<!--                        month: "short",-->
+<!--                        day: "numeric",-->
+<!--                    })}-->
+<!--                </time>-->
+<!--            </span>-->
+<!--            <span class="card-summary">{title}</span>-->
+<!--        </div>-->
+
+<!--    </article>-->
+<!--</a>-->
+<a href={url}>
+    <div class="card">
+        <div class="card-image-container">
+            <img src={thumbnail} alt={thumbnailAlt} class="card-image" />
+        </div>
+        <div class="card-content">
+            <span class="card-date">
+                <time data-pagefind-sort="date" datetime={pubDate.toISOString()}>
+                    {pubDate.toLocaleDateString("de-DE", {
+                        year: "numeric",
+                        month: "short",
+                        day: "numeric",
+                    })}
+                </time>
+            </span>
+            <span class="card-summary">{title}</span>
+        </div>
+    </div>
+</a>
+    <!--<a class="card-link card" href={url}>-->
+    <!--    <div class="card-image-container">-->
+    <!--        <img src={thumbnail} alt={thumbnailAlt} class="card-image" />-->
+    <!--    </div>-->
+    <!--    <div class="card-content">-->
+    <!--        <span class="card-date">-->
+    <!--            <time data-pagefind-sort="date" datetime={pubDate.toISOString()}>-->
+    <!--                {pubDate.toLocaleDateString("de-DE", {-->
+    <!--                    year: "numeric",-->
+    <!--                    month: "short",-->
+    <!--                    day: "numeric",-->
+    <!--                })}-->
+    <!--            </time>-->
+    <!--        </span>-->
+    <!--        <span class="card-summary">{title}</span>-->
+    <!--    </div>-->
+    <!--</a>-->
+<style>
+    a{
+        text-decoration: none;
+    }
+    .blogpost-card {
+        //border-radius: 16px;
+        //height: 100%;
+        //overflow: hidden;
+        //container-type: size;
+        //container-name: card;
+        //width: 100%;
+
+        //border: 3px solid var(--color-secondary);
+        //background-color: var(--color-primary);
+    }
+    .blogpost-card:hover {
+        //transform: scale(1.01);
+        box-shadow: var(--box-shadow);
+    }
+    .card-link{
+        //text-decoration: none;
+        //display: block;
+        //display: flex;
+        //flex-direction: column;
+        //height: 100%;
+        //overflow: hidden;
+        //position: relative;
+    }
+    .card-image-container {
+        display: flex;
+        overflow: hidden;
+        height: 100%;
+
+        position: relative; /* Wichtig für die Positionierung des Gradients */
+        //background-color: var(--color-primary);
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center center;
+            transition: height 0.1s, transform 0.1s;
+
+            //display: block; /* Verhindert kleine Abstände unter dem Bild */
+        }
+
+        /* Der Gradient-Layer, der in die Textbox überleitet */
+        &::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 20%; /* Etwas höher für einen weicheren Übergang */
+
+            /* Verlauf von Transparent zur Hintergrundfarbe der Textbox */
+            //background: linear-gradient(
+            //        to bottom,
+            //        transparent 0%,
+            //        var(--color-primary) 100%
+            //);
+
+            pointer-events: none;
+        }
+    }
+    .card-content{
+        //position: absolute;
+        //bottom: 0;
+        //color: white;
+        //overflow: hidden;
+        //border-bottom-left-radius: 16px;
+        //border-bottom-right-radius: 16px;
+        width: 100%;
+
+        padding: 8px 16px;
+
+        //background-color: var(--color-primary);
+        //color: var(--color-secondary);
+
+        .card-date {
+            display: block;
+            font-size: 1rem;
+            font-weight: bold;
+        }
+
+        .card-summary {
+
+            display: block;
+
+            //margin-top: 0.5rem;
+            font-size: 1.5rem;
+            //font-weight: 700;
+            text-wrap: pretty;
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+    @container card (max-height: 40rem){
+        .card-summary {
+            -webkit-line-clamp: 3;
+        }
+    }
+    @container card (max-height: 20rem){
+        .card-summary {
+            -webkit-line-clamp: 1;
+        }
+    }
+    @container card (aspect-ratio > 16 / 9){
+        .card-link {
+            //display: flex;
+            //flex-direction: row;
+            //.card-image-container{
+            //    min-width: 60%;
+            //}
+            //.card-summary{
+            //    -webkit-line-clamp: 5;
+            //}
+        }
+    }
+    //@container card (aspect-ratio <= 16 / 9){
+    //    .card-link {
+    //        .card-summary{
+    //            -webkit-line-clamp: 2;
+    //        }
+    //    }
+    //}
+
+</style>
