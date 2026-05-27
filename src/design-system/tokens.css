@@ -1,7 +1,8 @@
 :root {
   /* Colors */
-  --color-page:  #fff;
+  --color-page: #fff;
   --color-dark: #1f1f1f;
+  --color-white: #fff;
   --color-black: #1f1f1f;
   --color-border: rgb(31 31 31 / 13%);
   --color-text: #1f1f1f;
@@ -12,7 +13,9 @@
   --color-accent: var(--color-primary);
 
   /* Fonts */
-  --font-base: var(--font-lato), system-ui, -apple-system, blinkmacsystemfont, "Segoe UI", sans-serif;
+  --font-base:
+    var(--font-lato), system-ui, -apple-system, blinkmacsystemfont, "Segoe UI",
+    sans-serif;
   --font-serif: georgia, "Times New Roman", serif;
 
   /* Space */

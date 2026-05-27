@@ -17,10 +17,17 @@ export const BreakingNewsItem = () => {
             return false;
         }
 
-        const viewHeight = window.innerHeight || document.documentElement.clientHeight;
-        const viewWidth = window.innerWidth || document.documentElement.clientWidth;
+        const viewHeight =
+            window.innerHeight || document.documentElement.clientHeight;
+        const viewWidth =
+            window.innerWidth || document.documentElement.clientWidth;
 
-        return rect.top - rect.height >= 0 && rect.left + rect.width >= 0 && rect.bottom + rect.height <= viewHeight && rect.right - rect.width <= viewWidth;
+        return (
+            rect.top - rect.height >= 0 &&
+            rect.left + rect.width >= 0 &&
+            rect.bottom + rect.height <= viewHeight &&
+            rect.right - rect.width <= viewWidth
+        );
     };
     const getHeadlines = async (): Promise<string[]> => {
         const response = await fetch("./api/breaking-news/news-index.json");
