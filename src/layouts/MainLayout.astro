@@ -6,6 +6,7 @@ import NavigationBar from "@components/design-system/NavigationBar.astro";
 import Matomo from "@components/Matomo.astro";
 import Meta from "@components/Meta.astro";
 import DesignSystemSetup from "@design-system/DesignSystemSetup.astro";
+import Footer from "@components/Footer.astro";
 
 type Props = {
   title: string;
@@ -27,5 +28,6 @@ const { title, description, pagefindIgnore = true } = Astro.props;
   <body data-pagefind-ignore={pagefindIgnore}>
     <NavigationBar />
     <slot />
+      <Footer/>
   </body>
 </html>

@@ -38,27 +38,39 @@ h4,
 h5,
 h6 {
     padding: 0;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-
-    /* line-height: 1.25; */
-
-    font-family: var(--font-roboto), sans-serif;
-    font-weight: 700;
-    line-height: var(--lh-tight);
+    margin: 0;
+    font-family: var(--font-lato), sans-serif;
+    line-height: 1.25;
     color: var(--color-text);
 }
 
 h1 {
-    font-size: var(--text-4xlarge);
+    font-size: clamp(2rem, 6vw, 3rem); /* Größer und auffälliger */
+    /*font-size: clamp(1.5rem, 6vw, 3rem); !* Größer und auffälliger *!*/
 }
 
 h2 {
-    font-size: var(--text-3xlarge);
+    font-size: clamp(1.25rem, 5vw, 2.25rem); /* Etwas kleiner als h1 */
 }
 
 h3 {
-    font-size: var(--text-2xlarge);
+    font-size: clamp(1.125rem, 4.5vw, 1.75rem); /* Noch etwas kleiner */
+}
+
+h4 {
+    font-size: clamp(1rem, 4vw, 1.5rem); /* Ähnlich dem Body-Text, aber kann etwas hervorgehoben werden */
+}
+
+h5 {
+    font-size: clamp(0.875rem, 3.5vw, 1.25rem); /* Kleiner, für weniger wichtige Unterüberschriften */
+}
+
+h6 {
+    font-size: clamp(0.75rem, 3vw, 1rem); /* Sehr klein, für untergeordnete Informationen */
+}
+
+p {
+    margin-bottom: 1rem;
 }
 
 button:hover,
@@ -88,7 +100,7 @@ label {
 .box {
     display: flex;
     flex-direction: column;
-    padding-top: 16px;
+    padding-top: 8px;
 }
 
 .flex {

@@ -8,11 +8,9 @@ import DesignSystemSetup from "@design-system/DesignSystemSetup.astro";
 import { ActionBar } from "@features/action-bar/ActionBar";
 import { CommentsContainer } from "@features/comments/CommentsContainer";
 
-import { Image } from "astro:assets";
 import type { CollectionEntry } from "astro:content";
-import BaseHead from "../components/BaseHead.astro";
 import FormattedDate from "../components/FormattedDate.astro";
-import Header from "../components/Header.astro";
+import Footer from "@components/Footer.astro";
 
 type Props = CollectionEntry<"blog">["data"];
 
@@ -28,7 +26,6 @@ const { title, description, pubDate,headline, updatedDate, heroImage } = Astro.p
     <DesignSystemSetup />
     <style>
       main {
-        padding-block: 0rem;
         margin: 0;
         max-width: 100%;
       }
@@ -45,7 +42,7 @@ const { title, description, pubDate,headline, updatedDate, heroImage } = Astro.p
       }
 
       .prose {
-        color: rgb(var(--gray-dark));
+        color: var(--color-text);
         margin: auto;
         max-width: calc(100% - 2em);
         padding: 1em;
@@ -70,6 +67,12 @@ const { title, description, pubDate,headline, updatedDate, heroImage } = Astro.p
 
       .last-updated-on {
         font-style: italic;
+      }
+
+      .post-content {
+          font-size: 1.2rem;
+          line-height: 2;
+          text-align: justify;
       }
     </style>
   </head>
@@ -100,10 +103,12 @@ const { title, description, pubDate,headline, updatedDate, heroImage } = Astro.p
             <h1>{title}</h1>
             <hr />
           </div>
-          <slot />
+            <div class="post-content">
+                <slot />
+            </div>
         </div>
       </article>
-        <ActionBar client:load headline={headline} title={title} slug={slug || ""}} />
+        <ActionBar client:load headline={headline} title={title} slug={slug || ""} />
 
         {slug && (
             <div>
@@ -115,5 +120,7 @@ const { title, description, pubDate,headline, updatedDate, heroImage } = Astro.p
             </div>
         )}
     </main>
+
+      <Footer/>
   </body>
 </html>
