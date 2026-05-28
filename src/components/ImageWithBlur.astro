@@ -1,9 +1,11 @@
 ---
+import { Image } from "astro:assets";
+
 const { src, alt = "" } = Astro.props;
 ---
 <div class="image-frame">
-    <div class="blur-bg" style={`background-image: url(${src});`}></div>
-    <img src={src} alt={alt} loading="lazy" />
+    <div class="blur-bg" style={`background-image: url(${src.src});`}></div>
+    <Image src={src} alt={alt} />
 </div>
 
 <style>
@@ -25,6 +27,9 @@ const { src, alt = "" } = Astro.props;
     position: relative;
     z-index: 2;
     scale: 1;
+
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.4);
+
   }
 
   .blur-bg {
@@ -38,6 +43,13 @@ const { src, alt = "" } = Astro.props;
     transform: scale(1.1);
     opacity: 0.8;
 
-    z-index: 1;
+    /* Blur stärker an den Seiten */
+    mask-image: linear-gradient(
+        to right,
+        transparent 0%,
+        black 20%,
+        black 80%,
+        transparent 100%
+    );
   }
 </style>
