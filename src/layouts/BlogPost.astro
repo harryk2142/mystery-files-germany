@@ -1,14 +1,18 @@
 ---
+import NavigationBar from "@components/design-system/NavigationBar.astro";
+import Wrapper from "@components/design-system/Wrapper.astro";
+import ImageWithBlur from "@components/ImageWithBlur.astro";
+import Matomo from "@components/Matomo.astro";
+import Meta from "@components/Meta.astro";
 import DesignSystemSetup from "@design-system/DesignSystemSetup.astro";
+import { ActionBar } from "@features/action-bar/ActionBar";
+import { CommentsContainer } from "@features/comments/CommentsContainer";
 
 import { Image } from "astro:assets";
 import type { CollectionEntry } from "astro:content";
 import BaseHead from "../components/BaseHead.astro";
 import FormattedDate from "../components/FormattedDate.astro";
 import Header from "../components/Header.astro";
-import { ActionBar } from "@features/action-bar/ActionBar";
-import { CommentsContainer } from "@features/comments/CommentsContainer";
-import Wrapper from "@components/design-system/Wrapper.astro";
 
 type Props = CollectionEntry<"blog">["data"];
 
@@ -19,13 +23,14 @@ const { title, description, pubDate,headline, updatedDate, heroImage } = Astro.p
 <html lang="de">
   <head>
     <title>{title}</title>
+      <Meta description={description} title={title} />
+      <Matomo />
     <DesignSystemSetup />
-    <BaseHead title={title} description={description} />
     <style>
       main {
+        padding-block: 0rem;
         margin: 0;
         max-width: 100%;
-        width: calc(100% - 2em);
       }
 
       .hero-image {
@@ -70,16 +75,15 @@ const { title, description, pubDate,headline, updatedDate, heroImage } = Astro.p
   </head>
 
   <body>
-    <Header />
+      <NavigationBar />
     <main>
       <article>
-        <div class="hero-image">
-          {
-            heroImage.src && (
-              <Image alt="" height={510} src={heroImage.src} width={1020} />
-            )
-          }
-        </div>
+          <div>
+              {heroImage.src && (
+                      <ImageWithBlur  alt={heroImage.alt} src={heroImage.src.src}/>
+
+              )}
+          </div>
         <div class="prose">
           <div class="title">
             <div class="date">

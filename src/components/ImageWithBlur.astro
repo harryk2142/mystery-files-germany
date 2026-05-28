@@ -1,0 +1,43 @@
+---
+const { src, alt = "" } = Astro.props;
+---
+<div class="image-frame">
+    <div class="blur-bg" style={`background-image: url(${src});`}></div>
+    <img src={src} alt={alt} loading="lazy" />
+</div>
+
+<style>
+  .image-frame {
+    position: relative;
+    width: 100%;
+    max-height: 510px;
+    aspect-ratio: 16 / 8;
+
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .image-frame img {
+    height: 100%;
+    width: auto;
+    position: relative;
+    z-index: 2;
+    scale: 1;
+  }
+
+  .blur-bg {
+    position: absolute;
+    inset: 0;
+
+    background-size: cover;
+    background-position: center;
+
+    filter: blur(20px);
+    transform: scale(1.1);
+    opacity: 0.8;
+
+    z-index: 1;
+  }
+</style>
