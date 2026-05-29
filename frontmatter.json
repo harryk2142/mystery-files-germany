@@ -1,0 +1,123 @@
+{
+  "$schema": "https://frontmatter.codes/frontmatter.schema.json",
+  "frontMatter.framework.id": "astro",
+  "frontMatter.preview.host": "http://localhost:4321",
+  "frontMatter.content.publicFolder": {
+    "path": "[[workspace]]/src/assets",
+    "relative": true
+  },
+  "frontMatter.content.pageFolders": [
+    {
+      "title": "blog",
+      "path": "[[workspace]]/src/content/blog"
+    }
+  ],
+  "frontMatter.taxonomy.seoTitleLength": 90,
+  "frontMatter.taxonomy.seoTitleField": "title",
+  "frontMatter.taxonomy.seoSlugLength": 75,
+  "frontMatter.taxonomy.seoDescriptionLength": 180,
+  "frontMatter.taxonomy.seoContentLengh": 1760,
+  "frontMatter.taxonomy.slugTemplate": "{{seoTitle}}",
+  "frontMatter.content.supportedFileTypes": [
+    "md",
+    "markdown",
+    "mdx",
+    "mdoc"
+  ],
+  "frontMatter.media.contentTypes": [
+    {
+      "name": "default",
+      "fileTypes": [
+        "png",
+        "jpg",
+        "jpeg",
+        "gif"
+      ],
+      "fields": [
+        {
+          "title": "Title",
+          "name": "title",
+          "type": "string"
+        },
+        {
+          "title": "Alt text",
+          "name": "alt",
+          "type": "string"
+        }
+      ]
+    }
+  ],
+  "frontMatter.taxonomy.contentTypes": [
+    {
+      "name": "default",
+      "pageBundle": false,
+      "previewPath": "'blog'",
+      "filePrefix": null,
+      "clearEmpty": true,
+      "fields": [
+        {
+          "title": "Title",
+          "name": "title",
+          "description": "Der Titel für SEO und SERP.",
+          "type": "string",
+          "single": true
+        },
+        {
+          "title": "Description",
+          "name": "description",
+          "description": "Beschreibung vom Blogeintrag (Wichtig für SEO).",
+          "type": "string",
+          "single": true
+        },
+        {
+          "title": "headline",
+          "name": "headline",
+          "description": "Der Titel vom Blogpost (Nicht SEO). Steht auf für die Überschrift.",
+          "type": "string",
+          "single": true
+        },
+        {
+          "title": "Place",
+          "name": "place",
+          "type": "string",
+          "required": false
+        },
+        {
+          "title": "Content preview",
+          "name": "heroImage",
+          "type": "fields",
+          "fields": [
+            {
+              "title": "src",
+              "name": "src",
+              "type": "image",
+              "isPreviewImage": true
+            },
+            {
+              "title": "alt",
+              "name": "alt",
+              "type": "string"
+            }
+          ]
+        },
+        {
+          "title": "Publishing date",
+          "name": "pubDate",
+          "type": "datetime",
+          "default": "{{now}}",
+          "isPublishDate": true
+        },
+        {
+          "title": "Is in draft",
+          "name": "draft",
+          "type": "draft"
+        },
+        {
+          "title": "Tags",
+          "name": "tags",
+          "type": "tags"
+        }
+      ]
+    }
+  ]
+}
