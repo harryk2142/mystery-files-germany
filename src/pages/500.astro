@@ -1,0 +1,22 @@
+---
+interface Props {
+    error: unknown;
+}
+
+const { error } = Astro.props;
+---
+
+<html>
+    <head>
+        <title>500</title>
+        <meta charset="utf-8" />
+        <meta content="width=device-width,initial-scale=1" name="viewport" />
+        <meta content={Astro.generator} name="generator" />
+        <meta content="noindex" name="robots" />
+    </head>
+    <body data-pagefind-ignore>
+        <div >
+            {error instanceof Error ? error.message : "Unknown error"}
+        </div>
+    </body>
+</html>

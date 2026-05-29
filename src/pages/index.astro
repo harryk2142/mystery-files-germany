@@ -1,6 +1,7 @@
 ---
 import BlogpostCard from "@components/design-system/BlogpostCard.astro";
 import Wrapper from "@components/design-system/Wrapper.astro";
+import Pagefind from "@components/Pagefind.astro";
 import { BLOG_NAME, SITE_DESCRIPTION_SHORT } from "@consts";
 import BreakingNews from "@features/breaking-news/BreakingNews.astro";
 import MainLayout from "@layouts/MainLayout.astro";
@@ -45,6 +46,9 @@ const latest = posts[0];
         <BreakingNews />
       </section>
     </Wrapper>
+      <Wrapper>
+          <Pagefind/>
+      </Wrapper>
     <Wrapper>
       <div>
         <section id="area-title" class="box text-center">

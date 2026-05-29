@@ -35,11 +35,8 @@ type OpenGraphObjectType =
     | "website";
 type TwitterCardType = "summary" | "summary_large_image" | "app" | "player";
 export type MetaTwitter = {
-    card: TwitterCardType;
-    creator: string;
-    image:{
-        src: string;
-        alt: string;
+    card: TwitterCardType; creator: string; image: {
+        src: string; alt: string;
     }
 }
 export type MetaOg = {
@@ -49,9 +46,8 @@ export type MetaOg = {
     expirationTime?: string;
     tag?: string;
     section?: string;
-    image:{
-        src: string;
-        alt: string;
+    image: {
+        src: string; alt: string;
     }
 }
 
@@ -64,19 +60,14 @@ const {
     themeColor = "light",
     colorScheme = "light",
     twitter = {
-        card: "summary_large_image",
-        image : {
-            src: "/logo.png",
-            alt: "Logo der Website"
+        card: "summary_large_image", image: {
+            src: "/logo.png", alt: "Logo der Website",
         }
     },
     robots = "",
     openGraph = {
-        type: "website",
-        publishedTime: Date.now().toLocaleString(),
-        image : {
-            src: "/logo.png",
-            alt: "Logo der Website"
+        type: "website", publishedTime: Date.now().toLocaleString(), image: {
+            src: "/logo.png", alt: "Logo der Website"
         }
     }
 } = Astro.props;
@@ -84,24 +75,24 @@ const {
 
 <Fragment>
     <!-- Global Metadata -->
-    <meta charset="utf-8" />
-    <meta content="width=device-width,initial-scale=1" name="viewport" />
-    <meta content={Astro.generator} name="generator" />
+    <meta charset="utf-8"/>
+    <meta content="width=device-width,initial-scale=1" name="viewport"/>
+    <meta content={Astro.generator} name="generator"/>
 
     <!--Sitemap-->
     <link rel="sitemap" href="/sitemap-index.xml"/>
 
     <!--RSS-->
     <link
-        rel="alternate"
-        type="application/rss+xml"
-        title={title}
-        href={new URL('rss.xml', Astro.site)}
+            rel="alternate"
+            type="application/rss+xml"
+            title={title}
+            href={new URL('rss.xml', Astro.site)}
     />
 
     <!-- Icons -->
-    <link rel="icon" href="/favicon.ico" />
-    <link href="/logo.png" rel="icon" type="image/png" />
+    <link rel="icon" href="/favicon.ico"/>
+    <link href="/logo.png" rel="icon" type="image/png"/>
     <link rel="icon" type="image/png" sizes="32x32" href="/logo-32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/logo-16.png">
     <link rel="icon" type="image/png" sizes="192x192" href="/logo-192.png">
@@ -110,40 +101,37 @@ const {
     <link rel="manifest" href="/manifest.json">
 
     <!-- Canonical URL -->
-    <link href={canonicalUrl} rel="canonical" />
+    <link href={canonicalUrl} rel="canonical"/>
 
     <!-- Primary Meta Tags -->
-    <meta content={title} name="title" />
-    <meta content={description} name="description" />
+    <meta content={title} name="title"/>
+    <meta content={description} name="description"/>
 
     <!--<meta content={keywords.join(", ")} name="keywords" />-->
 
-    <meta content={colorScheme} name="color-scheme" />
-    <meta content={themeColor} name="theme-color" />
+    <meta content={colorScheme} name="color-scheme"/>
+    <meta content={themeColor} name="theme-color"/>
     <!-- <meta content={robots} name="robots" />-->
 
     <!--open graph/facebook-->
-    <meta content={BLOG_NAME} property="og:site_name" />
-    <meta content={canonicalUrl} property="og:url" />
-    <meta content={openGraph.type} property="og:type" />
-    <meta content={title} property="og:title" />
-    <meta content="de_DE" property="og:locale" />
+    <meta content={BLOG_NAME} property="og:site_name"/>
+    <meta content={canonicalUrl} property="og:url"/>
+    <meta content={openGraph.type} property="og:type"/>
+    <meta content={title} property="og:title"/>
+    <meta content="de_DE" property="og:locale"/>
     <meta content={description} property="og:description"/>
-    <meta content={new URL(openGraph.image.src, Astro.url)} property="og:image" />
-    {
-        openGraph.type === "article" && (
-            <meta content={openGraph.publishedTime} name="article:published_time" property="og:type" />
-        )
-    }
-    <meta content={creator} name="article:author" property="og:type" />
+    <meta content={new URL(openGraph.image.src, Astro.url)} property="og:image"/>
+    {openGraph.type === "article" && (
+            <meta content={openGraph.publishedTime} name="article:published_time" property="og:type"/>)}
+    <meta content={creator} name="article:author" property="og:type"/>
 
     <!--twitter-->
-    <meta content={creator} name="twitter:creator" />
-    <meta content="the-ai-files.de" name="twitter:domain" />
-    <meta content={twitter.card} name="twitter:card" />
-    <meta content={canonicalUrl} name="twitter:url" />
-    <meta content={title} name="twitter:title" />
-    <meta content={description} name="twitter:description" />
-    <meta content={new URL(twitter.image.src, Astro.url)} name="twitter:image" />
-    <meta content={twitter.image.alt} name="twitter:image:alt" />
+    <meta content={creator} name="twitter:creator"/>
+    <meta content="the-ai-files.de" name="twitter:domain"/>
+    <meta content={twitter.card} name="twitter:card"/>
+    <meta content={canonicalUrl} name="twitter:url"/>
+    <meta content={title} name="twitter:title"/>
+    <meta content={description} name="twitter:description"/>
+    <meta content={new URL(twitter.image.src, Astro.url)} name="twitter:image"/>
+    <meta content={twitter.image.alt} name="twitter:image:alt"/>
 </Fragment>

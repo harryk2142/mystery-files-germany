@@ -1,0 +1,22 @@
+---
+import { BLOG_NAME } from "@consts";
+import Wrapper from "@components/design-system/Wrapper.astro";
+import MainLayout from "@layouts/MainLayout.astro";
+---
+<MainLayout pagefindIgnore={true} title={BLOG_NAME + " - Seite nicht gefunden"} description="Leider ist unter der URL nichts zu finden.">
+    <!--<meta content="noindex" name="robots" und     <body data-pagefind-ignore> einbauen, siehe 500 />-->
+
+    <Wrapper>
+        <article>
+            <header class="text center">
+                <h1>Seite nicht gefunden</h1>
+            </header>
+        </article>
+    </Wrapper>
+</MainLayout>
+<style>
+    header{
+        text-align: center;
+        margin-top: 2rem;
+    }
+</style>

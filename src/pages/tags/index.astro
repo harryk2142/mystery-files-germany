@@ -1,0 +1,38 @@
+---
+import Footer from "../../components/Footer.astro";
+import TagCloud from "../../components/TagCloud.astro";
+import Meta from "../../components/Meta.astro";
+import Matomo from "../../components/Matomo.astro";
+import NavigationBar from "@components/design-system/NavigationBar.astro";
+import DesignSystemSetup from "@design-system/DesignSystemSetup.astro";
+---
+
+<html lang="de">
+    <head>
+        <title>Seite mit den besten Tags</title>
+        <Meta
+            description="Hier siehst du aktuell besten Tags"
+            title="Seite mit den besten Tags"
+        />
+        <meta content="noindex" name="robots" />
+        <Matomo />
+        <DesignSystemSetup />
+
+    </head>
+    <body data-pagefind-ignore>
+        <NavigationBar />
+        <main>
+            <header class="text center mt-m">
+                <h1>Die aktuell besten Tags</h1>
+            </header>
+            <TagCloud />
+        </main>
+        <Footer />
+    </body>
+</html>
+<style>
+    header{
+        text-align: center;
+        margin-top:2rem;
+    }
+</style>

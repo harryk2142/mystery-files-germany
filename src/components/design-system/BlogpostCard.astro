@@ -1,19 +1,14 @@
 ---
 type Props = {
-    pubDate: Date;
-    thumbnail: string;
-    thumbnailAlt: string;
-    thumbnailSmall: string;
-    title: string;
-    url: string;
+    pubDate: Date; thumbnail: string; thumbnailAlt: string; thumbnailSmall: string; title: string; url: string;
 };
 
-const { pubDate, thumbnail, thumbnailAlt, thumbnailSmall, title, url } = Astro.props;
+const {pubDate, thumbnail, thumbnailAlt, thumbnailSmall, title, url} = Astro.props;
 ---
 <a href={url}>
     <div class="card">
         <div class="card-image-container">
-            <img src={thumbnail} alt={thumbnailAlt} class="card-image" />
+            <img src={thumbnail} alt={thumbnailAlt} class="card-image"/>
         </div>
         <div class="card-content">
             <span class="card-date">
@@ -47,9 +42,11 @@ const { pubDate, thumbnail, thumbnailAlt, thumbnailSmall, title, url } = Astro.p
     .card:hover {
         box-shadow: var(--box-shadow);
     }
-    a{
+
+    a {
         text-decoration: none;
     }
+
     .blogpost-card {
         //border-radius: 16px;
         //height: 100%;
@@ -61,11 +58,13 @@ const { pubDate, thumbnail, thumbnailAlt, thumbnailSmall, title, url } = Astro.p
         //border: 3px solid var(--color-secondary);
         //background-color: var(--color-primary);
     }
+
     .blogpost-card:hover {
         //transform: scale(1.01);
         box-shadow: var(--box-shadow);
     }
-    .card-link{
+
+    .card-link {
         //text-decoration: none;
         //display: block;
         //display: flex;
@@ -74,6 +73,7 @@ const { pubDate, thumbnail, thumbnailAlt, thumbnailSmall, title, url } = Astro.p
         //overflow: hidden;
         //position: relative;
     }
+
     .card-image-container {
         display: flex;
         overflow: hidden;
@@ -93,6 +93,7 @@ const { pubDate, thumbnail, thumbnailAlt, thumbnailSmall, title, url } = Astro.p
         }
 
         /* Der Gradient-Layer, der in die Textbox überleitet */
+
         &::after {
             content: "";
             position: absolute;
@@ -111,7 +112,8 @@ const { pubDate, thumbnail, thumbnailAlt, thumbnailSmall, title, url } = Astro.p
             pointer-events: none;
         }
     }
-    .card-content{
+
+    .card-content {
         //position: absolute;
         //bottom: 0;
         //color: white;
@@ -146,28 +148,19 @@ const { pubDate, thumbnail, thumbnailAlt, thumbnailSmall, title, url } = Astro.p
     }
 
 
-
-
-
-
-
-
-
-
-
-
-
-    @container card (max-height: 40rem){
+    @container card (max-height: 40rem) {
         .card-summary {
             -webkit-line-clamp: 3;
         }
     }
-    @container card (max-height: 20rem){
+
+    @container card (max-height: 20rem) {
         .card-summary {
             -webkit-line-clamp: 1;
         }
     }
-    @container card (aspect-ratio > 16 / 9){
+
+    @container card (aspect-ratio > 16 / 9) {
         .card-link {
             //display: flex;
             //flex-direction: row;
@@ -179,6 +172,7 @@ const { pubDate, thumbnail, thumbnailAlt, thumbnailSmall, title, url } = Astro.p
             //}
         }
     }
+
     //@container card (aspect-ratio <= 16 / 9){
     //    .card-link {
     //        .card-summary{

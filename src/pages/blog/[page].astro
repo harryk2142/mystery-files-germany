@@ -8,6 +8,7 @@ import BlogpostCard from "@components/design-system/BlogpostCard.astro";
 import Meta from "@components/Meta.astro";
 import DesignSystemSetup from "@design-system/DesignSystemSetup.astro";
 import Matomo from "@components/Matomo.astro";
+import Wrapper from "@components/design-system/Wrapper.astro";
 
 export async function getStaticPaths({ paginate }) {
     const posts = (await getCollection("blog"))
@@ -59,8 +60,8 @@ const paginationProps: PageProps = {
     <body data-pagefind-ignore>
         <NavigationBar />
         <main>
-            <div class="wrapper">
-                <h1 class="mt-m">
+            <Wrapper>
+                <h1>
                     Seite {currentPage} von {lastPage}
                 </h1>
                 <article class="pagination-container">
@@ -68,7 +69,7 @@ const paginationProps: PageProps = {
                 </article>
                 <div></div>
                 <section id="blogposts">
-                    <div class="grid mt-xl">
+                    <div class="grid">
                         {
                             data.map((item, index) => {
                                 return (<div class="grid-item" id={"blogpost-" + index}>
@@ -91,15 +92,16 @@ const paginationProps: PageProps = {
                         }
                     </div>
                 </section>
-                <article class="pagination-container mt-xl">
-                    <Pagination {...paginationProps} />
+                <article class="pagination-container">
+                    <Pagination {...paginationProps}  currentPage={currentPage} lastPage={lastPage}  url={url} urlToFirst={urlToFirst} urlToLast={urlToLast} />
                 </article>
-            </div>
+            </Wrapper>
         </main>
     </body>
 </html>
 <style>
     h1 {
+        margin-top:1rem;
         text-align: center;
         display: block;
     }
@@ -112,10 +114,11 @@ const paginationProps: PageProps = {
         display: flex;
         flex-direction: row;
         justify-content: center;
+        margin-top:1rem;
     }
 
     #blogposts {
-        margin-top: 4px;
+        margin-top: 2rem;
         padding-inline: 4px;
         width: 100%;
         container-name: blogposts;

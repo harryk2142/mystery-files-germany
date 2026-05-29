@@ -56,7 +56,7 @@ const showLast = currentPage + 2 <= lastPage;
     .pagination {
         display: flex;
         flex-direction: row;
-        height: 2.5rem;
+        height: 3rem;
 
         a {
             display: flex;
@@ -64,24 +64,24 @@ const showLast = currentPage + 2 <= lastPage;
             font-size: 1.5rem;
             align-items: center;
             justify-content: center;
-            border: 1px solid var(--color-primary);
-            color: var(--color-accent);
+            border: 2px solid var(--color-black);
+            color: var(--color-text);
             text-decoration: none;
             border-radius: 5px;
             aspect-ratio: 1;
         }
 
         a:hover {
-            background-color: #d4d5d2;
+            background-color: var(--color-link);
         }
 
         a.active {
-            color: var(--color-secondary);
-            background-color: var(--color-accent);
+            color: var(--color-white);
+            background-color: var(--color-black);
         }
 
         .dots {
-            font-size: 1.5rem;
+            font-size: 2.5rem;
             font-weight: bold;
         }
 

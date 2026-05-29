@@ -1,21 +1,29 @@
 // @ts-check
 
-import rehypeAstroRelativeMarkdownLinks from "astro-rehype-relative-markdown-links";
 import mdx from "@astrojs/mdx";
 import preact from "@astrojs/preact";
 import sitemap from "@astrojs/sitemap";
 import { defineConfig, fontProviders } from "astro/config";
+import pagefind from "astro-pagefind";
+import rehypeAstroRelativeMarkdownLinks from "astro-rehype-relative-markdown-links";
 
 // https://astro.build/config
 export default defineConfig({
     site: "https://the-ai-files.de",
-    integrations: [mdx(), sitemap(), preact()],
+    integrations: [
+        mdx(),
+        sitemap(),
+        preact(),
+        pagefind(),
+    ],
     output: "static",
     server: {
         port: 3000,
     },
     markdown: {
-        rehypePlugins: [rehypeAstroRelativeMarkdownLinks],
+        rehypePlugins: [
+            rehypeAstroRelativeMarkdownLinks,
+        ],
         shikiConfig: {
             theme: "dark-plus",
         },
@@ -25,17 +33,23 @@ export default defineConfig({
             provider: fontProviders.local(),
             name: "Atkinson",
             cssVariable: "--font-atkinson",
-            fallbacks: ["sans-serif"],
+            fallbacks: [
+                "sans-serif",
+            ],
             options: {
                 variants: [
                     {
-                        src: ["./src/assets/fonts/atkinson-regular.woff"],
+                        src: [
+                            "./src/assets/fonts/atkinson-regular.woff",
+                        ],
                         weight: 400,
                         style: "normal",
                         display: "swap",
                     },
                     {
-                        src: ["./src/assets/fonts/atkinson-bold.woff"],
+                        src: [
+                            "./src/assets/fonts/atkinson-bold.woff",
+                        ],
                         weight: 700,
                         style: "normal",
                         display: "swap",
@@ -47,10 +61,20 @@ export default defineConfig({
             provider: fontProviders.fontsource(),
             name: "Roboto",
             cssVariable: "--font-roboto",
-            styles: ["normal", "italic"],
+            styles: [
+                "normal",
+                "italic",
+            ],
             display: "swap",
-            weights: [300, 400, 500, 700],
-            formats: ["woff2"],
+            weights: [
+                300,
+                400,
+                500,
+                700,
+            ],
+            formats: [
+                "woff2",
+            ],
             unicodeRange: [
                 "U+0000-00FF",
                 "U+0131",
@@ -78,9 +102,13 @@ export default defineConfig({
             provider: fontProviders.fontsource(),
             name: "Lato",
             cssVariable: "--font-lato",
-            styles: ["normal"],
+            styles: [
+                "normal",
+            ],
             display: "swap",
-            formats: ["woff2"],
+            formats: [
+                "woff2",
+            ],
             unicodeRange: [
                 "U+0000-00FF",
                 "U+0131",
@@ -108,9 +136,13 @@ export default defineConfig({
             provider: fontProviders.fontsource(),
             name: "Open Sans",
             cssVariable: "--font-open-sans",
-            styles: ["normal"],
+            styles: [
+                "normal",
+            ],
             display: "swap",
-            formats: ["woff2"],
+            formats: [
+                "woff2",
+            ],
             unicodeRange: [
                 "U+0000-00FF",
                 "U+0131",
@@ -138,9 +170,13 @@ export default defineConfig({
             provider: fontProviders.fontsource(),
             name: "Playfair Display",
             cssVariable: "--font-playfair-display",
-            styles: ["normal"],
+            styles: [
+                "normal",
+            ],
             display: "swap",
-            formats: ["woff2"],
+            formats: [
+                "woff2",
+            ],
             unicodeRange: [
                 "U+0000-00FF",
                 "U+0131",
