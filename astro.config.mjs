@@ -1,5 +1,6 @@
 // @ts-check
 
+import rehypeAstroRelativeMarkdownLinks from "astro-rehype-relative-markdown-links";
 import mdx from "@astrojs/mdx";
 import preact from "@astrojs/preact";
 import sitemap from "@astrojs/sitemap";
@@ -14,7 +15,7 @@ export default defineConfig({
         port: 3000,
     },
     markdown: {
-        rehypePlugins: [],
+        rehypePlugins: [rehypeAstroRelativeMarkdownLinks],
         shikiConfig: {
             theme: "dark-plus",
         },
