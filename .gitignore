@@ -34,3 +34,6 @@ public/images/blog
 # Generierte PWA-Assets
 public/logo-*.png
 public/manifest.json
+
+# keys
+service-account-key.json

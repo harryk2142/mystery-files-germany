@@ -9,6 +9,12 @@ import { getFirestore } from "firebase-admin/firestore";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
+// Settings
+const TARGET_COLLECTION = "mystery-files-germany-blog"; // <-- Ziel-Collection
+const PROJECT_ID = "my-blog-42"; // <-- Ziel-Collection
+const INPUT_FILE = "export_data_new.json"; // <-- Deine exportierte Datei
+const SERVICE_ACCOUNT_KEY = "service-account-key.json"; // <-- Service Account Key
+
 if (process.env.FIRESTORE_EMULATOR_HOST) {
     // --- LOKALER EMULATOR MODUS ---
     console.log(`⚠️ VERBINDE MIT LOKALEM EMULATOR (${process.env.FIRESTORE_EMULATOR_HOST}) ⚠️`);
@@ -16,14 +22,14 @@ if (process.env.FIRESTORE_EMULATOR_HOST) {
     initializeApp({
         // Für den Emulator brauchst du keinen Service Account, nur die Projekt-ID.
         // Das 'demo-'-Präfix stellt sicher, dass Firebase garantiert nichts in die Cloud sendet.
-        projectId: "my-blog-42",
+        projectId: PROJECT_ID,
     });
 } else {
     // --- PRODUKTIONS MODUS ---
     console.log("🌍 VERBINDE MIT PRODUKTIONS-DATENBANK 🌍");
 
     // 2. Pfad zum Service Account Key
-    const serviceAccountPath = path.resolve(__dirname, "./my-blog-42-firebase-adminsdk-bw9x5-c938efb07f.json");
+    const serviceAccountPath = path.resolve(__dirname, SERVICE_ACCOUNT_KEY);
     if (!fs.existsSync(serviceAccountPath)) {
         console.error(`Fehler: Service Account Key nicht gefunden unter ${serviceAccountPath}`);
         process.exit(1);
@@ -103,7 +109,4 @@ async function importCollection(collectionName: string, inputFilename: string) {
 }
 
 // 4. Skript ausführen
-const TARGET_COLLECTION = "mystery-files-germany-blog"; // <-- Ziel-Collection
-const INPUT_FILE = "export_data_new.json"; // <-- Deine exportierte Datei
-
-importCollection(TARGET_COLLECTION, INPUT_FILE);
+await importCollection(TARGET_COLLECTION, INPUT_FILE);
