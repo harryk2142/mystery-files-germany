@@ -38,16 +38,14 @@ const { posts } = Astro.props;
 import Matomo from "../../components/Matomo.astro";
 import NavigationBar from "@components/design-system/NavigationBar.astro";
 import DesignSystemSetup from "@design-system/DesignSystemSetup.astro";
+import PageTitle from "@components/design-system/PageTitle.astro";
 ---
 
 <html lang="de">
     <head>
-        <meta content="noindex" name="robots" />
         <title>Hashtag {tag}</title>
-        <meta charset="utf-8" />
-        <meta content="width=device-width,initial-scale=1" name="viewport" />
-        <meta content={Astro.generator} name="generator" />
-        <Meta description={"Beiträge zum Hashtag " + tag} title={"title"} />
+        <Meta description={"Beiträge zum Hashtag " + tag} title={"Beiträge zum Hashtag " + tag} />
+        <meta content="noindex" name="robots" />
         <Matomo />
         <DesignSystemSetup/>
     </head>
@@ -55,9 +53,7 @@ import DesignSystemSetup from "@design-system/DesignSystemSetup.astro";
         <NavigationBar />
         <main>
             <div id="tag-container">
-                <header class="text center mt-m">
-                    <h1>{"#" + tag}</h1>
-                </header>
+                <PageTitle title={"#"+ tag}/>
                 <div id="tag-list">
                     <ul id="list-of-blogposts">
                         {
@@ -85,10 +81,6 @@ import DesignSystemSetup from "@design-system/DesignSystemSetup.astro";
         </main>
         <Footer />
         <style>
-            header{
-                text-align: center;
-                margin-top: 2rem;
-            }
             #tag-container {
                 margin: 0 auto;
                 max-width: 960px;

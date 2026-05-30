@@ -35,5 +35,10 @@ public/images/blog
 public/logo-*.png
 public/manifest.json
 
+# import/export
+**/export_data.json
+**/*_export_data.json
+**/export_data_new.json
+
 # keys
 service-account-key.json

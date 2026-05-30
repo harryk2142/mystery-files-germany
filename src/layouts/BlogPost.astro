@@ -7,6 +7,7 @@ import Meta from "@components/Meta.astro";
 import DesignSystemSetup from "@design-system/DesignSystemSetup.astro";
 import { ActionBar } from "@features/action-bar/ActionBar";
 import { CommentsContainer } from "@features/comments/CommentsContainer";
+import { Image } from "astro:assets";
 
 import type { CollectionEntry } from "astro:content";
 import FormattedDate from "../components/FormattedDate.astro";
@@ -14,113 +15,124 @@ import Footer from "@components/Footer.astro";
 
 type Props = CollectionEntry<"blog">["data"];
 
-const { slug } = Astro.params;
-const { title, description, pubDate,headline, updatedDate, heroImage } = Astro.props;
+const {slug} = Astro.params;
+const { title, description, pubDate, headline, updatedDate, heroImage} = Astro.props;
+const searchImage = heroImage.src;
+console.log(searchImage);
 ---
 
 <html lang="de">
-  <head>
-    <title>{title}</title>
-      <Meta description={description} title={title} />
-      <Matomo />
-    <DesignSystemSetup />
-    <style>
-      main {
-        margin: 0;
-        max-width: 100%;
-      }
+    <head>
+        <title>{title}</title>
+        <Meta description={description} title={title}/>
+        <Matomo/>
+        <DesignSystemSetup/>
+        <style>
+            main {
+                margin: 0;
+                max-width: 100%;
+            }
 
-      .hero-image {
-        width: 100%;
-      }
+            .hero-image {
+                width: 100%;
+            }
 
-      .hero-image img {
-        border-radius: 12px;
-        box-shadow: var(--box-shadow);
-        display: block;
-        margin: 0 auto;
-      }
+            .hero-image img {
+                border-radius: 12px;
+                box-shadow: var(--box-shadow);
+                display: block;
+                margin: 0 auto;
+            }
 
-      .prose {
-        color: var(--color-text);
-        margin: auto;
-        max-width: calc(100% - 2em);
-        padding: 1em;
-        width: 720px;
-      }
+            .prose {
+                color: var(--color-text);
+                margin: auto;
+                max-width: calc(100% - 2em);
+                padding: 1em;
+                width: 720px;
+            }
 
-      .title {
-        line-height: 1;
-        margin-bottom: 1em;
-        padding: 1em 0;
-        text-align: center;
-      }
+            .title {
+                line-height: 1;
+                margin-bottom: 1em;
+                padding: 1em 0;
+                text-align: center;
+            }
 
-      .title h1 {
-        margin: 0 0 0.5em;
-      }
+            .title h1 {
+                margin: 0 0 0.5em;
+            }
 
-      .date {
-        color: rgb(var(--gray));
-        margin-bottom: 0.5em;
-      }
+            .date {
+                color: rgb(var(--gray));
+                margin-bottom: 0.5em;
+            }
 
-      .last-updated-on {
-        font-style: italic;
-      }
+            .last-updated-on {
+                font-style: italic;
+            }
 
-      .post-content {
-          font-size: 1.2rem;
-          line-height: 2;
-          text-align: justify;
-      }
-    </style>
-  </head>
+            .post-content {
+                font-size: 1.2rem;
+                line-height: 2;
+                text-align: justify;
+            }
+        </style>
+    </head>
 
-  <body>
-      <NavigationBar />
-    <main>
-      <article>
-          <div>
-              {heroImage.src && (
-                      <ImageWithBlur  alt={heroImage.alt} src={heroImage.src}/>
+    <body>
+        <NavigationBar/>
+        <main>
+            <article>
+                <div>
+                    {heroImage.src && (
+                            <div>
+                                <Image
+                                        style="display: none"
+                                        src={heroImage.src}
+                                        alt={headline}
+                                        width={300}
+                                        height={300}
+                                        quality={70}
+                                        fit={"cover"}
+                                        data-pagefind-meta="image[src]"
+                                />
+                                <ImageWithBlur alt={heroImage.alt} src={heroImage.src}/>
 
-              )}
-          </div>
-        <div class="prose">
-          <div class="title">
-            <div class="date">
-              <FormattedDate date={pubDate} />
-              {
-                updatedDate && (
-                  <div class="last-updated-on">
-                    Last updated on
-                    <FormattedDate date={updatedDate} />
-                  </div>
-                )
-              }
-            </div>
-            <h1 data-pagefind-meta="title">{title}</h1>
-            <hr />
-          </div>
-            <div class="post-content">
-                <slot />
-            </div>
-        </div>
-      </article>
-        <ActionBar client:load headline={headline} title={title} slug={slug || ""} />
+                            </div>
 
-        {slug && (
-            <div>
-                <section id="comments-section">
-                    <Wrapper variant="s">
-                        <CommentsContainer slug={slug as string} client:visible/>
-                    </Wrapper>
-                </section>
-            </div>
-        )}
-    </main>
+                    )}
+                </div>
+                <div class="prose">
+                    <div class="title">
+                        <div class="date">
+                            <FormattedDate date={pubDate}/>
+                            {updatedDate && (
+                                    <div class="last-updated-on">
+                                        Last updated on
+                                        <FormattedDate date={updatedDate}/>
+                                    </div>)}
+                        </div>
+                        <h1 data-pagefind-meta="title">{title}</h1>
+                        <hr/>
+                    </div>
+                    <div class="post-content">
+                        <slot/>
+                    </div>
+                </div>
+            </article>
+            <ActionBar client:load headline={headline} title={title} slug={slug || ""}/>
 
-      <Footer/>
-  </body>
+            {slug && (
+                    <div>
+                        <section id="comments-section">
+                            <Wrapper variant="s">
+                                <CommentsContainer slug={slug as string} client:visible/>
+                            </Wrapper>
+                        </section>
+                    </div>)}
+        </main>
+
+        <Footer/>
+    </body>
 </html>

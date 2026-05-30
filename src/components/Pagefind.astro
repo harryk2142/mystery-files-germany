@@ -16,17 +16,25 @@ import PagefindConfig from "astro-pagefind/components/PagefindConfig.astro";
 
     <pagefind-input></pagefind-input>
     <pagefind-summary></pagefind-summary>
-    <pagefind-results></pagefind-results>
+    <pagefind-results hide-sub-results={true} show-images={true}></pagefind-results>
 </section>
 <style>
     :root {
+        --pf-image-width: 100px;
+        --pf-image-height: 100px;
         --pf-border: #008a00;
         --pf-ui-border-radius: 16px;
         --pf-ui-image-box-ratio: 1;
         --pf-ui-scale: 1;
-        --pf-ui-text: var(--color-accent);
+        --pf-ui-text: var(--color-text);
         --pf-ui-font: "Open Sans", sans-serif;
         --pf-ui-background: "white";
+        /* Sizing */
+        --pf-input-height: 36px;
+        --pf-input-font-size: 1rem; /* Keep at 16px+ to prevent iOS auto-zoom on focus */
+        --pf-summary-font-size: 1rem;
+        --pf-result-title-font-size: 1.2rem;
+        --pf-result-excerpt-font-size: 1rem;
     }
 
     #section-search {
