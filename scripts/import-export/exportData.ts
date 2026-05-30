@@ -4,6 +4,7 @@ import { fileURLToPath } from "url";
 
 import { cert, initializeApp } from "firebase-admin/app";
 import { getFirestore } from "firebase-admin/firestore";
+import task from "tasuku";
 
 // 1. __dirname für ES-Module (ESM) nachbauen
 const __filename = fileURLToPath(import.meta.url);
@@ -96,8 +97,13 @@ async function exportCollection(collectionName: string, outputFilename: string) 
         }
 
         // Zielpfad definieren und Datei schreiben
+        const datum = new Date();
+        const formattedDate = `${datum.getFullYear()}-${datum.getMonth() + 1}-${datum.getDate()}_${datum.getHours()}-${datum.getMinutes()}-${datum.getSeconds()}`;
+
         const outputPath = path.resolve(__dirname, `${outputFilename}`);
+        const outputPathDate = path.resolve(__dirname, `${formattedDate}_${outputFilename}`);
         fs.writeFileSync(outputPath, JSON.stringify(exportData, null, 2), "utf-8");
+        fs.writeFileSync(outputPathDate, JSON.stringify(exportData, null, 2), "utf-8");
 
         console.log(`✅ Export erfolgreich abgeschlossen! Daten gespeichert in: ${outputPath}`);
     } catch (error) {
@@ -109,8 +115,6 @@ async function exportCollection(collectionName: string, outputFilename: string) 
 
 // 3. Skript ausführen (Passe den Collection-Namen hier an)
 
-const datum = new Date();
-const formattedDate = `${datum.getFullYear()}-${datum.getMonth() + 1}-${datum.getDate()}_${datum.getHours()}-${datum.getMinutes()}-${datum.getSeconds()}`;
-
-exportCollection(TARGET_COLLECTION, OUTPUT_FILE);
-exportCollection(TARGET_COLLECTION, formattedDate + "_" + OUTPUT_FILE);
+task("export Data", async () => {
+    await exportCollection(TARGET_COLLECTION, OUTPUT_FILE);
+});
