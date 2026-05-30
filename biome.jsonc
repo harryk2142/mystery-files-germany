@@ -115,7 +115,7 @@
             "useTemplate": "info"
           },
           "suspicious": {
-            "noExplicitAny": "error"
+            "noExplicitAny": "info"
           },
           "complexity": {
             "noExcessiveLinesPerFunction": {

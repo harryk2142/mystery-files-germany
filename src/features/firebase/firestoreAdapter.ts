@@ -1,6 +1,6 @@
 // Importiere nur den Vertrag aus dem anderen Ordner
 
-import { addDoc, collection, doc, getDoc, getDocs, increment, orderBy, query, serverTimestamp, setDoc } from "@firebase/firestore";
+import { addDoc, collection, doc, getDoc, getDocs, increment, orderBy, query, setDoc } from "@firebase/firestore";
 
 import type { BlogRepository, Comment } from "../blog-interactions/types";
 import { db } from "./config";
@@ -71,7 +71,7 @@ export const firestoreBlogRepository: BlogRepository = {
             authorName: commentData.authorName,
             text: commentData.text,
             parentId: commentData.parentId, // Ist entweder eine ID (String) oder null
-            createdAt: serverTimestamp(), // Firebase setzt die genaue Serverzeit
+            createdAt: Date.now(),
         });
 
         // 3. Den commentCount im Hauptdokument um 1 erhöhen

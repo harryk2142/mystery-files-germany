@@ -21,7 +21,12 @@
     "check": "biome check ",
     "biome:check:write": "biome check --write .",
     "style:lint": "stylelint --fix \"**/*.{css,astro}\"",
-    "list-global": "pnpm list -g --depth 0"
+    "list-global": "pnpm list -g --depth 0",
+    "export-firestore:prod": "tsx --env-file=.env scripts/import-export/exportData.ts",
+    "export-firestore:dev": "tsx --env-file=.env.dev scripts/import-export/exportData.ts",
+    "import-firestore:prod": "tsx --env-file=.env scripts/import-export/importData.ts",
+    "import-firestore:dev": "tsx --env-file=.env.dev scripts/import-export/importData.ts",
+    "migrate-data": "tsx scripts/import-export/migrateData.ts"
   },
   "dependencies": {
     "@astrojs/mdx": "5.0.6",
@@ -44,6 +49,8 @@
     "@stylistic/stylelint-plugin": "5.2.0",
     "astro-pagefind": "2.0.0",
     "concurrently": "9.2.1",
+    "dotenv": "17.4.2",
+    "firebase-admin": "13.10.0",
     "firebase-tools": "15.18.0",
     "postcss-html": "1.8.1",
     "stylelint": "17.12.0",
