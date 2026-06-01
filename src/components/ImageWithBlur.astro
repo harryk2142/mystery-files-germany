@@ -1,6 +1,11 @@
 ---
 import { Image } from "astro:assets";
 
+type Props = {
+    src: ImageMetadata,
+    alt: string,
+}
+
 const { src, alt = "" } = Astro.props;
 ---
 <div class="image-frame">

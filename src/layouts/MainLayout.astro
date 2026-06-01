@@ -1,12 +1,9 @@
 ---
-import "@styles/reset.css";
-import "@styles/global.css";
-
 import NavigationBar from "@components/design-system/NavigationBar.astro";
+import Footer from "@components/Footer.astro";
 import Matomo from "@components/Matomo.astro";
 import Meta from "@components/Meta.astro";
 import DesignSystemSetup from "@design-system/DesignSystemSetup.astro";
-import Footer from "@components/Footer.astro";
 
 type Props = {
     title: string; description: string; pagefindIgnore?: boolean; current?: string;

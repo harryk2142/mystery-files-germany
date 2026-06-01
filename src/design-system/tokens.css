@@ -50,10 +50,29 @@
     --text-2xlarge: 1.5rem; /* 24px */
     --text-3xlarge: 1.875rem; /* 30px */
     --text-4xlarge: 3.5rem;
+    --text-xs: 0.8125rem;
+    --text-sm: 0.9375rem;
+
+    --text-md: 1.125rem;
+    --text-lg: 1.375rem;
+    --text-xl: 1.75rem;
+    --text-2xl: clamp(2rem, 5vw, 3.25rem);
 
     /* Radius */
     --radius-s: 2px;
     --radius-m: 4px;
     --radius-l: 8px;
     --radius-xl: 16px;
+    --radius-sm: 0.25rem;
+    --radius-md: 0.5rem;
+
+    --radius-circle: 50%;
+
+    --line-tight: 1.15;
+    --line-base: 1.6;
+    --line-loose: 1.8;
+
+    --shadow-soft: 0 0.5rem 2rem rgb(0 0 0 / 6%);
+    --box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
+    color-scheme: light;
 }

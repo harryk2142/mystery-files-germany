@@ -7,28 +7,32 @@ html {
 }
 
 body {
-    /* color: var(--color-accent); */
+    min-height: 100vh;
     padding-bottom: 4rem;
+    margin: 0 auto;
+    font-family: var(--font-base), sans-serif;
+    font-size: var(--text-base);
+    -webkit-font-smoothing: antialiased;
+    color: var(--color-text);
+    text-align: left;
+    overflow-wrap: break-word;
 
+    background: var(--color-page);
+    /* color: var(--color-accent); */
     /* font-family: var(--font-playfair-display), serif; */
 
     /* font-family: var(--font-lato), sans-serif; */
 
     /* font-family: "Arial", sans-serif; */
-    margin: 0 auto;
     /* color: var(--color-accent); */
-    font-family: var(--font-roboto), sans-serif;
 
     /* height: 100svh; */
 
     /* background-color: var(--color-secondary); */
-    -webkit-font-smoothing: antialiased;
 
     /* overflow-x: hidden; */
 
     /* padding: 0; */
-    text-align: left;
-    overflow-wrap: break-word;
 }
 
 h1,
@@ -105,12 +109,15 @@ label {
 
 .flex {
     display: flex;
+
     .col {
         flex-direction: column;
     }
+
     .row {
         flex-direction: row;
     }
+
     .align-self {
         align-self: flex-end;
     }

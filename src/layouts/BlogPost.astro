@@ -1,24 +1,23 @@
 ---
+
 import NavigationBar from "@components/design-system/NavigationBar.astro";
 import Wrapper from "@components/design-system/Wrapper.astro";
+import Footer from "@components/Footer.astro";
 import ImageWithBlur from "@components/ImageWithBlur.astro";
 import Matomo from "@components/Matomo.astro";
 import Meta from "@components/Meta.astro";
 import DesignSystemSetup from "@design-system/DesignSystemSetup.astro";
 import { ActionBar } from "@features/action-bar/ActionBar";
 import { CommentsContainer } from "@features/comments/CommentsContainer";
-import { Image } from "astro:assets";
 
+import { Image } from "astro:assets";
 import type { CollectionEntry } from "astro:content";
 import FormattedDate from "../components/FormattedDate.astro";
-import Footer from "@components/Footer.astro";
 
 type Props = CollectionEntry<"blog">["data"];
 
 const {slug} = Astro.params;
 const { title, description, pubDate, headline, updatedDate, heroImage} = Astro.props;
-const searchImage = heroImage.src;
-console.log(searchImage);
 ---
 
 <html lang="de">
@@ -29,8 +28,8 @@ console.log(searchImage);
         <DesignSystemSetup/>
         <style>
             main {
-                margin: 0;
                 max-width: 100%;
+                margin: 0;
             }
 
             .hero-image {
@@ -38,24 +37,24 @@ console.log(searchImage);
             }
 
             .hero-image img {
-                border-radius: 12px;
-                box-shadow: var(--box-shadow);
                 display: block;
                 margin: 0 auto;
+                border-radius: 12px;
+                box-shadow: var(--box-shadow);
             }
 
             .prose {
-                color: var(--color-text);
-                margin: auto;
+                width: 720px;
                 max-width: calc(100% - 2em);
                 padding: 1em;
-                width: 720px;
+                margin: auto;
+                color: var(--color-text);
             }
 
             .title {
-                line-height: 1;
-                margin-bottom: 1em;
                 padding: 1em 0;
+                margin-bottom: 1em;
+                line-height: 1;
                 text-align: center;
             }
 
@@ -64,8 +63,8 @@ console.log(searchImage);
             }
 
             .date {
-                color: rgb(var(--gray));
                 margin-bottom: 0.5em;
+                color: rgb(var(--gray));
             }
 
             .last-updated-on {
@@ -91,8 +90,8 @@ console.log(searchImage);
                                         style="display: none"
                                         src={heroImage.src}
                                         alt={headline}
-                                        width={300}
-                                        height={300}
+                                        width={200}
+                                        height={200}
                                         quality={70}
                                         fit={"cover"}
                                         data-pagefind-meta="image[src]"
