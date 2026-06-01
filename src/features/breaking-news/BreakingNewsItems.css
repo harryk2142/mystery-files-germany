@@ -1,0 +1,10 @@
+.ticker-item::before,
+.ticker-item::after {
+    content: " ++ ";
+}
+.ticker-item {
+    display: inline-block;
+    font-size: 1.25rem;
+    white-space: nowrap;
+    animation: marquee 120s linear infinite;
+}

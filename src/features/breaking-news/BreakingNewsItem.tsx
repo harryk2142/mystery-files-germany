@@ -1,9 +1,12 @@
+// import { useBreakingNewsApi } from "@features/breaking-news/useBreakingNewsApi.ts";
 import { useEffect, useRef, useState } from "preact/hooks";
 
-export const BreakingNewsItem = () => {
-    const refreshTimeInSeconds = 60;
+export const BreakingNewsItem = ({ headlines, max }: { headlines: string[]; max: number }) => {
+    const refreshTimeInSeconds = 5;
     const [headline, setHeadline] = useState<string>("Lade News");
     const spanRef = useRef<HTMLSpanElement>(null);
+    // const { getHeadline } = useBreakingNewsApi();
+
     const isVisible = () => {
         if (spanRef === null) {
             return false;
@@ -17,36 +20,28 @@ export const BreakingNewsItem = () => {
             return false;
         }
 
-        const viewHeight =
-            window.innerHeight || document.documentElement.clientHeight;
-        const viewWidth =
-            window.innerWidth || document.documentElement.clientWidth;
+        const viewHeight = window.innerHeight || document.documentElement.clientHeight;
+        const viewWidth = window.innerWidth || document.documentElement.clientWidth;
 
-        return (
-            rect.top - rect.height >= 0 &&
-            rect.left + rect.width >= 0 &&
-            rect.bottom + rect.height <= viewHeight &&
-            rect.right - rect.width <= viewWidth
-        );
+        return rect.top - rect.height >= 0 && rect.left + rect.width >= 0 && rect.bottom + rect.height <= viewHeight && rect.right - rect.width <= viewWidth;
     };
-    const getHeadlines = async (): Promise<string[]> => {
-        const response = await fetch("./api/breaking-news/news-index.json");
 
-        if (!response.ok) {
-            return [];
-        }
+    // const getRandomHeadline = async (): Promise<string> => {
+    //     if (max === 0) {
+    //         return "";
+    //     }
+    //     const index = Math.floor(Math.random() * max);
+    //     const headline = await getHeadline(index);
+    //     return headline.headline;
+    // };
 
-        return await response.json();
-    };
     const getRandomHeadline = async (): Promise<string> => {
-        const headlines = await getHeadlines();
-
         if (headlines.length === 0) {
             return "";
         }
-
         const index = Math.floor(Math.random() * headlines.length);
-        return headlines[index] ?? "";
+        console.log(headlines[index]);
+        return headlines[index];
     };
 
     useEffect(() => {
