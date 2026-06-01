@@ -81,7 +81,7 @@ const { title, description, pubDate, headline, updatedDate, heroImage} = Astro.p
 
     <body>
         <NavigationBar/>
-        <main>
+        <main data-pagefind-body>
             <article>
                 <div>
                     {heroImage.src && (
@@ -90,11 +90,11 @@ const { title, description, pubDate, headline, updatedDate, heroImage} = Astro.p
                                         style="display: none"
                                         src={heroImage.src}
                                         alt={headline}
-                                        width={200}
-                                        height={200}
+                                        width={300}
+                                        height={300}
                                         quality={70}
                                         fit={"cover"}
-                                        data-pagefind-meta="image[src]"
+                                        data-pagefind-meta="image[src], image_alt[alt]"
                                 />
                                 <ImageWithBlur alt={heroImage.alt} src={heroImage.src}/>
 

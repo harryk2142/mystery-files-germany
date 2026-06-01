@@ -1,7 +1,8 @@
 ---
 import BlogpostCard from "@components/design-system/BlogpostCard.astro";
+import Pagefind from "@components/design-system/Pagefind.astro";
 import Wrapper from "@components/design-system/Wrapper.astro";
-import Pagefind from "@components/Pagefind.astro";
+
 import { BLOG_NAME, SITE_DESCRIPTION_SHORT } from "@consts";
 import BreakingNews from "@features/breaking-news/BreakingNews.astro";
 import MainLayout from "@layouts/MainLayout.astro";
@@ -40,7 +41,7 @@ const latest = posts[0];
   title={"Startseite von " + BLOG_NAME}
   description={SITE_DESCRIPTION_SHORT}
 >
-  <main>
+  <main data-pagefind-ignore>
     <Wrapper variant="m">
       <section>
         <BreakingNews />
@@ -67,12 +68,13 @@ const latest = posts[0];
 
                 return (
                   <article class={`${cardClass}`}>
-                    {post.data.heroImage.src?.src && (
+                    {post.data.heroImage.src && (
                       <BlogpostCard
                         pubDate={post.data.pubDate}
-                        thumbnail={post.data.heroImage.src.src}
-                        thumbnailAlt={""}
-                        thumbnailSmall=""
+                        image={{
+                            src: post.data.heroImage.src,
+                            alt: post.data.heroImage.alt,
+                        }}
                         title={post.data.title}
                         url={"/blog/" + post.id}
                       />

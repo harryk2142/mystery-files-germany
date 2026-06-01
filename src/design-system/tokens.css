@@ -59,6 +59,7 @@
     --text-2xl: clamp(2rem, 5vw, 3.25rem);
 
     /* Radius */
+    --radius-border: 16px;
     --radius-s: 2px;
     --radius-m: 4px;
     --radius-l: 8px;
