@@ -1,39 +1,35 @@
 ---
+import Card from "@components/design-system/Card.astro";
 import { BreakingNewsItems } from "./BreakingNewsItems";
 ---
-<section id={"section-breaking-news-ticker"}>
-  <div id={"breaking-news-ticker-header"} class={"text"}>
-    <span>BREAKING NEWS</span>
-  </div>
-  <div id={"ticker-container"}>
-      <BreakingNewsItems client:visible/>
-  </div>
-</section>
+<Card id={"section-breaking-news-ticker"}>
+    <div id={"breaking-news-ticker-header"}>
+        <span>BREAKING NEWS</span>
+    </div>
+    <div id={"ticker-container"}>
+        <BreakingNewsItems client:visible/>
+    </div>
+</Card>
 <style>
-  #section-breaking-news-ticker {
-    padding: 8px;
-    border: 1px solid lightgray;
-    border-radius: 16px;
 
     #breaking-news-ticker-header {
-      font-size: 1.25rem;
-      font-weight: bold;
+        font-size: 1.5rem;
+        font-weight: bold;
     }
 
     #ticker-container {
-      width: 100%;
-      overflow: hidden;
-      white-space: nowrap;
+        width: 100%;
+        overflow: hidden;
+        white-space: nowrap;
     }
-  }
 
-  @keyframes marquee {
-    0% {
-      transform: translateX(5%);
+    @keyframes marquee {
+        0% {
+            transform: translateX(5%);
+        }
+        100% {
+            transform: translateX(-100%);
+        }
     }
-    100% {
-      transform: translateX(-100%);
-    }
-  }
 </style>
 

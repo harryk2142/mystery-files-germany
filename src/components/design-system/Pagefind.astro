@@ -1,9 +1,10 @@
 ---
 import PagefindConfig from "astro-pagefind/components/PagefindConfig.astro";
+import Card from "./Card.astro";
 
 ---
 
-<section id="section-search">
+<Card id="section-search">
     <!--<Search className="pagefind-ui"-->
     <!--        instance="search"-->
     <!--        searchboxOptions={{-->
@@ -13,11 +14,10 @@ import PagefindConfig from "astro-pagefind/components/PagefindConfig.astro";
     <!--        }}-->
     <!--/>-->
     <PagefindConfig excerpt-length="0" instance="blog" baseUrl="/blog/" />
-
     <pagefind-input instance="blog"></pagefind-input>
     <pagefind-summary instance="blog"></pagefind-summary>
     <pagefind-results hide-sub-results={true} show-images={true} instance="blog"></pagefind-results>
-</section>
+</Card>
 <style>
     :root {
         /* Colors */
@@ -86,17 +86,9 @@ import PagefindConfig from "astro-pagefind/components/PagefindConfig.astro";
         /* Dropdown settings */
         --pf-dropdown-max-height: 280px;
         --pf-dropdown-z-index: 9999;
-    }
 
-    #section-search {
-        padding: 16px;
-        background-color: var(--color-page);
-        border-radius: var(--radius-border);
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-
-        input:hover, input:active, button:hover {
-            //background-color: lightgray !important;
-            //box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+        #section-search:hover {
+            box-shadow: var(--box-shadow);
         }
     }
 </style>

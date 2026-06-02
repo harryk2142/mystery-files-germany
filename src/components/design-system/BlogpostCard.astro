@@ -1,82 +1,66 @@
 ---
 import Card, { type CardProps } from "@components/design-system/Card.astro";
-import type { ImageMetadata } from "astro";
 type Props = {
     pubDate: Date; title: string; url: string;
 } & CardProps;
 const {pubDate, image, title, url} = Astro.props;
 ---
 <a href={url}>
-    <Card image={image}>
-        <div class="card-content">
-            <span class="card-date">
+    <Card class="blogpost-card" image={image}>
+        <div class="blogpost-content">
+            <span class="date">
                 <time data-pagefind-sort="date" datetime={pubDate.toISOString()}>
                     {pubDate.toLocaleDateString("de-DE", {
-                        year: "numeric",
-                        month: "short",
-                        day: "numeric",
+                        year: "numeric", month: "short", day: "numeric",
                     })}
                 </time>
             </span>
-            <span class="card-summary">{title}</span>
+            <span class="summary">{title}</span>
         </div>
     </Card>
 </a>
 <style>
     a {
         text-decoration: none;
+        color: var(--color-text);
     }
-    .card-date {
+
+    .blogpost-card {
+        container-name: card;
+        container-type: size;
+    }
+
+    .blogpost-card:hover {
+        box-shadow: var(--box-shadow);
+    }
+
+    .date {
+        padding: 8px 16px;
         display: block;
         font-size: 1rem;
         font-weight: bold;
     }
 
-    .card-summary {
-
+    .summary {
+        padding: 8px 16px;
         display: block;
-
-        //margin-top: 0.5rem;
         font-size: 1.5rem;
-        //font-weight: 700;
         text-wrap: pretty;
         overflow: hidden;
         display: -webkit-box;
         -webkit-box-orient: vertical;
     }
 
-
     @container card (max-height: 40rem) {
-        .card-summary {
+        .summary {
             -webkit-line-clamp: 3;
         }
     }
 
     @container card (max-height: 20rem) {
-        .card-summary {
+        .summary {
             -webkit-line-clamp: 1;
         }
     }
-
-    @container card (aspect-ratio > 16 / 9) {
-        .card-link {
-            //display: flex;
-            //flex-direction: row;
-            //.card-image-container{
-            //    min-width: 60%;
-            //}
-            //.card-summary{
-            //    -webkit-line-clamp: 5;
-            //}
-        }
-    }
-
-    //@container card (aspect-ratio <= 16 / 9){
-    //    .card-link {
-    //        .card-summary{
-    //            -webkit-line-clamp: 2;
-    //        }
-    //    }
-    //}
 
 </style>

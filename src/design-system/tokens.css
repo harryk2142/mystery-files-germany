@@ -4,7 +4,8 @@
     --color-dark: #1f1f1f;
     --color-white: #fff;
     --color-black: #1f1f1f;
-    --color-border: rgb(31 31 31 / 13%);
+    --color-border: lightgray;
+    /*--color-border: rgb(31 31 31 / 13%);*/
     --color-text: #1f1f1f;
     --color-surface: #fff;
     --color-surface-muted: #efefeb;

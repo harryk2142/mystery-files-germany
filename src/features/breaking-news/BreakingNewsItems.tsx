@@ -36,12 +36,7 @@ export const BreakingNewsItems = () => {
             <BreakingNewsItem headlines={breakingNews} max={max.total} />
         </div>
     ) : (
-        <div
-            class={"ticket-item"}
-            style={{
-                fontSize: "1.25rem",
-            }}
-        >
+        <div class={"ticket-item"}>
             <span class={"ticker-item-span"}>Lade Breaking News</span>
         </div>
     );
