@@ -31,3 +31,4 @@ https://github.com/eremannisto/astro-metadata/tree/main
 https://www.larrymyers.com/posts/how-to-create-an-astro-markdown-plugin/
 https://kpratapx.medium.com/add-host-firebase-project-with-pnpm-26f914ee720c
 https://github.com/morinokami/astro-tunnel
+https://github.com/withastro/astro.build/blob/main/biome.json
