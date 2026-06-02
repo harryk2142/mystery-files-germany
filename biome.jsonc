@@ -81,29 +81,26 @@
     }
   },
   "overrides": [
-    //    {
-    //      "includes": [
-    //        "**/*.svelte",
-    //        "**/*.astro",
-    //        "**/*.vue"
-    //      ],
-    //      "linter": {
-    //        "rules": {
-    //          "suspicious": {
-    //            "noExplicitAny": "info"
-    //          },
-    //          "style": {
-    //            "useConst": "off",
-    //            "useImportType": "off"
-    //          },
-    //          "correctness": {
-    //            "noUnusedVariables": "off",
-    //            "noUnusedImports": "off"
-    //          }
-    //        }
-    //      }
-    //    },
-
+    {
+      "includes": [
+        "**/*.astro"
+      ],
+      "linter": {
+        "rules": {
+          "correctness": {
+            "noUnusedVariables": "off",
+            "noUnusedImports": "off"
+          },
+          "style": {
+            "useConst": "off",
+            "useImportType": "off"
+          },
+          "suspicious": {
+            "noExplicitAny": "info"
+          }
+        }
+      }
+    },
     {
       "includes": [
         "**/*.tsx",
