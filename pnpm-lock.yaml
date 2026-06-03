@@ -8,12 +8,15 @@ importers:
 
   .:
     dependencies:
+      '@astrojs/markdown-remark':
+        specifier: 7.2.0
+        version: 7.2.0
       '@astrojs/mdx':
         specifier: 6.0.1
-        version: 6.0.1(astro@6.4.2(@types/node@25.9.1)(rollup@4.61.0)(tsx@4.22.4)(yaml@2.9.0))
+        version: 6.0.1(astro@6.4.3(@types/node@25.9.1)(rollup@4.61.0)(tsx@4.22.4)(yaml@2.9.0))
       '@astrojs/preact':
-        specifier: 5.1.4
-        version: 5.1.4(@babel/core@7.29.7)(@types/node@25.9.1)(preact@10.29.2)(rollup@4.61.0)(tsx@4.22.4)(yaml@2.9.0)
+        specifier: 5.1.5
+        version: 5.1.5(@babel/core@7.29.7)(@types/node@25.9.1)(preact@10.29.2)(rollup@4.61.0)(tsx@4.22.4)(yaml@2.9.0)
       '@astrojs/rss':
         specifier: 4.0.18
         version: 4.0.18
@@ -27,11 +30,11 @@ importers:
         specifier: 1.1.0
         version: 1.1.0(nanostores@1.3.0)(preact@10.29.2)
       astro:
-        specifier: 6.4.2
-        version: 6.4.2(@types/node@25.9.1)(rollup@4.61.0)(tsx@4.22.4)(yaml@2.9.0)
+        specifier: 6.4.3
+        version: 6.4.3(@types/node@25.9.1)(rollup@4.61.0)(tsx@4.22.4)(yaml@2.9.0)
       astro-rehype-relative-markdown-links:
         specifier: 0.19.0
-        version: 0.19.0(astro@6.4.2(@types/node@25.9.1)(rollup@4.61.0)(tsx@4.22.4)(yaml@2.9.0))
+        version: 0.19.0(astro@6.4.3(@types/node@25.9.1)(rollup@4.61.0)(tsx@4.22.4)(yaml@2.9.0))
       firebase:
         specifier: 12.14.0
         version: 12.14.0
@@ -59,10 +62,10 @@ importers:
         version: 5.2.0(stylelint@17.12.0(typescript@6.0.3))
       astro-pagefind:
         specifier: 2.0.0
-        version: 2.0.0(astro@6.4.2(@types/node@25.9.1)(rollup@4.61.0)(tsx@4.22.4)(yaml@2.9.0))
+        version: 2.0.0(astro@6.4.3(@types/node@25.9.1)(rollup@4.61.0)(tsx@4.22.4)(yaml@2.9.0))
       concurrently:
-        specifier: 10.0.1
-        version: 10.0.1
+        specifier: 10.0.3
+        version: 10.0.3
       dotenv:
         specifier: 17.4.2
         version: 17.4.2
@@ -145,8 +148,8 @@ packages:
       '@astrojs/markdown-satteri':
         optional: true
 
-  '@astrojs/preact@5.1.4':
-    resolution: {integrity: sha512-KqP1oNWYUc4ljf8zlWWuZ8RGpTfqS7vX/cNheyJegqZ+KV0uMZy8NIoGi0L1++slhHN4ci/IRiVjoDq6oUJtZg==}
+  '@astrojs/preact@5.1.5':
+    resolution: {integrity: sha512-it2XeiqNru7cAl8b3WZc/ZGrUC5njxSjs2JzpG/gaPyMAIALEMmb9nw3+2yZZw4dub6ofAQr4x4xTO0NAEyEsA==}
     engines: {node: '>=22.12.0'}
     peerDependencies:
       preact: ^10.6.5
@@ -1968,8 +1971,8 @@ packages:
     peerDependencies:
       astro: '>=2 <7'
 
-  astro@6.4.2:
-    resolution: {integrity: sha512-8H89CH2dKL5SCU99OCqdU9BGjmPkSJqaPurywj5XMo7eMFGUFD3vsNhdEKnEh4mK4LgGje3/QDTTSIIGst0G0Q==}
+  astro@6.4.3:
+    resolution: {integrity: sha512-heArIk8zLcxuoj1WgBH2zGdAD8zKSU1mEcBvS6hYMEHRPlbtvB+4Y8ri9Z27hzeryvGaFgrH32zjghEfV2y07g==}
     engines: {node: '>=22.12.0', npm: '>=9.6.5', pnpm: '>=7.1.0'}
     hasBin: true
 
@@ -2008,16 +2011,16 @@ packages:
   balanced-match@1.0.2:
     resolution: {integrity: sha512-3oSeUO0TMV67hN1AmbXsK4yaqU7tjiHlbxRDZOpH0KW9+CeX4bRAaX0Anxt0tx2MrpRpWwQaPwIlISEJhYU5Pw==}
 
-  bare-events@2.8.3:
-    resolution: {integrity: sha512-HdUm8EMQBLaJvGUdidNNbqpA1kYkwNcb+MYxkxCLAPJGQzlv9J0C24h8V65Z4c5GLd/JEALDvpFCQgpLJqc0zw==}
+  bare-events@2.9.1:
+    resolution: {integrity: sha512-Z0oHEHAFDZkffN8Qc39zNZjQlMDkPJRyyyZieU1VH7u8c5S+qHZ2S8ixdKIAxEjfHO7FJxXmJWgteOghVanIsg==}
     peerDependencies:
       bare-abort-controller: '*'
     peerDependenciesMeta:
       bare-abort-controller:
         optional: true
 
-  bare-fs@4.7.1:
-    resolution: {integrity: sha512-WDRsyVN52eAx/lBamKD6uyw8H4228h/x0sGGGegOamM2cd7Pag88GfMQalobXI+HaEUxpCkbKQUDOQqt9wawRw==}
+  bare-fs@4.7.2:
+    resolution: {integrity: sha512-aTvMFUWkBmjzKtEQMDGGDNF8bkfpD5N1b/FCwt7A3wrU4t1o/e/85Wzkluh6JlODCjqVESYCkQCdTXqZ9G7VFg==}
     engines: {bare: '>=1.16.0'}
     peerDependencies:
       bare-buffer: '*'
@@ -2330,8 +2333,8 @@ packages:
   concat-map@0.0.1:
     resolution: {integrity: sha512-/Srv4dswyQNBfohGpz9o6Yb3Gz3SrUDqBH5rTuhGR7ahtlbYKnVxw2bCFMRljaA7EXHaXZ8wsHdodFvbkhKmqg==}
 
-  concurrently@10.0.1:
-    resolution: {integrity: sha512-vN61cP9COzctyhBqKUOh9YHqU70hYPnaHqNpXdBzM9PcwIpfPAvNK06hjm4gEJEGuvy4GBairO6uU32+FKpS4g==}
+  concurrently@10.0.3:
+    resolution: {integrity: sha512-hc3LH4UaKWd/bbyDK/IGVa4RB6PtQ3CUYwtrkzqHn+wIG3Hr5fhpRlk0L/gCa8ZE1L/Ufj50Zho69cI5w8SQBA==}
     engines: {node: '>=22'}
     hasBin: true
 
@@ -2592,8 +2595,8 @@ packages:
   ee-first@1.1.1:
     resolution: {integrity: sha512-WMwm9LhRUo+WUaRN+vRuETqG89IgZphVSNkdFgeb6sS/E4OrDIN7t48CAewSHXc6C8lefD8KKfr5vY61brQlow==}
 
-  electron-to-chromium@1.5.364:
-    resolution: {integrity: sha512-G/dYE3+AYhyHwzTwg8UbnXf7zqMERYh7l2jJ3QujhFsH8agSYwtnGAR2aZ7f0AakIKJXd5En/Hre4igIUrdlYw==}
+  electron-to-chromium@1.5.365:
+    resolution: {integrity: sha512-xfip4u1QF1s+URFqpA6N+OeFpDGpN7VJz1f3MO3bVL0QYBjpGiZ5/Of7kugvM+o8TTqmanUlviHN3c8M9vYWCw==}
 
   emmet@2.4.11:
     resolution: {integrity: sha512-23QPJB3moh/U9sT4rQzGgeyyGIrcM+GH5uVYg2C6wZIxAIJq7Ng3QLT79tl8FUwDXhyq9SusfknOrofAKqvgyQ==}
@@ -4015,8 +4018,8 @@ packages:
   node-mock-http@1.0.4:
     resolution: {integrity: sha512-8DY+kFsDkNXy1sJglUfuODx1/opAGJGyrTuFqEoN90oRc2Vk0ZbD4K2qmKXBBEhZQzdKHIVfEJpDU8Ak2NJEvQ==}
 
-  node-releases@2.0.46:
-    resolution: {integrity: sha512-GYVXHE2KnrzAfsAjl4uP++evGFCrAU1jta4ubEjIG7YWt/64Gqv66a30yKwWczVjA6j3bM4nBwH7Pk1JmDHaxQ==}
+  node-releases@2.0.47:
+    resolution: {integrity: sha512-Uzmd6LXpouKo8EUK68IjH4+E01w/hXyV3R3g/geCJo+rXLNfh1xucB+LOzYEOQPSiUK3h/xZf0cQGcSsmyL2Og==}
     engines: {node: '>=18'}
 
   nopt@9.0.0:
@@ -5660,13 +5663,13 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@astrojs/mdx@6.0.1(astro@6.4.2(@types/node@25.9.1)(rollup@4.61.0)(tsx@4.22.4)(yaml@2.9.0))':
+  '@astrojs/mdx@6.0.1(astro@6.4.3(@types/node@25.9.1)(rollup@4.61.0)(tsx@4.22.4)(yaml@2.9.0))':
     dependencies:
       '@astrojs/internal-helpers': 0.10.0
       '@astrojs/markdown-remark': 7.2.0
       '@mdx-js/mdx': 3.1.1
       acorn: 8.16.0
-      astro: 6.4.2(@types/node@25.9.1)(rollup@4.61.0)(tsx@4.22.4)(yaml@2.9.0)
+      astro: 6.4.3(@types/node@25.9.1)(rollup@4.61.0)(tsx@4.22.4)(yaml@2.9.0)
       es-module-lexer: 2.1.0
       estree-util-visit: 2.0.0
       hast-util-to-html: 9.0.5
@@ -5680,7 +5683,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@astrojs/preact@5.1.4(@babel/core@7.29.7)(@types/node@25.9.1)(preact@10.29.2)(rollup@4.61.0)(tsx@4.22.4)(yaml@2.9.0)':
+  '@astrojs/preact@5.1.5(@babel/core@7.29.7)(@types/node@25.9.1)(preact@10.29.2)(rollup@4.61.0)(tsx@4.22.4)(yaml@2.9.0)':
     dependencies:
       '@astrojs/internal-helpers': 0.10.0
       '@preact/preset-vite': 2.10.5(@babel/core@7.29.7)(preact@10.29.2)(rollup@4.61.0)(vite@7.3.5(@types/node@25.9.1)(tsx@4.22.4)(yaml@2.9.0))
@@ -7458,16 +7461,16 @@ snapshots:
 
   astring@1.9.0: {}
 
-  astro-pagefind@2.0.0(astro@6.4.2(@types/node@25.9.1)(rollup@4.61.0)(tsx@4.22.4)(yaml@2.9.0)):
+  astro-pagefind@2.0.0(astro@6.4.3(@types/node@25.9.1)(rollup@4.61.0)(tsx@4.22.4)(yaml@2.9.0)):
     dependencies:
       '@pagefind/component-ui': 1.5.2
-      astro: 6.4.2(@types/node@25.9.1)(rollup@4.61.0)(tsx@4.22.4)(yaml@2.9.0)
+      astro: 6.4.3(@types/node@25.9.1)(rollup@4.61.0)(tsx@4.22.4)(yaml@2.9.0)
       pagefind: 1.5.2
       sirv: 3.0.2
 
-  astro-rehype-relative-markdown-links@0.19.0(astro@6.4.2(@types/node@25.9.1)(rollup@4.61.0)(tsx@4.22.4)(yaml@2.9.0)):
+  astro-rehype-relative-markdown-links@0.19.0(astro@6.4.3(@types/node@25.9.1)(rollup@4.61.0)(tsx@4.22.4)(yaml@2.9.0)):
     dependencies:
-      astro: 6.4.2(@types/node@25.9.1)(rollup@4.61.0)(tsx@4.22.4)(yaml@2.9.0)
+      astro: 6.4.3(@types/node@25.9.1)(rollup@4.61.0)(tsx@4.22.4)(yaml@2.9.0)
       catch-unknown: 2.0.0
       debug: 4.4.3
       github-slugger: 2.0.0
@@ -7479,7 +7482,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  astro@6.4.2(@types/node@25.9.1)(rollup@4.61.0)(tsx@4.22.4)(yaml@2.9.0):
+  astro@6.4.3(@types/node@25.9.1)(rollup@4.61.0)(tsx@4.22.4)(yaml@2.9.0):
     dependencies:
       '@astrojs/compiler': 4.0.0
       '@astrojs/internal-helpers': 0.10.0
@@ -7595,13 +7598,13 @@ snapshots:
 
   balanced-match@1.0.2: {}
 
-  bare-events@2.8.3: {}
+  bare-events@2.9.1: {}
 
-  bare-fs@4.7.1:
+  bare-fs@4.7.2:
     dependencies:
-      bare-events: 2.8.3
+      bare-events: 2.9.1
       bare-path: 3.0.1
-      bare-stream: 2.13.1(bare-events@2.8.3)
+      bare-stream: 2.13.1(bare-events@2.9.1)
       bare-url: 2.4.3
       fast-fifo: 1.3.2
     transitivePeerDependencies:
@@ -7614,12 +7617,12 @@ snapshots:
     dependencies:
       bare-os: 3.9.1
 
-  bare-stream@2.13.1(bare-events@2.8.3):
+  bare-stream@2.13.1(bare-events@2.9.1):
     dependencies:
       streamx: 2.26.0
       teex: 1.0.1
     optionalDependencies:
-      bare-events: 2.8.3
+      bare-events: 2.9.1
     transitivePeerDependencies:
       - react-native-b4a
 
@@ -7718,8 +7721,8 @@ snapshots:
     dependencies:
       baseline-browser-mapping: 2.10.33
       caniuse-lite: 1.0.30001793
-      electron-to-chromium: 1.5.364
-      node-releases: 2.0.46
+      electron-to-chromium: 1.5.365
+      node-releases: 2.0.47
       update-browserslist-db: 1.2.3(browserslist@4.28.2)
 
   buffer-crc32@1.0.0: {}
@@ -7933,7 +7936,7 @@ snapshots:
 
   concat-map@0.0.1: {}
 
-  concurrently@10.0.1:
+  concurrently@10.0.3:
     dependencies:
       chalk: 5.6.2
       rxjs: 7.8.2
@@ -8167,7 +8170,7 @@ snapshots:
 
   ee-first@1.1.1: {}
 
-  electron-to-chromium@1.5.364: {}
+  electron-to-chromium@1.5.365: {}
 
   emmet@2.4.11:
     dependencies:
@@ -8360,7 +8363,7 @@ snapshots:
 
   events-universal@1.0.1:
     dependencies:
-      bare-events: 2.8.3
+      bare-events: 2.9.1
     transitivePeerDependencies:
       - bare-abort-controller
 
@@ -10213,7 +10216,7 @@ snapshots:
 
   node-mock-http@1.0.4: {}
 
-  node-releases@2.0.46: {}
+  node-releases@2.0.47: {}
 
   nopt@9.0.0:
     dependencies:
@@ -11368,7 +11371,7 @@ snapshots:
   tar-stream@3.2.0:
     dependencies:
       b4a: 1.8.1
-      bare-fs: 4.7.1
+      bare-fs: 4.7.2
       fast-fifo: 1.3.2
       streamx: 2.26.0
     transitivePeerDependencies:

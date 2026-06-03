@@ -1,5 +1,6 @@
 // @ts-check
 
+import { unified } from "@astrojs/markdown-remark";
 import mdx from "@astrojs/mdx";
 import preact from "@astrojs/preact";
 import sitemap from "@astrojs/sitemap";
@@ -21,9 +22,12 @@ export default defineConfig({
         port: 3000,
     },
     markdown: {
-        rehypePlugins: [
-            rehypeAstroRelativeMarkdownLinks,
-        ],
+        processor: unified({
+            rehypePlugins: [
+                rehypeAstroRelativeMarkdownLinks,
+            ],
+            remarkPlugins: [],
+        }),
         shikiConfig: {
             theme: "dark-plus",
         },
