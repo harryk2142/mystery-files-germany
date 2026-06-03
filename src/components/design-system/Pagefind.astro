@@ -1,10 +1,17 @@
 ---
 import PagefindConfig from "astro-pagefind/components/PagefindConfig.astro";
+
 import Card from "./Card.astro";
 
 ---
 
 <Card id="section-search">
+    <div class="flex col w100">
+        <PagefindConfig excerpt-length="0" instance="blog" baseUrl="/blog/" />
+        <pagefind-input instance="blog"></pagefind-input>
+        <pagefind-summary instance="blog"></pagefind-summary>
+        <pagefind-results hide-sub-results={true} show-images={true} instance="blog"></pagefind-results>
+    </div>
     <!--<Search className="pagefind-ui"-->
     <!--        instance="search"-->
     <!--        searchboxOptions={{-->
@@ -13,10 +20,7 @@ import Card from "./Card.astro";
     <!--            }, showImages: true, pageSize: 5, openFilters: ["Tags", "Type"]-->
     <!--        }}-->
     <!--/>-->
-    <PagefindConfig excerpt-length="0" instance="blog" baseUrl="/blog/" />
-    <pagefind-input instance="blog"></pagefind-input>
-    <pagefind-summary instance="blog"></pagefind-summary>
-    <pagefind-results hide-sub-results={true} show-images={true} instance="blog"></pagefind-results>
+
 </Card>
 <style>
     :root {

@@ -1,6 +1,8 @@
 ---
-import { Image } from 'astro:assets';
 import copyright from "@assets/icons/by-nc-sa.eu.svg"
+
+import {Image} from 'astro:assets';
+
 const getVersion = (date: Date) => {
     const mm = date.getMonth() + 1; // getMonth() is zero-based
     const dd = date.getDate();
@@ -21,29 +23,31 @@ const isDev = import.meta.env.DEV;
         &copy; {today.getFullYear()} Kramer. V {version}
         {isDev && <span>DEV</span>}
     </span>
-    <Image alt="Copyright Icon" src={copyright} />
+    <Image alt="Copyright Icon" src={copyright}/>
 </footer>
 <style>
-    footer {
-        background-color: var(--color-primary);
-        border: 1px solid lightgray;
-        text-align: center;
-        position: fixed;
-        bottom: 0;
-        width: 100%;
-        font-size: 1rem;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        opacity: 0.9;
+  footer {
+    position: fixed;
+    bottom: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    font-size: 1rem;
+    text-align: center;
 
-        :first-child {
-            padding-right: 1rem;
-        }
+    background-color: var(--color-primary);
+    border: 1px solid lightgray;
+    opacity: 0.9;
+
+    :first-child {
+      padding-right: 1rem;
     }
+  }
 </style>
 <style is:inline>
-    *:has(+ footer) {
-        margin-bottom: 60px;
-    }
+  *:has(+ footer) {
+    margin-bottom: 60px;
+  }
 </style>

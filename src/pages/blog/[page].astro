@@ -1,14 +1,15 @@
 ---
-import { type CollectionEntry, getCollection } from "astro:content";
-import NavigationBar from "@components/design-system/NavigationBar.astro";
-import type { Page } from "astro";
-import Pagination, { type Props as PageProps } from "../../components/widgets/Pagination.astro";
-import { BLOG_NAME } from "@consts";
 import BlogpostCard from "@components/design-system/BlogpostCard.astro";
-import Meta from "@components/Meta.astro";
-import DesignSystemSetup from "@design-system/DesignSystemSetup.astro";
-import Matomo from "@components/Matomo.astro";
+import NavigationBar from "@components/design-system/NavigationBar.astro";
 import Wrapper from "@components/design-system/Wrapper.astro";
+import Matomo from "@components/Matomo.astro";
+import Meta from "@components/Meta.astro";
+import { BLOG_NAME } from "@consts";
+import DesignSystemSetup from "@design-system/DesignSystemSetup.astro";
+import type { Page } from "astro";
+
+import { type CollectionEntry, getCollection } from "astro:content";
+import Pagination, { type Props as PageProps } from "../../components/widgets/Pagination.astro";
 
 export async function getStaticPaths({ paginate }) {
     const posts = (await getCollection("blog"))
@@ -90,14 +91,10 @@ const paginationProps: PageProps = {
 </html>
 <style>
     h1 {
+        display: block;
         margin-top: 1rem;
         text-align: center;
-        display: block;
     }
-
-    //.card{
-    //    height: 100%;
-    //}
 
     .pagination-container {
         display: flex;
@@ -107,9 +104,9 @@ const paginationProps: PageProps = {
     }
 
     #blogposts {
-        margin-top: 2rem;
-        padding-inline: 4px;
         width: 100%;
+        padding-inline: 4px;
+        margin-top: 2rem;
         container-name: blogposts;
         container-type: inline-size;
     }
@@ -119,7 +116,7 @@ const paginationProps: PageProps = {
         gap: var(--space-2);
 
         .grid-item {
-            padding: 2px;
+          padding: 2px;
             transition-duration: 0.1s;
         }
     }
@@ -129,7 +126,7 @@ const paginationProps: PageProps = {
             grid-template-columns: auto auto auto auto;
 
             .grid-item {
-                height: 24rem;
+                height: 32rem;
             }
 
             .grid-item:hover {

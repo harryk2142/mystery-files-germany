@@ -1,61 +1,62 @@
 .action-bar {
+  bottom: 64px;
+  z-index: 3;
+  display: flex;
+  text-align: center;
+
+  .action-bar-body {
+    position: sticky;
     bottom: 64px;
     display: flex;
-    text-align: center;
+    gap: 16px;
+    justify-content: center;
 
-    .action-bar-body {
-        position: sticky;
-        bottom: 64px;
-        display: flex;
-        gap: 16px;
-        justify-content: center;
+    width: fit-content;
+    height: fit-content;
+    padding: 16px;
+    cursor: pointer;
+    border-color: var(--color-accent);
 
-        width: fit-content;
-        height: fit-content;
-        padding: 16px;
-        cursor: pointer;
-        border-color: var(--accent);
+    border-radius: var(--radius-l);
 
-        border-radius: var(--radius-l);
+    box-shadow: var(--box-shadow);
+    -webkit-backdrop-filter: blur(32px);
+    backdrop-filter: blur(32px);
 
-        box-shadow: var(--box-shadow);
-        -webkit-backdrop-filter: blur(32px);
-        backdrop-filter: blur(32px);
-
-        button {
-            aspect-ratio: 1;
-            background-color: var(--color-primary);
-        }
-
-        .action-text {
-            font-size: 1.25rem;
-            text-align: center;
-        }
-
-        img {
-            width: 100%;
-            max-width: 24px;
-            height: auto;
-            aspect-ratio: 1;
-        }
+    button {
+      aspect-ratio: 1;
+      background-color: var(--color-primary);
     }
+
+    .action-text {
+      font-size: 1.25rem;
+      text-align: center;
+    }
+
+    img {
+      width: 100%;
+      max-width: 24px;
+      height: auto;
+      aspect-ratio: 1;
+    }
+  }
 }
 
 @media (min-width: 1200px) {
-    .action-bar {
-        position: fixed;
-        top: 20%;
-        right: 1rem;
+  .action-bar {
+    position: fixed;
+    top: 20%;
+    right: 1rem;
 
-        .action-bar-body {
-            flex-direction: column;
-        }
+    .action-bar-body {
+      flex-direction: column;
     }
+  }
 }
 
 @media (max-width: 1199px) {
-    .action-bar {
-        position: sticky;
-        justify-content: space-around;
-    }
+  .action-bar {
+    position: sticky;
+    justify-content: space-around;
+  }
 }

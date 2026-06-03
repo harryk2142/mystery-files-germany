@@ -2,107 +2,112 @@
 import BlogpostCard from "@components/design-system/BlogpostCard.astro";
 import Pagefind from "@components/design-system/Pagefind.astro";
 import Wrapper from "@components/design-system/Wrapper.astro";
-
-import { BLOG_NAME, SITE_DESCRIPTION_SHORT } from "@consts";
+import {BLOG_NAME, SITE_DESCRIPTION_SHORT} from "@consts";
 import BreakingNews from "@features/breaking-news/BreakingNews.astro";
 import MainLayout from "@layouts/MainLayout.astro";
 
 import {
-  getCollection,
-  type InferEntrySchema,
-  type RenderedContent
+    getCollection,
+    type InferEntrySchema,
+    type RenderedContent
 } from "astro:content";
 
 const shuffle = (
-  array: {
-    id: string;
-    body?: string;
-    collection: "blog";
-    data: InferEntrySchema<"blog">;
-    rendered?: RenderedContent;
-    filePath?: string;
-  }[]
+    array: {
+        id: string;
+        body?: string;
+        collection: "blog";
+        data: InferEntrySchema<"blog">;
+        rendered?: RenderedContent;
+        filePath?: string;
+    }[]
 ) => {
-  return array
-    .map((entry) => ({ sort: Math.random(), value: entry }))
-    .sort((a, b) => a.sort - b.sort)
-    .map((entry) => entry.value);
+    return array
+        .map((entry) => ({sort: Math.random(), value: entry}))
+        .sort((a, b) => a.sort - b.sort)
+        .map((entry) => entry.value);
 };
 // const posts = (await getCollection("blog")).filter((e) => !e.data.draft).sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 const posts = shuffle(await getCollection("blog"))
-  .filter((e) => !e.data.draft)
-  .slice(0, 12);
+    .filter((e) => !e.data.draft)
+    .slice(0, 12);
 // .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 
 const latest = posts[0];
 ---
 
 <MainLayout
-  title={"Startseite von " + BLOG_NAME}
-  description={SITE_DESCRIPTION_SHORT}
+        title={"Startseite von " + BLOG_NAME}
+        description={SITE_DESCRIPTION_SHORT}
 >
-  <main data-pagefind-ignore>
-    <Wrapper variant="m">
-      <section>
-        <BreakingNews />
-      </section>
-    </Wrapper>
-      <Wrapper>
-          <Pagefind/>
-      </Wrapper>
-    <Wrapper>
-      <div>
-        <section id="area-title" class="box text-center">
-          <span>Welcome to</span>
-          <h1>{BLOG_NAME}</h1>
-        </section>
-        <div id="container-main" class="box">
-          <div class="grid-blogposts">
-            {
-              posts.map((post, index) => {
-                let cardClass = "card-small";
-                if (index === 0) cardClass = "card-featured";
-                else if (index % 8 === 0) cardClass = "card-big";
-                else if (index % 3 === 0) cardClass = "card-portrait";
-                // else if (index % 3 === 0) cardClass = "card-landscape";
+    <main data-pagefind-ignore>
+        <Wrapper variant="m">
+            <div class="panel">
+                <BreakingNews/>
+            </div>
+        </Wrapper>
 
-                return (
-                  <article class={`${cardClass}`}>
-                    {post.data.heroImage.src && (
-                      <BlogpostCard
-                        pubDate={post.data.pubDate}
-                        image={{
-                            src: post.data.heroImage.src,
-                            alt: post.data.heroImage.alt,
-                        }}
-                        title={post.data.title}
-                        url={"/blog/" + post.id}
-                      />
-                    )}
-                  </article>
-                );
-              })
-            }
-          </div>
-        </div>
-      </div>
-    </Wrapper>
-  </main>
+        <Wrapper variant="s">
+            <section id="area-title" class="box text-center">
+                <span>Welcome to</span>
+                <h1>{BLOG_NAME}</h1>
+            </section>
+        </Wrapper>
+        <Wrapper variant="s">
+            <div class="panel">
+                <Pagefind/>
+            </div>
+        </Wrapper>
+        <Wrapper>
+            <div>
+
+                <div id="container-main" class="box">
+                    <div class="grid-blogposts">
+                        {
+                            posts.map((post, index) => {
+                                let cardClass = "card-small";
+                                if (index === 0) cardClass = "card-featured";
+                                else if (index % 8 === 0) cardClass = "card-big";
+                                else if (index % 3 === 0) cardClass = "card-portrait";
+                                // else if (index % 3 === 0) cardClass = "card-landscape";
+
+                                return (
+                                        <article class={`${cardClass}`}>
+                                            {post.data.heroImage.src && (
+                                                    <BlogpostCard
+                                                            pubDate={post.data.pubDate}
+                                                            image={{
+                                                                src: post.data.heroImage.src,
+                                                                alt: post.data.heroImage.alt,
+                                                            }}
+                                                            title={post.data.title}
+                                                            url={"/blog/" + post.id}
+                                                    />
+                                            )}
+                                        </article>
+                                );
+                            })
+                        }
+                    </div>
+                </div>
+            </div>
+        </Wrapper>
+    </main>
 </MainLayout>
 <style>
   .grid-container {
-    container-name: grid-container;
-    container-type: inline-size;
     display: flex;
     flex-direction: column;
+    container-name: grid-container;
+    container-type: inline-size;
   }
 
   #container-main {
-    container-name: container-main;
-    container-type: inline-size;
     display: flex;
     flex-direction: column;
     width: 100%;
+    container-name: container-main;
+    container-type: inline-size;
   }
 
   #grid-container {
@@ -125,35 +130,35 @@ const latest = posts[0];
   @container container-main (min-width: 900px) {
     .grid-blogposts {
       display: grid;
-      gap: 16px;
-      grid-auto-flow: dense; /* SEHR WICHTIG: Füllt Löcher automatisch auf! */
-      grid-auto-rows: minmax(120px, auto);
       grid-template-columns: repeat(8, 1fr);
+      grid-auto-rows: minmax(7rem, auto);
+      grid-auto-flow: dense; /* SEHR WICHTIG: Füllt Löcher automatisch auf! */
+      gap: 16px;
     }
 
     .card-featured {
-      grid-column: span 8;
       grid-row: span 4;
+      grid-column: span 8;
     }
 
     .card-big {
-      grid-column: span 4;
       grid-row: span 4;
+      grid-column: span 4;
     }
 
     .card-landscape {
-      grid-column: span 4;
       grid-row: span 2;
+      grid-column: span 4;
     }
 
     .card-portrait {
-      grid-column: span 2;
       grid-row: span 4;
+      grid-column: span 2;
     }
 
     .card-small {
-      grid-column: span 2;
       grid-row: span 4;
+      grid-column: span 2;
     }
   }
 
@@ -161,35 +166,35 @@ const latest = posts[0];
   @container container-main (650px < width) and (width < 900px) {
     .grid-blogposts {
       display: grid;
-      gap: 16px;
-      grid-auto-flow: dense; /* SEHR WICHTIG: Füllt Löcher automatisch auf! */
-      grid-auto-rows: minmax(240px, auto);
       grid-template-columns: repeat(4, 1fr);
+      grid-auto-rows: minmax(240px, auto);
+      grid-auto-flow: dense; /* SEHR WICHTIG: Füllt Löcher automatisch auf! */
+      gap: 16px;
     }
 
     .card-featured {
-      grid-column: span 4;
       grid-row: span 2;
+      grid-column: span 4;
     }
 
     .card-big {
-      grid-column: span 2;
       grid-row: span 2;
+      grid-column: span 2;
     }
 
     .card-landscape {
-      grid-column: span 2;
       grid-row: span 2;
+      grid-column: span 2;
     }
 
     .card-portrait {
-      grid-column: span 2;
       grid-row: span 2;
+      grid-column: span 2;
     }
 
     .card-small {
-      grid-column: span 2;
       grid-row: span 2;
+      grid-column: span 2;
     }
   }
 

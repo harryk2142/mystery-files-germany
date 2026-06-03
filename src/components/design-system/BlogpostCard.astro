@@ -1,5 +1,6 @@
 ---
-import Card, { type CardProps } from "@components/design-system/Card.astro";
+import Card, {type CardProps} from "@components/design-system/Card.astro";
+
 type Props = {
     pubDate: Date; title: string; url: string;
 } & CardProps;
@@ -20,47 +21,48 @@ const {pubDate, image, title, url} = Astro.props;
     </Card>
 </a>
 <style>
-    a {
-        text-decoration: none;
-        color: var(--color-text);
-    }
+  a {
+    color: var(--color-text);
+    text-decoration: none;
+  }
 
-    .blogpost-card {
-        container-name: card;
-        container-type: size;
-    }
+  .blogpost-card {
+    container-name: card;
+    container-type: size;
+  }
 
-    .blogpost-card:hover {
-        box-shadow: var(--box-shadow);
-    }
+  .blogpost-card:hover {
+    box-shadow: var(--box-shadow);
+  }
 
-    .date {
-        padding: 8px 16px;
-        display: block;
-        font-size: 1rem;
-        font-weight: bold;
-    }
+  .date {
+    display: block;
+    padding: 8px 16px 0;
+    font-size: 1rem;
+    font-weight: bold;
+  }
 
+  .summary {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    padding: 8px 16px 0;
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+    font-size: 1.5rem;
+    text-wrap: pretty;
+  }
+
+  @container card (max-height: 40rem) {
     .summary {
-        padding: 8px 16px;
-        display: block;
-        font-size: 1.5rem;
-        text-wrap: pretty;
-        overflow: hidden;
-        display: -webkit-box;
-        -webkit-box-orient: vertical;
+      -webkit-line-clamp: 3;
     }
+  }
 
-    @container card (max-height: 40rem) {
-        .summary {
-            -webkit-line-clamp: 3;
-        }
+  @container card (max-height: 20rem) {
+    .summary {
+      -webkit-line-clamp: 1;
     }
-
-    @container card (max-height: 20rem) {
-        .summary {
-            -webkit-line-clamp: 1;
-        }
-    }
+  }
 
 </style>

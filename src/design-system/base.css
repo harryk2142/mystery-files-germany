@@ -1,38 +1,38 @@
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 html {
-    /* overflow-x: hidden; */
+  /* overflow-x: hidden; */
 }
 
 body {
-    min-height: 100vh;
-    padding-bottom: 4rem;
-    margin: 0 auto;
-    font-family: var(--font-base), sans-serif;
-    font-size: var(--text-base);
-    -webkit-font-smoothing: antialiased;
-    color: var(--color-text);
-    text-align: left;
-    overflow-wrap: break-word;
+  min-height: 100vh;
+  padding-bottom: 4rem;
+  margin: 0 auto;
+  font-family: var(--font-base), sans-serif;
+  font-size: var(--text-base);
+  -webkit-font-smoothing: antialiased;
+  color: var(--color-text);
+  text-align: left;
+  overflow-wrap: break-word;
 
-    background: var(--color-page);
-    /* color: var(--color-accent); */
-    /* font-family: var(--font-playfair-display), serif; */
+  background: var(--color-page);
+  /* color: var(--color-accent); */
+  /* font-family: var(--font-playfair-display), serif; */
 
-    /* font-family: var(--font-lato), sans-serif; */
+  /* font-family: var(--font-lato), sans-serif; */
 
-    /* font-family: "Arial", sans-serif; */
-    /* color: var(--color-accent); */
+  /* font-family: "Arial", sans-serif; */
+  /* color: var(--color-accent); */
 
-    /* height: 100svh; */
+  /* height: 100svh; */
 
-    /* background-color: var(--color-secondary); */
+  /* background-color: var(--color-secondary); */
 
-    /* overflow-x: hidden; */
+  /* overflow-x: hidden; */
 
-    /* padding: 0; */
+  /* padding: 0; */
 }
 
 h1,
@@ -41,191 +41,194 @@ h3,
 h4,
 h5,
 h6 {
-    padding: 0;
-    margin: 0;
-    font-family: var(--font-lato), sans-serif;
-    line-height: 1.25;
-    color: var(--color-text);
+  padding: 0;
+  margin: 0;
+  font-family: var(--font-lato), sans-serif;
+  line-height: 1.25;
+  color: var(--color-text);
 }
 
 h1 {
-    font-size: clamp(2rem, 6vw, 3rem); /* Größer und auffälliger */
-    /*font-size: clamp(1.5rem, 6vw, 3rem); !* Größer und auffälliger *!*/
+  font-size: clamp(1.5rem, 6vw, 3rem); /* Größer und auffälliger */
+  /*font-size: clamp(1.5rem, 6vw, 3rem); !* Größer und auffälliger *!*/
 }
 
 h2 {
-    font-size: clamp(1.25rem, 5vw, 2.25rem); /* Etwas kleiner als h1 */
+  font-size: clamp(1.25rem, 5vw, 2.25rem); /* Etwas kleiner als h1 */
 }
 
 h3 {
-    font-size: clamp(1.125rem, 4.5vw, 1.75rem); /* Noch etwas kleiner */
+  font-size: clamp(1.125rem, 4.5vw, 1.75rem); /* Noch etwas kleiner */
 }
 
 h4 {
-    font-size: clamp(1rem, 4vw, 1.5rem); /* Ähnlich dem Body-Text, aber kann etwas hervorgehoben werden */
+  font-size: clamp(1rem, 4vw, 1.5rem); /* Ähnlich dem Body-Text, aber kann etwas hervorgehoben werden */
 }
 
 h5 {
-    font-size: clamp(0.875rem, 3.5vw, 1.25rem); /* Kleiner, für weniger wichtige Unterüberschriften */
+  font-size: clamp(0.875rem, 3.5vw, 1.25rem); /* Kleiner, für weniger wichtige Unterüberschriften */
 }
 
 h6 {
-    font-size: clamp(0.75rem, 3vw, 1rem); /* Sehr klein, für untergeordnete Informationen */
+  font-size: clamp(0.75rem, 3vw, 1rem); /* Sehr klein, für untergeordnete Informationen */
 }
 
 p {
-    margin-bottom: 1rem;
+  margin-bottom: 1rem;
 }
 
 button:hover,
 input:hover,
 textarea:hover {
-    border-color: var(--color-secondary);
+  border-color: var(--color-secondary);
 }
 
 button:disabled,
 input:disabled,
 textarea:disabled {
-    cursor: not-allowed;
-    background-color: var(--color-disabled);
+  cursor: not-allowed;
+  background-color: var(--color-disabled);
 }
 
 label {
-    display: block;
+  display: block;
 }
 
 .wrapper {
-    width: 1280px;
-    max-width: 100%;
-    padding-inline: 1rem;
-    margin: 0 auto;
+  width: 1280px;
+  max-width: 100%;
+  padding-inline: 1rem;
+  margin: 0 auto;
 }
 
 .box {
-    display: flex;
-    flex-direction: column;
-    padding-top: 8px;
+  display: flex;
+  flex-direction: column;
+  padding-top: 8px;
 }
 
 .flex {
-    display: flex;
+  display: flex;
 
-    .col {
-        flex-direction: column;
-    }
+  &.col {
+    flex-direction: column;
+  }
 
-    .row {
-        flex-direction: row;
-    }
+  &.row {
+    flex-direction: row;
+  }
 
-    .align-self {
-        align-self: flex-end;
-    }
+  .align-self {
+    align-self: flex-end;
+  }
+}
+.flex-item {
+  flex: 0 0 auto;
 }
 
 .text-center {
-    text-align: center;
+  text-align: center;
 }
 
 .font-light {
-    font-weight: 300;
+  font-weight: 300;
 }
 
 .font-regular {
-    font-weight: 400;
+  font-weight: 400;
 }
 
 .font-medium {
-    font-weight: 500;
+  font-weight: 500;
 }
 
 .font-bold {
-    font-weight: 700;
+  font-weight: 700;
 }
 
 .w100 {
-    width: 100%;
+  width: 100%;
 }
 
 .radius-s {
-    border-radius: var(--radius-s);
+  border-radius: var(--radius-s);
 }
 
 .radius-m {
-    border-radius: var(--radius-m);
+  border-radius: var(--radius-m);
 }
 
 .radius-l {
-    border-radius: var(--radius-l);
+  border-radius: var(--radius-l);
 }
 
 .radius-xl {
-    border-radius: var(--radius-xl);
+  border-radius: var(--radius-xl);
 }
 
 .emerald {
-    color: #fff;
-    background-color: #008a00;
+  color: #fff;
+  background-color: #008a00;
 }
 
 .hover-emerald:hover {
-    color: #fff;
-    background-color: color-mix(in srgb, #008a00, #016e01 90%);
+  color: #fff;
+  background-color: color-mix(in srgb, #008a00, #016e01 90%);
 }
 
 .primary {
-    color: var(--color-secondary);
-    background-color: var(--color-primary);
+  color: var(--color-secondary);
+  background-color: var(--color-primary);
 }
 
 .hover-primary:hover {
-    color: var(--color-white);
-    background-color: color-mix(in srgb, var(--color-primary), var(--color-secondary) 90%);
+  color: var(--color-white);
+  background-color: color-mix(in srgb, var(--color-primary), var(--color-secondary) 90%);
 }
 
 .panel {
-    padding: 16px;
+  padding-top: 16px;
 }
 
 .stack {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 16px;
 }
 
 .mt-1 {
-    margin-top: 1rem;
+  margin-top: 1rem;
 }
 
 .mr-1 {
-    margin-right: 16px;
+  margin-right: 16px;
 }
 
 .border {
-    border: 1px solid var(--color-secondary);
+  border: 1px solid var(--color-secondary);
 }
 
 .tiny {
-    font-size: 0.75rem;
+  font-size: 0.75rem;
 }
 
 .small {
-    font-size: 0.875rem;
+  font-size: 0.875rem;
 }
 
 .medium {
-    font-size: 1rem;
+  font-size: 1rem;
 }
 
 .large {
-    font-size: 1.5rem;
+  font-size: 1.5rem;
 }
 
 .jumbo {
-    font-size: 3rem;
+  font-size: 3rem;
 }
 
 .hidden {
-    display: none;
+  display: none;
 }

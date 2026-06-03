@@ -1,11 +1,11 @@
-// import { useBreakingNewsApi } from "@features/breaking-news/useBreakingNewsApi.ts";
+import { useBreakingNewsApi } from "@features/breaking-news/useBreakingNewsApi.ts";
 import { useEffect, useRef, useState } from "preact/hooks";
 
-export const BreakingNewsItem = ({ headlines, max }: { headlines: string[]; max: number }) => {
-    const refreshTimeInSeconds = 5;
+export const BreakingNewsItem = ({ max }: { max: number }) => {
+    const refreshTimeInSeconds = 60;
     const [headline, setHeadline] = useState<string>("Lade News");
     const spanRef = useRef<HTMLSpanElement>(null);
-    // const { getHeadline } = useBreakingNewsApi();
+    const { getHeadline } = useBreakingNewsApi();
 
     const isVisible = () => {
         if (spanRef === null) {
@@ -26,23 +26,24 @@ export const BreakingNewsItem = ({ headlines, max }: { headlines: string[]; max:
         return rect.top - rect.height >= 0 && rect.left + rect.width >= 0 && rect.bottom + rect.height <= viewHeight && rect.right - rect.width <= viewWidth;
     };
 
-    // const getRandomHeadline = async (): Promise<string> => {
-    //     if (max === 0) {
-    //         return "";
-    //     }
-    //     const index = Math.floor(Math.random() * max);
-    //     const headline = await getHeadline(index);
-    //     return headline.headline;
-    // };
-
     const getRandomHeadline = async (): Promise<string> => {
-        if (headlines.length === 0) {
+        if (max === 0) {
             return "";
         }
-        const index = Math.floor(Math.random() * headlines.length);
-        console.log(headlines[index]);
-        return headlines[index];
+        const index = Math.floor(Math.random() * max);
+        const response = await getHeadline(index);
+        return response.headline;
     };
+
+    // const getRandomHeadline = async (): Promise<string> => {
+    //     const x = await getRandomHeadlineB();
+    //     console.log(x);
+    //     if (headlines.length === 0) {
+    //         return "";
+    //     }
+    //     const index = Math.floor(Math.random() * headlines.length);
+    //     return headlines[index];
+    // };
 
     useEffect(() => {
         getRandomHeadline().then((data) => {
