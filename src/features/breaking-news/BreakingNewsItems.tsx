@@ -6,7 +6,7 @@ import { Fragment } from "preact/jsx-runtime";
 
 export const BreakingNewsItems = () => {
     const ITEMS = 7;
-    const SPEED = 30;
+    const SPEED = 7;
     const containerRef = useRef<HTMLDivElement>(null);
     const marqueeRef = useRef<HTMLDivElement>(null);
 
