@@ -1,12 +1,9 @@
 :root {
-  /* Colors */
-  --color-page: #fff;
   --color-dark: #1f1f1f;
   --color-white: #fff;
   --color-black: #1f1f1f;
   --color-border: lightgray;
   /*--color-border: rgb(31 31 31 / 13%);*/
-  --color-text: #1f1f1f;
   --color-text-secondary: var(--color-primary);
   --color-surface: #fff;
   --color-surface-muted: #efefeb;
@@ -19,15 +16,10 @@
   --color-gold: #ffd700;
   --color-link: #fa6432;
   --color-indigo: #3f51b5;
-  --color-red: #e50914;
   --color-element-earth: #0f0;
   --color-element-air: #ff0;
   --color-element-fire: #f00;
   --color-element-water: #00bfff;
-
-  /* Fonts */
-  --font-base: var(--font-lato), system-ui, -apple-system, blinkmacsystemfont, "Segoe UI", sans-serif;
-  --font-serif: georgia, "Times New Roman", serif;
 
   /* Space */
   --space-1: 0.25rem;
@@ -47,7 +39,6 @@
   /* 3. Typografie-Skala (Major Second oder Minor Third) */
   --text-xsmall: 0.75rem; /* 12px */
   --text-small: 0.875rem; /* 14px */
-  --text-base: 1rem; /* 16px - Standard */
   --text-large: 1.125rem; /* 18px */
   --text-xlarge: 1.25rem; /* 20px */
   --text-2xlarge: 1.5rem; /* 24px */
@@ -62,7 +53,7 @@
   --text-2xl: clamp(2rem, 5vw, 3.25rem);
 
   /* Radius */
-  --radius-border: 16px;
+  /*--radius-border: 16px;*/
   --radius-s: 2px;
   --radius-m: 4px;
   --radius-l: 8px;
@@ -78,5 +69,4 @@
 
   --shadow-soft: 0 0.5rem 2rem rgb(0 0 0 / 6%);
   --box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
-  color-scheme: light;
 }

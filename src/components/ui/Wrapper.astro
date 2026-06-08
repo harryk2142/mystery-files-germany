@@ -7,7 +7,7 @@ type Props = {
 const { variant = "m", class: list, ...rest } = Astro.props;
 ---
 
-<div class:list={["container", variant, list]} {...rest}>
+<div class:list={["wrapper", variant, list]} {...rest}>
   <slot />
 </div>
 <style>

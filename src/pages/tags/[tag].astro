@@ -36,9 +36,9 @@ export async function getStaticPaths() {
 const { tag } = Astro.params;
 const { posts } = Astro.props;
 import Matomo from "../../components/Matomo.astro";
-import NavigationBar from "@components/design-system/NavigationBar.astro";
+import NavigationBar from "@ui/NavigationBar.astro";
 import DesignSystemSetup from "@design-system/DesignSystemSetup.astro";
-import PageTitle from "@components/design-system/PageTitle.astro";
+import PageTitle from "@ui/PageTitle.astro";
 ---
 
 <html lang="de">

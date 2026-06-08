@@ -1,0 +1,13 @@
+html {
+  overflow-x: hidden;
+}
+body {
+  font-family: var(--font-base), system-ui, -apple-system, blinkmacsystemfont, "Segoe UI", sans-serif;
+  font-size: var(--text-base);
+  -webkit-font-smoothing: antialiased;
+  color: var(--color-text);
+  text-align: left;
+  overflow-wrap: break-word;
+  color-scheme: light;
+  background-color: var(--color-page);
+}

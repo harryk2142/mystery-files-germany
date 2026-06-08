@@ -1,23 +1,9 @@
-* {
-  box-sizing: border-box;
-}
-
-html {
-  /* overflow-x: hidden; */
-}
-
 body {
   min-height: 100vh;
   padding-bottom: 4rem;
   margin: 0 auto;
-  font-family: var(--font-base), sans-serif;
   font-size: var(--text-base);
-  -webkit-font-smoothing: antialiased;
-  color: var(--color-text);
-  text-align: left;
-  overflow-wrap: break-word;
 
-  background: var(--color-page);
   /* color: var(--color-accent); */
   /* font-family: var(--font-playfair-display), serif; */
 
@@ -92,19 +78,6 @@ textarea:disabled {
 
 label {
   display: block;
-}
-
-.wrapper {
-  width: 1280px;
-  max-width: 100%;
-  padding-inline: 1rem;
-  margin: 0 auto;
-}
-
-.box {
-  display: flex;
-  flex-direction: column;
-  padding-top: 8px;
 }
 
 .flex {

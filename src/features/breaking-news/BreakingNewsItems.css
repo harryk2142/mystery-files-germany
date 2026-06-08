@@ -13,23 +13,23 @@
   align-items: center;
   width: fit-content;
   height: 100%;
-  font: var(--font-roboto);
+  font: var(--font-text);
 
-  letter-spacing: 0.05rem;
+  /*letter-spacing: 0.05rem;*/
   white-space: nowrap;
-  animation: marquee 140s linear infinite;
+  animation: marquee 160s linear infinite;
 
   will-change: transform;
 }
 @media (max-width: 768px) {
   .ticker-items {
-    animation-duration: 150s;
+    animation-duration: 180s;
   }
 }
 
 @media (max-width: 480px) {
   .ticker-items {
-    animation-duration: 160s;
+    animation-duration: 200s;
   }
 }
 #ticker-container:hover .ticker-items {

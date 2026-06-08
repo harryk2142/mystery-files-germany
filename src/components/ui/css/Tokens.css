@@ -1,0 +1,17 @@
+:root {
+  /* Colors */
+  --color-page: #fff;
+  --color-red: #e50914;
+  --color-text: #1f1f1f;
+
+  /* Fonts */
+  --font-base: var(--font-roboto);
+  --font-text: var(--font-lato), system-ui, -apple-system, blinkmacsystemfont, "Segoe UI", sans-serif;
+  --font-serif: georgia, "Times New Roman", serif;
+
+  /*Font Sizes*/
+  --text-base: 1rem; /* 16px - Standard */
+
+  /* Radius */
+  --radius-border: 16px;
+}
