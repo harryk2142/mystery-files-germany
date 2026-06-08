@@ -3,6 +3,7 @@ import { commentCountStore } from "@features/firebase/firebaseStore";
 import { firestoreBlogRepository } from "@features/firebase/firestoreAdapter";
 import { useStore } from "@nanostores/preact";
 import { useEffect, useState } from "preact/hooks";
+
 import heart from "./../../assets/icons/heart.svg";
 import message from "./../../assets/icons/message.svg";
 import share from "./../../assets/icons/share.svg";
@@ -36,8 +37,10 @@ export const ActionBar = ({ title, headline, slug }: Props) => {
     }, []);
     useEffect(() => {
         setCommentCount($currentCommentCount);
-    }, [$currentCommentCount]);
-    const onClickLike = async (ev: PointerEvent) => {
+    }, [
+        $currentCommentCount,
+    ]);
+    const onClickLike = async (ev: MouseEvent) => {
         try {
             (ev.target as HTMLButtonElement).setAttribute("disabled", "true");
             setlikeCount(likeCount + 1);
@@ -48,11 +51,11 @@ export const ActionBar = ({ title, headline, slug }: Props) => {
             (ev.target as HTMLButtonElement).removeAttribute("disabled");
         }
     };
-    const onClickComment = async (ev: PointerEvent) => {
+    const onClickComment = async (ev: MouseEvent) => {
         const element = document.querySelector("#comments-section");
         element?.scrollIntoView();
     };
-    const onClickShare = async (ev: PointerEvent) => {
+    const onClickShare = async (ev: MouseEvent) => {
         if (navigator) {
             await navigator
                 .share({
