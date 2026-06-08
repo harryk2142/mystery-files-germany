@@ -2,7 +2,7 @@ import { useBreakingNewsApi } from "@features/breaking-news/useBreakingNewsApi.t
 import { useEffect, useRef, useState } from "preact/hooks";
 
 export const BreakingNewsItem = ({ max }: { max: number }) => {
-    const refreshTimeInSeconds = 60;
+    const refreshTimeInSeconds = 120;
     const [headline, setHeadline] = useState<string>("Lade News");
     const spanRef = useRef<HTMLSpanElement>(null);
     const { getHeadline } = useBreakingNewsApi();

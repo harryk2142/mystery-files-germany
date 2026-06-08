@@ -5,8 +5,7 @@ import "./BreakingNewsItems.css";
 import { Fragment } from "preact/jsx-runtime";
 
 export const BreakingNewsItems = () => {
-    const ITEMS = 7;
-    const SPEED = 7;
+    const ITEMS = 10;
     const containerRef = useRef<HTMLDivElement>(null);
     const marqueeRef = useRef<HTMLDivElement>(null);
 
@@ -23,46 +22,6 @@ export const BreakingNewsItems = () => {
         };
         loadHeadlines();
     }, []);
-    useEffect(() => {
-        const containerEl = containerRef.current;
-        const marqueeEl = marqueeRef.current;
-        if (!containerEl || !marqueeEl || max.total === 0) return;
-
-        // Evtl. einfach mit Media Queries
-        /*
-        .marquee {
-  animation: marquee 20s linear infinite;
-}
-
-@media (max-width: 768px) {
-  .marquee {
-    animation-duration: 12s;
-  }
-}
-
-@media (max-width: 480px) {
-  .marquee {
-    animation-duration: 8s;
-  }
-}
-
-         */
-        const updateSpeed = () => {
-            const width = containerEl.scrollWidth / 2;
-            marqueeEl.style.animationDuration = `${width / SPEED}s`;
-        };
-
-        // ✅ Initial berechnen (bei neuen Messages)
-        updateSpeed();
-
-        // ✅ Reagiert auf echte Größenänderungen
-        const observer = new ResizeObserver(updateSpeed);
-        observer.observe(containerEl);
-
-        return () => observer.disconnect();
-    }, [
-        max,
-    ]);
 
     return max.total > 0 ? (
         <div id={"ticker-container"} ref={containerRef}>

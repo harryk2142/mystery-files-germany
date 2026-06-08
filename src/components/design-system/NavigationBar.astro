@@ -4,10 +4,11 @@ import {BLOG_NAME, BLOG_SUBNAME} from "@consts";
 import {Image} from "astro:assets";
 import logo from "../../assets/logo.png";
 import NavigationAnchor from "./NavigationAnchor.astro";
+import Wrapper from "@components/design-system/Wrapper.astro";
 ---
 
 <div id="nav-bar" data-pagefind-ignore class="sticky">
-    <div class="wrapper">
+    <Wrapper>
         <header class="content-container">
             <div class="nav-left">
                 <a href="/" class="logo font-bold">
@@ -51,7 +52,7 @@ import NavigationAnchor from "./NavigationAnchor.astro";
                 </ul>
             </nav>
         </header>
-    </div>
+    </Wrapper>
 </div>
 
 <script>

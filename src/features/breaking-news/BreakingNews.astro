@@ -3,12 +3,12 @@ import Card from "@components/design-system/Card.astro";
 
 import {BreakingNewsItems} from "./BreakingNewsItems";
 ---
-<Card id={"section-breaking-news-ticker"}>
+<div id={"section-breaking-news-ticker"}>
     <div id={"breaking-news-ticker-header"}>
-        <span>BREAKING NEWS</span>
+        <span>NEWS</span>
     </div>
     <BreakingNewsItems client:visible/>
-</Card>
+</div>
 <style>
   #section-breaking-news-ticker {
     display: flex;
@@ -20,11 +20,11 @@ import {BreakingNewsItems} from "./BreakingNewsItems";
     display: flex;
     align-items: center;
     padding-inline: 1rem;
+      height: 100%;
     font-weight: bold;
-    color: var(--color-text-secondary);
+    color: var(--color-white);
     white-space: nowrap;
-    background: var(--color-black);
-    border-radius: var(--radius-border);
+    background: var(--color-red);
   }
 </style>
 
