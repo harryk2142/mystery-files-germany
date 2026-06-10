@@ -3,6 +3,22 @@
   --color-page: #fff;
   --color-red: #e50914;
   --color-text: #1f1f1f;
+  --color-border: #3a3a3a;
+  --color-primary: #d1d5db;
+  --color-secondary: #1a1f24;
+  --color-disabled: #9ca3af;
+  --color-gold: #ffd700;
+  --color-link: #fa6432;
+  --color-indigo: #3f51b5;
+  --color-element-earth: #0f0;
+  --color-element-air: #ff0;
+  --color-element-fire: #f00;
+  --color-element-water: #00bfff;
+  --color-muted: #666;
+
+  --color-dark: #1f1f1f;
+  --color-white: #fff;
+  --color-black: #1f1f1f;
 
   /* Fonts */
   --font-base: var(--font-roboto);
@@ -12,6 +28,16 @@
   /*Font Sizes*/
   --text-base: 1rem; /* 16px - Standard */
 
-  /* Radius */
+  /* Layout & Spaces */
+  --max-width: 1200px;
+  --gap: 1rem;
+  --radius: 6px;
   --radius-border: 16px;
+  --breakpoint-s: 400px;
+  --breakpoint-m: 700px;
+  --breakpoint-l: 900px;
+
+  /*Shadows*/
+  --shadow-soft: 0 0.5rem 2rem rgb(0 0 0 / 6%);
+  --shadow-box: 0 4px 8px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
 }

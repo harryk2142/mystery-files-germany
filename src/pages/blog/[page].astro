@@ -5,11 +5,12 @@ import Wrapper from "@ui/Wrapper.astro";
 import Matomo from "@components/Matomo.astro";
 import Meta from "@components/Meta.astro";
 import { BLOG_NAME } from "@consts";
-import DesignSystemSetup from "@design-system/DesignSystemSetup.astro";
 import type { Page } from "astro";
 
 import { type CollectionEntry, getCollection } from "astro:content";
 import Pagination, { type Props as PageProps } from "../../components/widgets/Pagination.astro";
+import DesignSystem from "@ui/DesignSystem.astro";
+import Footer from "@components/Footer.astro";
 
 export async function getStaticPaths({ paginate }) {
     const posts = (await getCollection("blog"))
@@ -49,7 +50,7 @@ const paginationProps: PageProps = {
         <title>{title}</title>
         <Meta description={description} title={title}/>
         <Matomo/>
-        <DesignSystemSetup/>
+        <DesignSystem/>
     </head>
     <body data-pagefind-ignore>
         <NavigationBar/>
@@ -87,11 +88,11 @@ const paginationProps: PageProps = {
                 </article>
             </Wrapper>
         </main>
+        <Footer/>
     </body>
 </html>
 <style>
     h1 {
-        display: block;
         margin-top: 1rem;
         text-align: center;
     }
@@ -105,7 +106,7 @@ const paginationProps: PageProps = {
 
     #blogposts {
         width: 100%;
-        padding-inline: 4px;
+        padding-inline: 16px;
         margin-top: 2rem;
         container-name: blogposts;
         container-type: inline-size;
@@ -113,7 +114,7 @@ const paginationProps: PageProps = {
 
     .grid {
         display: grid;
-        gap: var(--space-2);
+        gap: 0.5rem;
 
         .grid-item {
           padding: 2px;
@@ -121,7 +122,7 @@ const paginationProps: PageProps = {
         }
     }
 
-    @container blogposts (min-width: 1000px) {
+    @container blogposts (min-width: 1100px) {
         .grid {
             grid-template-columns: auto auto auto auto;
 
@@ -136,7 +137,7 @@ const paginationProps: PageProps = {
         }
     }
 
-    @container blogposts (max-width: 1000px) and (min-width: 700px) {
+    @container blogposts (max-width: 1100px) and (min-width: 800px) {
         .grid {
             grid-template-columns: auto auto auto;
 
@@ -151,7 +152,7 @@ const paginationProps: PageProps = {
         }
     }
 
-    @container blogposts (max-width: 700px) and (min-width: 500px) {
+    @container blogposts (max-width: 800px) and (min-width: 500px) {
         .grid {
             grid-template-columns: auto auto;
             grid-auto-rows: 1fr;

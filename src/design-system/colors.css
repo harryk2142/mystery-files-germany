@@ -1,9 +1,12 @@
+:root {
+  --emerald: #008a00;
+}
 .emerald {
-    color: #fff;
-    background-color: #008a00;
+  color: #fff;
+  background-color: var(--emerald);
 }
 
 .hover-emerald:hover {
-    color: #fff;
-    background-color: color-mix(in srgb, #008a00, #016e01 90%);
+  color: #fff;
+  background-color: color-mix(in srgb, var(--emerald), #016e01 90%);
 }

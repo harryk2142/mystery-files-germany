@@ -1,83 +1,17 @@
 body {
-  min-height: 100vh;
-  padding-bottom: 4rem;
-  margin: 0 auto;
-  font-size: var(--text-base);
-
+  /*min-height: 100vh;*/
+  /*padding-bottom: 4rem;*/
+  /*margin: 0 auto;*/
+  /*font-size: var(--text-base);*/
   /* color: var(--color-accent); */
   /* font-family: var(--font-playfair-display), serif; */
-
   /* font-family: var(--font-lato), sans-serif; */
-
   /* font-family: "Arial", sans-serif; */
   /* color: var(--color-accent); */
-
   /* height: 100svh; */
-
   /* background-color: var(--color-secondary); */
-
   /* overflow-x: hidden; */
-
   /* padding: 0; */
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  padding: 0;
-  margin: 0;
-  font-family: var(--font-lato), sans-serif;
-  line-height: 1.25;
-  color: var(--color-text);
-}
-
-h1 {
-  font-size: clamp(1.5rem, 6vw, 3rem); /* Größer und auffälliger */
-  /*font-size: clamp(1.5rem, 6vw, 3rem); !* Größer und auffälliger *!*/
-}
-
-h2 {
-  font-size: clamp(1.25rem, 5vw, 2.25rem); /* Etwas kleiner als h1 */
-}
-
-h3 {
-  font-size: clamp(1.125rem, 4.5vw, 1.75rem); /* Noch etwas kleiner */
-}
-
-h4 {
-  font-size: clamp(1rem, 4vw, 1.5rem); /* Ähnlich dem Body-Text, aber kann etwas hervorgehoben werden */
-}
-
-h5 {
-  font-size: clamp(0.875rem, 3.5vw, 1.25rem); /* Kleiner, für weniger wichtige Unterüberschriften */
-}
-
-h6 {
-  font-size: clamp(0.75rem, 3vw, 1rem); /* Sehr klein, für untergeordnete Informationen */
-}
-
-p {
-  margin-bottom: 1rem;
-}
-
-button:hover,
-input:hover,
-textarea:hover {
-  border-color: var(--color-secondary);
-}
-
-button:disabled,
-input:disabled,
-textarea:disabled {
-  cursor: not-allowed;
-  background-color: var(--color-disabled);
-}
-
-label {
-  display: block;
 }
 
 .flex {
@@ -99,10 +33,6 @@ label {
   flex: 0 0 auto;
 }
 
-.text-center {
-  text-align: center;
-}
-
 .font-light {
   font-weight: 300;
 }
@@ -117,10 +47,6 @@ label {
 
 .font-bold {
   font-weight: 700;
-}
-
-.w100 {
-  width: 100%;
 }
 
 .radius-s {
@@ -200,8 +126,4 @@ label {
 
 .jumbo {
   font-size: 3rem;
-}
-
-.hidden {
-  display: none;
 }

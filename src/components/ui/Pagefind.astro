@@ -6,7 +6,7 @@ import Card from "./Card.astro";
 ---
 
 <Card id="section-search">
-    <div class="flex col w100">
+    <div class="w100">
         <PagefindConfig excerpt-length="0" instance="blog" baseUrl="/blog/" />
         <pagefind-input instance="blog"></pagefind-input>
         <pagefind-summary instance="blog"></pagefind-summary>
@@ -27,7 +27,7 @@ import Card from "./Card.astro";
         /* Colors */
         --pf-text: var(--color-text);
         --pf-text-secondary: #666;
-        --pf-text-muted: var(--color-text-muted);
+        --pf-text-muted: var(--color-muted);
         --pf-background: var(--color-page);
         --pf-border: var(--color-border);
         --pf-border-focus: #999;
@@ -92,7 +92,7 @@ import Card from "./Card.astro";
         --pf-dropdown-z-index: 9999;
 
         #section-search:hover {
-            box-shadow: var(--box-shadow);
+            box-shadow: var(--shadow-box);
         }
     }
 </style>

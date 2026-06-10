@@ -3,3 +3,28 @@
   flex-direction: column;
   padding: 1rem;
 }
+
+/* Panels (Strukturierte Container mit Header und Body) */
+.panel {
+  overflow: hidden; /* Sorgt dafür, dass der Header die Ecken des Panels oben mitskaliert/abrundet */
+  background-color: var(--color-page);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+}
+
+.panel-header {
+  padding: calc(var(--gap) * 0.75) var(--gap);
+  font-weight: 600;
+  background-color: #f8f9fa; /* Leicht grauer Hintergrund für den Kopf */
+  border-bottom: 1px solid var(--color-border);
+}
+
+.panel-body {
+  padding: var(--gap);
+}
+
+.panel-footer {
+  padding: calc(var(--gap) * 0.75) var(--gap);
+  background-color: #f8f9fa;
+  border-top: 1px solid var(--color-border);
+}
