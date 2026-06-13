@@ -1,21 +1,19 @@
 ---
 import Meta from "@components/Meta.astro";
+import NoIndexLayout from "@layouts/NoIndexLayout.astro";
+import Wrapper from "@ui/Wrapper.astro";
+import PageTitle from "@ui/PageTitle.astro";
 interface Props {
     error: unknown;
 }
 
 const { error } = Astro.props;
 ---
-
-<html>
-    <head>
-        <title>500</title>
-        <Meta description={"Fehlerseite"} title={"Fehlerseite"} />
-        <meta content="noindex" name="robots" />
-    </head>
-    <body data-pagefind-ignore>
-        <div >
+<NoIndexLayout title="Fehlerseite" description="Fehlerseite">
+    <main>
+        <Wrapper>
+            <PageTitle title="Fehlerseite"/>
             {error instanceof Error ? error.message : "Unknown error"}
-        </div>
-    </body>
-</html>
+        </Wrapper>
+    </main>
+</NoIndexLayout>

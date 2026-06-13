@@ -8,5 +8,11 @@ service cloud.firestore {
         allow read, create, write: if true
       }
     }
+    match/mystery-files-germany-blog-v2/{blogpost} {
+      allow read, create, write: if true
+      match /comments/{comment} {
+        allow read, create, write: if true
+      }
+    }
   }
 }

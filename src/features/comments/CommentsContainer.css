@@ -9,7 +9,9 @@
 }
 
 .comments-list {
-    /*margin-top: 2rem;*/
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 2px solid var(--color-border);
 }
 
 /* Einzelner Kommentar */

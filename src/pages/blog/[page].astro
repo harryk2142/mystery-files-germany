@@ -12,7 +12,7 @@ import Pagination, { type Props as PageProps } from "../../components/widgets/Pa
 import DesignSystem from "@ui/DesignSystem.astro";
 import Footer from "@components/Footer.astro";
 
-export async function getStaticPaths({ paginate }) {
+export async function getStaticPaths({paginate}) {
     const posts = (await getCollection("blog"))
         .filter((e) => !e.data.draft)
         .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
@@ -117,7 +117,8 @@ const paginationProps: PageProps = {
         gap: 0.5rem;
 
         .grid-item {
-          padding: 2px;
+            scroll-margin-top: 40px;
+            padding: 2px;
             transition-duration: 0.1s;
         }
     }
@@ -132,7 +133,7 @@ const paginationProps: PageProps = {
 
             .grid-item:hover {
                 z-index: 100;
-                transform: translateY(-10px) scale(1.1);
+                transform: translateY(-10px) scale(1.05);
             }
         }
     }

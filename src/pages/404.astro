@@ -1,22 +1,16 @@
 ---
 import { BLOG_NAME } from "@consts";
 import Wrapper from "@ui/Wrapper.astro";
-import MainLayout from "@layouts/MainLayout.astro";
 import PageTitle from "@ui/PageTitle.astro";
-import Meta from "@components/Meta.astro";
+import NoIndexLayout from "@layouts/NoIndexLayout.astro";
 const title = {BLOG_NAME} + " - Seite nicht gefunden"
 ---
-<html>
-    <head>
-        <title>{title}</title>
-        <Meta description={title} title={title} />
-        <meta content="noindex" name="robots"/>
-    </head>
-    <body data-pagefind-ignore>
+<NoIndexLayout title={title} description={title}>
+    <main>
         <Wrapper>
             <article>
                 <PageTitle title="Seite nicht gefunden"/>
             </article>
         </Wrapper>
-    </body>
-</html>
+    </main>
+</NoIndexLayout>

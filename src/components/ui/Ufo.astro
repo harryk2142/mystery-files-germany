@@ -1,0 +1,31 @@
+---
+export enum Sizes {
+  S = "S",
+  M = "M",
+  L = "L",
+  XL = "XL",
+}
+type Props = {
+  size: Sizes;
+}
+const { size } = Astro.props;
+---
+
+<span class={"ufo-" + size}>🛸</span>
+<style is:inline>
+  .ufo {
+    font-size: 2rem;
+  }
+  .ufo-S {
+    font-size: 1rem;
+  }
+  .ufo-M {
+    font-size: 2rem;
+  }
+  .ufo-L {
+    font-size: 4rem;
+  }
+  .ufo-XL {
+    font-size: 6rem;
+  }
+</style>

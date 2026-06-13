@@ -20,7 +20,7 @@ const showLast = currentPage + 2 <= lastPage;
     {
         showFirst ? (
             <a href={urlToFirst}>
-                <span class="ascii">&#60;&#60;</span>
+                &#60;&#60;
             </a>
         ) : null
     }
@@ -28,7 +28,7 @@ const showLast = currentPage + 2 <= lastPage;
     {
         url.prev ? (
             <a class="previous" href={url.prev}>
-                <span class="ascii">&#60;</span>
+                &#60;
             </a>
         ) : null
     }
@@ -38,7 +38,7 @@ const showLast = currentPage + 2 <= lastPage;
     {
         url.next ? (
             <a href={url.next}>
-                <span class="ascii">&#62;</span>
+                &#62;
             </a>
         ) : null
     }
@@ -46,7 +46,7 @@ const showLast = currentPage + 2 <= lastPage;
     {
         showLast ? (
             <a href={urlToLast}>
-                <span class="ascii">&#62;&#62;</span>
+                &#62;&#62;
             </a>
         ) : null
     }

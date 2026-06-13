@@ -4,24 +4,27 @@ import PagefindConfig from "astro-pagefind/components/PagefindConfig.astro";
 import Card from "./Card.astro";
 
 ---
+<div class="box">
+    <div id="section-search" class="w100">
+        <!--<Card id="section-search">-->
+            <PagefindConfig excerpt-length="20" instance="blog" baseUrl="/blog/" />
+            <pagefind-input instance="blog"></pagefind-input>
+            <pagefind-summary instance="blog"></pagefind-summary>
+            <pagefind-results hide-sub-results={true} show-images={true} instance="blog"></pagefind-results>
+        <!--<Search className="pagefind-ui"-->
+        <!--        instance="search"-->
+        <!--        searchboxOptions={{-->
+        <!--            sort: {-->
+        <!--                date: "asc"-->
+        <!--            }, showImages: true, pageSize: 5, openFilters: ["Tags", "Type"]-->
+        <!--        }}-->
+        <!--/>-->
 
-<Card id="section-search">
-    <div class="w100">
-        <PagefindConfig excerpt-length="0" instance="blog" baseUrl="/blog/" />
-        <pagefind-input instance="blog"></pagefind-input>
-        <pagefind-summary instance="blog"></pagefind-summary>
-        <pagefind-results hide-sub-results={true} show-images={true} instance="blog"></pagefind-results>
+        <!--</Card>-->
     </div>
-    <!--<Search className="pagefind-ui"-->
-    <!--        instance="search"-->
-    <!--        searchboxOptions={{-->
-    <!--            sort: {-->
-    <!--                date: "asc"-->
-    <!--            }, showImages: true, pageSize: 5, openFilters: ["Tags", "Type"]-->
-    <!--        }}-->
-    <!--/>-->
+</div>
 
-</Card>
+
 <style>
     :root {
         /* Colors */
@@ -59,7 +62,7 @@ import Card from "./Card.astro";
         --pf-input-height: 3rem;
         --pf-input-font-size: 1rem; /* Keep at 16px+ to prevent iOS auto-zoom on focus */
         --pf-summary-font-size: 1rem;
-        --pf-result-title-font-size: 2rem;
+        --pf-result-title-font-size: 1.5rem;
         --pf-result-excerpt-font-size: 1rem;
 
         /* Results layout */
@@ -93,6 +96,7 @@ import Card from "./Card.astro";
 
         #section-search:hover {
             box-shadow: var(--shadow-box);
+            border-radius: var(--pf-border-radius);
         }
     }
 </style>

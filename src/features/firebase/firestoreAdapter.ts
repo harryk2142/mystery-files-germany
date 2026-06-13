@@ -1,11 +1,12 @@
 // Importiere nur den Vertrag aus dem anderen Ordner
 
 import { addDoc, collection, doc, getDoc, getDocs, increment, orderBy, query, setDoc } from "@firebase/firestore";
+import { epochMsToDate } from "@utils/timeConverter";
 
 import type { BlogRepository, Comment } from "../blog-interactions/types";
 import { db } from "./config";
 
-const FIRESTORE_DB_PATH = "mystery-files-germany-blog";
+const FIRESTORE_DB_PATH = "mystery-files-germany-blog-v2";
 
 // Der Adapter setzt den Vertrag in Firebase-Sprache um
 export const firestoreBlogRepository: BlogRepository = {
@@ -54,7 +55,7 @@ export const firestoreBlogRepository: BlogRepository = {
                 // Firestore speichert ein spezielles Timestamp-Objekt.
                 // Mit .toDate() machen wir ein normales JavaScript-Date daraus.
                 // Fallback auf new Date(), falls createdAt ganz frisch ist und vom Server noch fehlt.
-                createdAt: data.createdAt ? data.createdAt.toDate() : new Date(),
+                createdAt: data.createdAt ? epochMsToDate(data.createdAt) : new Date(),
             };
         });
 

@@ -120,7 +120,7 @@ const {
     <meta content={title} property="og:title"/>
     <meta content="de_DE" property="og:locale"/>
     <meta content={description} property="og:description"/>
-    <meta content={new URL(openGraph.image.src, Astro.url)} property="og:image"/>
+    <meta content={new URL(openGraph.image.src, Astro.url)} property="og:image" />
     {openGraph.type === "article" && (
             <meta content={openGraph.publishedTime} name="article:published_time" property="og:type"/>)}
     <meta content={creator} name="article:author" property="og:type"/>

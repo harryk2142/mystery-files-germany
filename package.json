@@ -1,9 +1,9 @@
 {
   "name": "mystery-files-germany",
   "type": "module",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "engines": {
-    "node": ">=22.12.0"
+    "node": ">=26.3.0"
   },
   "scripts": {
     "dev": "concurrently \"astro dev\" \"firebase emulators:start\"",

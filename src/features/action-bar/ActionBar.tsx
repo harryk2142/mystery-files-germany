@@ -53,7 +53,10 @@ export const ActionBar = ({ title, headline, slug }: Props) => {
     };
     const onClickComment = async (ev: MouseEvent) => {
         const element = document.querySelector("#comments-section");
-        element?.scrollIntoView();
+        element?.scrollIntoView({
+            behavior: "smooth",
+            block: "end",
+        });
     };
     const onClickShare = async (ev: MouseEvent) => {
         if (navigator) {

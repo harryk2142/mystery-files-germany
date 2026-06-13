@@ -2,7 +2,6 @@
   width: min(100%, var(--container-max-width));
   max-width: var(--container-max-width);
   margin: 0 auto;
-  /*margin-inline: auto;*/
 }
 
 .s {

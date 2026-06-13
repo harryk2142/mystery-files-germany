@@ -59,7 +59,6 @@ export const CommentsContainer = ({ slug }: Props) => {
             {/* Haupt-Formular ohne CSS-Klasse, da die Wrapper-Klasse in CommentFormUI steckt */}
             <CommentFormUI isReply={false} onSubmit={(name, text) => handleAddComment(name, text, null)} />
 
-            <hr />
             <div className="comments-list">
                 {mainComments.length === 0 ? (
                     <p>Noch keine Kommentare vorhanden. Mach den Anfang!</p>

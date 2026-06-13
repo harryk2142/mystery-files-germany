@@ -7,30 +7,16 @@ import NavigationBar from "@ui/NavigationBar.astro";
 import DesignSystemSetup from "@design-system/DesignSystemSetup.astro";
 import PageTitle from "@ui/PageTitle.astro";
 import Wrapper from "@ui/Wrapper.astro";
+import NoIndexLayout from "@layouts/NoIndexLayout.astro";
 ---
-
-<html lang="de">
-    <head>
-        <title>Seite mit den besten Tags</title>
-        <Meta
-                description="Hier siehst du aktuell besten Tags"
-                title="Seite mit den besten Tags"
-        />
-        <meta content="noindex" name="robots"/>
-        <Matomo/>
-        <DesignSystemSetup/>
-    </head>
-    <body data-pagefind-ignore>
-        <NavigationBar/>
-        <main>
-            <PageTitle title="Die aktuell besten Tags"/>
-            <Wrapper>
-                <TagCloud/>
-            </Wrapper>
-        </main>
-        <Footer/>
-    </body>
-</html>
+<NoIndexLayout title="Seite mit den besten Tags" description="Seite mit den besten Tags">
+    <main>
+        <PageTitle title="Die aktuell besten Tags"/>
+        <Wrapper>
+            <TagCloud/>
+        </Wrapper>
+    </main>
+</NoIndexLayout>
 <style>
     header {
         text-align: center;

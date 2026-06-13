@@ -18,7 +18,7 @@ import sharp, {
 
 const { format } = sharp; // Or access via sharp.format if it exists on the default export
 
-import { BLOG_NAME } from "../src/consts.ts";
+import { BLOG_NAME } from "@consts";
 
 const SOURCE_IMAGE = path.join(process.cwd(), "src/assets/images/logo.png");
 const TARGET_DIR = path.join(process.cwd(), "public");
@@ -50,7 +50,10 @@ const SIZES: Size[] = [
         purpose: "favicon",
         forManifest: false,
         format: format.png,
-        options: { compressionLevel: 9, quality: 100 },
+        options: {
+            compressionLevel: 9,
+            quality: 100,
+        },
     },
     {
         size: 32,
@@ -58,7 +61,10 @@ const SIZES: Size[] = [
         purpose: "favicon",
         forManifest: false,
         format: format.png,
-        options: { compressionLevel: 9, quality: 100 },
+        options: {
+            compressionLevel: 9,
+            quality: 100,
+        },
     },
     {
         size: 64,
@@ -66,7 +72,10 @@ const SIZES: Size[] = [
         purpose: "favicon",
         forManifest: false,
         format: format.png,
-        options: { compressionLevel: 9, quality: 100 },
+        options: {
+            compressionLevel: 9,
+            quality: 100,
+        },
     },
     {
         size: 180,
@@ -74,7 +83,10 @@ const SIZES: Size[] = [
         purpose: "apple-touch",
         forManifest: true,
         format: format.png,
-        options: { compressionLevel: 9, quality: 100 },
+        options: {
+            compressionLevel: 9,
+            quality: 100,
+        },
     }, // Apple Standard
     {
         size: 192,
@@ -82,7 +94,10 @@ const SIZES: Size[] = [
         purpose: "any",
         forManifest: true,
         format: format.png,
-        options: { compressionLevel: 9, quality: 100 },
+        options: {
+            compressionLevel: 9,
+            quality: 100,
+        },
     }, // Android / PWA
     {
         size: 512,
@@ -90,7 +105,10 @@ const SIZES: Size[] = [
         purpose: "any",
         forManifest: true,
         format: format.png,
-        options: { compressionLevel: 9, quality: 100 },
+        options: {
+            compressionLevel: 9,
+            quality: 100,
+        },
     }, // Android / PWA Splachscreen
     {
         size: 192,
@@ -98,7 +116,9 @@ const SIZES: Size[] = [
         purpose: "any",
         forManifest: false,
         format: format.png,
-        options: { quality: 100 },
+        options: {
+            quality: 100,
+        },
     },
 ];
 async function generateIcons() {
@@ -107,7 +127,12 @@ async function generateIcons() {
         await sharp(SOURCE_IMAGE)
             .resize(item.size, item.size, {
                 fit: "contain",
-                background: { r: 0, g: 0, b: 0, alpha: 0 },
+                background: {
+                    r: 0,
+                    g: 0,
+                    b: 0,
+                    alpha: 0,
+                },
             })
             .toFormat(item.format, item.options)
             .toFile(path.join(TARGET_DIR, item.name));
@@ -131,17 +156,16 @@ async function generateManifest() {
         })),
     };
 
-    fs.writeFileSync(
-        path.join(TARGET_DIR, "manifest.json"),
-        JSON.stringify(manifest, null, 2),
-    );
+    fs.writeFileSync(path.join(TARGET_DIR, "manifest.json"), JSON.stringify(manifest, null, 2));
     console.log("✅ manifest.json erfolgreich generiert!");
 }
 async function generateAssets() {
     try {
         // 1. Zielverzeichnis sicherstellen
         if (!fs.existsSync(TARGET_DIR)) {
-            fs.mkdirSync(TARGET_DIR, { recursive: true });
+            fs.mkdirSync(TARGET_DIR, {
+                recursive: true,
+            });
         }
 
         await generateIcons();
