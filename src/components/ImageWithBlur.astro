@@ -1,16 +1,18 @@
 ---
-import { Image } from "astro:assets";
+import {Image} from "astro:assets";
 
 type Props = {
     src: ImageMetadata,
     alt: string,
 }
 
-const { src, alt = "" } = Astro.props;
+const {src, alt = ""} = Astro.props;
 ---
 <div class="image-frame">
-    <div class="blur-bg" style={`background-image: url(${src.src});`}></div>
-    <Image src={src} alt={alt} format="webp" />
+    <Image class={"blur-bg"} src={src} alt={alt} width={src.width * 0.7} height={src.height * 0.7} fit="scale-down"
+           format="webp"/>
+    <Image class={"fg-image"} src={src} alt={alt} width={src.width * 0.7} height={src.height * 0.7} fit="scale-down"
+           format="webp"/>
 </div>
 
 <style>
@@ -23,7 +25,7 @@ const { src, alt = "" } = Astro.props;
     overflow: hidden;
   }
 
-  .image-frame img {
+  .fg-image {
     position: relative;
     z-index: 2;
     width: auto;
@@ -34,7 +36,6 @@ const { src, alt = "" } = Astro.props;
     object-fit: cover;
     box-shadow: 0 0 40px rgba(0, 0, 0, 0.4);
     scale: 1;
-
   }
 
   .blur-bg {
@@ -43,7 +44,7 @@ const { src, alt = "" } = Astro.props;
     background-position: center;
 
     background-size: cover;
-    opacity: 0.8;
+    opacity: 0.9;
 
     filter: blur(20px);
 

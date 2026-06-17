@@ -1,17 +1,18 @@
 ---
-import NavigationBar from "@ui/NavigationBar.astro";
-import Wrapper from "@ui/Wrapper.astro";
 import Footer from "@components/Footer.astro";
 import ImageWithBlur from "@components/ImageWithBlur.astro";
 import Matomo from "@components/Matomo.astro";
 import Meta from "@components/Meta.astro";
-import { ActionBar } from "@features/action-bar/ActionBar";
-import { CommentsContainer } from "@features/comments/CommentsContainer";
-
-import type { CollectionEntry } from "astro:content";
-import FormattedDate from "../components/FormattedDate.astro";
+import {ActionBar} from "@features/action-bar/ActionBar";
+import {CommentsContainer} from "@features/comments/CommentsContainer";
 import DesignSystem from "@ui/DesignSystem.astro";
-import { type GeneratedImagePaths, getGeneratedImagePaths } from "@utils/getImagePaths";
+import NavigationBar from "@ui/NavigationBar.astro";
+import Wrapper from "@ui/Wrapper.astro";
+import {type GeneratedImagePaths, getGeneratedImagePaths} from "@utils/getImagePaths";
+
+import type {CollectionEntry} from "astro:content";
+import FormattedDate from "../components/FormattedDate.astro";
+import {Image} from "astro:assets";
 
 type Props = CollectionEntry<"blog">["data"];
 
@@ -25,7 +26,6 @@ let imagePaths: GeneratedImagePaths = {
 if (heroImage.src) {
     imagePaths = getGeneratedImagePaths(heroImage.src);
 }
-console.log(imagePaths);
 ---
 
 <html lang="de">
@@ -47,73 +47,78 @@ console.log(imagePaths);
         <Matomo/>
         <DesignSystem/>
         <style>
-            main {
-                max-width: 100%;
-            }
+          main {
+            max-width: 100%;
+          }
+
+          .blogpost {
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+          }
+
+          .hero-image-container {
+            display: flex;
+            justify-content: center;
+            padding-top: 2rem;
 
             .hero-image {
-                width: 100%;
+              border-radius: 12px;
+              height: 32rem;
+              box-shadow: var(--shadow-box);
+              width: auto;
             }
+          }
 
-            .hero-image img {
-                display: block;
-                margin: 0 auto;
-                border-radius: 12px;
-                box-shadow: var(--box-shadow);
-            }
+          .prose {
+            padding-top: 2rem;
+            color: var(--color-text);
+          }
 
-            .prose {
-                width: 720px;
-                max-width: calc(100% - 2em);
-                padding: 1em;
-                margin: auto;
-                color: var(--color-text);
-            }
+          .title {
+            padding: 0.5rem 0;
+            margin-bottom: 1rem;
+            line-height: 1;
+            text-align: center;
+          }
 
-            .title {
-                padding: 1em 0;
-                margin-bottom: 1em;
-                line-height: 1;
-                text-align: center;
-            }
+          .title h1 {
+            margin-block: 0.75rem;
+          }
 
-            .title h1 {
-                margin: 0 0 0.5em;
-            }
+          .date {
+            color: var(--color-text);
+            font-family: var(--font-lato), sans-serif;
+            font-size: 1.2rem;
+          }
 
-            .date {
-                margin-bottom: 0.5em;
-                color: rgb(var(--gray));
-            }
+          .last-updated-on {
+            font-style: italic;
+          }
 
-            .last-updated-on {
-                font-style: italic;
-            }
-
-            .post-content {
-                font-size: 1.2rem;
-                line-height: 2;
-                text-align: justify;
-            }
+          .post-content {
+            font-size: 1.2rem;
+            line-height: 2;
+            text-align: justify;
+          }
         </style>
     </head>
 
     <body>
         <NavigationBar/>
         <main data-pagefind-body>
-            <article>
-                <div>
-                    {heroImage.src && (
-                            <div>
+            <article class="blogpost">
+                {heroImage.src && (
+                        <Wrapper variant="s">
+                            <div class="hero-image-container">
                                 <!--<Image-->
-                                <!--        style="display: none"-->
-                                <!--        src={imagePaths.search}-->
                                 <!--        alt={headline}-->
-                                <!--        width={300}-->
+                                <!--        data-pagefind-meta="image[src], image_alt[alt]"-->
+                                <!--        fit="cover"-->
                                 <!--        height={300}-->
                                 <!--        quality={70}-->
-                                <!--        fit={"cover"}-->
-                                <!--        data-pagefind-meta="image[src], image_alt[alt]"-->
+                                <!--        src={imagePaths.search}-->
+                                <!--        width={300}-->
                                 <!--/>-->
                                 <img
                                         alt={heroImage.alt}
@@ -123,32 +128,33 @@ console.log(imagePaths);
                                         src={imagePaths.search}
                                         style="display: none;"
                                 />
-                                <ImageWithBlur alt={heroImage.alt} src={heroImage.src}/>
-
+                                <Image class={"hero-image"} src={heroImage.src} alt={heroImage.alt} format="webp"/>
                             </div>
 
-                    )}
-                </div>
-                <div class="prose">
-                    <div class="title">
-                        <div class="date">
-                            <FormattedDate date={pubDate}/>
-                            {updatedDate && (
-                                    <div class="last-updated-on">
-                                        Last updated on
-                                        <FormattedDate date={updatedDate}/>
-                                    </div>)}
+                        </Wrapper>
+                )}
+                <Wrapper variant="s">
+                    <div class="prose">
+                        <div class="title">
+                            <div class="date">
+                                <FormattedDate date={pubDate}/>
+                                {updatedDate && (
+                                        <div class="last-updated-on">
+                                            Last updated on
+                                            <FormattedDate date={updatedDate}/>
+                                        </div>)}
+                            </div>
+                            <h1 data-pagefind-meta="title">{title}</h1>
+                            <div class="box">
+                                <span>{place}</span>
+                            </div>
+                            <hr/>
                         </div>
-                        <h1 data-pagefind-meta="title">{title}</h1>
-                        <div class="box">
-                            <span>{place}</span>
+                        <div class="post-content">
+                            <slot/>
                         </div>
-                        <hr/>
                     </div>
-                    <div class="post-content">
-                        <slot/>
-                    </div>
-                </div>
+                </Wrapper>
             </article>
             <ActionBar client:load headline={headline} title={title} slug={slug || ""}/>
             <section id="comments-section">

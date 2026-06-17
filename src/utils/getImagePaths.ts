@@ -36,7 +36,6 @@ export function getGeneratedImagePaths(heroImage: AstroImageObject): GeneratedIm
         const filenameWithHash = cleanPath.substring(cleanPath.lastIndexOf("/") + 1);
         originalFilename = filenameWithHash.replace(/\.[a-zA-Z0-9_-]{8}\./, ".");
     }
-    console.log(originalFilename);
 
     // 2. Namensbasis ohne Endung extrahieren (falls du sie für die Generierung brauchst)
     const fileBaseName = path.parse(originalFilename).name;
