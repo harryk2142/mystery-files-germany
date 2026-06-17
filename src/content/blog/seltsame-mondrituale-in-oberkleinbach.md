@@ -61,7 +61,7 @@ Seitdem sind drei Smartphones verschwunden. Die Polizei spricht von Wildschwein-
 
 ## Interview mit einem anonymen Mitläufer – „Ich tanze für die Harmonie… und die Suppe“
 
-![Eine geheimnisvolle Gestalt in dunklem Kapuzenumhang steht im Nebel eines nächtlichen Waldes, beleuchtet vom Vollmond. Das Gesicht ist im Schatten verborgen, die Szene wirkt unheimlich und geheimnisvoll.](/images/blog/mondwolf-x-portraet-steinkreis-oberkleinbach.png)
+![Eine geheimnisvolle Gestalt in dunklem Kapuzenumhang steht im Nebel eines nächtlichen Waldes, beleuchtet vom Vollmond. Das Gesicht ist im Schatten verborgen, die Szene wirkt unheimlich und geheimnisvoll.](../../assets/images/blog/mondwolf-x-portraet-steinkreis-oberkleinbach.png)
 
 Über anonyme Kanäle (eine E-Mail mit dem Betreff „Mondknoten lebt“) meldete sich eine Person, die nach eigenen Angaben regelmäßig an den Vollmondtreffen teilnimmt. Wir trafen sie – ganz klassisch – an einem unbeleuchteten Zigarettenautomaten in der Nähe von Kleinbach. Sie bestand auf Anonymität und wählte den Tarnnamen „Mondwolf X“.
 

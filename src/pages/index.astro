@@ -47,42 +47,43 @@ const posts = collection.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDat
             <Pagefind/>
         </Wrapper>
         <Wrapper>
-            <div>
+            <div id="container-main" class="box">
+                <div class="grid-blogposts">
+                    {posts.map((post, index) => {
+                        let cardClass = "card-small";
+                        if (index === 0) cardClass = "card-featured"; else if (index % 8 === 0) cardClass = "card-big"; else if (index % 3 === 0) cardClass = "card-portrait";
+                        // else if (index % 3 === 0) cardClass = "card-landscape";
 
-                <div id="container-main" class="box">
-                    <div class="grid-blogposts">
-                        {posts.map((post, index) => {
-                            let cardClass = "card-small";
-                            if (index === 0) cardClass = "card-featured"; else if (index % 8 === 0) cardClass = "card-big"; else if (index % 3 === 0) cardClass = "card-portrait";
-                            // else if (index % 3 === 0) cardClass = "card-landscape";
-
-                            return (
-                                    <article class={`${cardClass}`}>
-                                        {post.data.heroImage.src && (
-                                                <BlogpostCard
-                                                        pubDate={post.data.pubDate}
-                                                        image={{
-                                                            src: post.data.heroImage.src, alt: post.data.heroImage.alt,
-                                                        }}
-                                                        title={post.data.title}
-                                                        url={"/blog/" + post.id}
-                                                />)}
-                                    </article>);
-                        })}
-                    </div>
-                    <section class="box center" id="area-load-more-blogposts">
-                        <a class="button" href={"/blog/2"}>
-                            <span style="font-size: 1.5rem;">Mehr</span>
-                            <Ufo size={Sizes.M}/>
-                        </a>
-                    </section>
+                        return (
+                                <article class={`${cardClass}`}>
+                                    {post.data.heroImage.src && (
+                                            <BlogpostCard
+                                                    pubDate={post.data.pubDate}
+                                                    image={{
+                                                        src: post.data.heroImage.src, alt: post.data.heroImage.alt,
+                                                    }}
+                                                    title={post.data.title}
+                                                    url={"/blog/" + post.id}
+                                            />)}
+                                </article>);
+                    })}
                 </div>
-
+                <section class="box center" id="area-load-more-blogposts">
+                    <a class="button" href={"/blog/2"}>
+                        <span style="font-size: 1.5rem;">Mehr</span>
+                        <Ufo size={Sizes.M}/>
+                    </a>
+                </section>
             </div>
         </Wrapper>
     </main>
 </MainLayout>
 <style>
+    main{
+        gap: 16px;
+        display: flex;
+        flex-direction: column;
+    }
     #area-load-more-blogposts {
         grid-area: moreBlogposts;
         display: flex;

@@ -1,15 +1,19 @@
 .text-center {
-    text-align: center;
+  text-align: center;
 }
 
 .hidden {
-    display: none;
+  display: none;
 }
 
 .center {
-    text-align: center;
+  text-align: center;
 }
 
 .w100 {
-    width: 100%;
+  width: 100%;
+}
+
+.mt1 {
+  margin-top: 16px;
 }
