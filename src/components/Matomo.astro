@@ -1,8 +1,11 @@
 ---
+
 const isDev = import.meta.env.DEV;
+const { host:hostFromUrl } = Astro.url;
+const isProd = hostFromUrl === Astro.site?.host;
 ---
 <!-- Matomo -->
-{!isDev && (
+{(!isDev && isProd)&& (
 <>
     <script is:inline>
         let _paq = window._paq = window._paq || [];

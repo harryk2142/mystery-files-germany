@@ -1,10 +1,9 @@
 ---
-import NavigationBar from "@ui/NavigationBar.astro";
 import DesignSystem from "@ui/DesignSystem.astro";
 import Footer from "@components/Footer.astro";
 import Matomo from "@components/Matomo.astro";
 import Meta from "@components/Meta.astro";
-import DesignSystemSetup from "@design-system/DesignSystemSetup.astro";
+import NavBarG from "@ui/NavBarG.astro";
 
 type Props = {
     title: string; description: string; pagefindIgnore?: boolean; current?: string;
@@ -21,7 +20,7 @@ const {title, description, pagefindIgnore = true} = Astro.props;
         <meta content="noindex" name="robots" />
     </head>
     <body data-pagefind-ignore>
-        <NavigationBar/>
+        <NavBarG/>
         <slot/>
         <Footer/>
     </body>

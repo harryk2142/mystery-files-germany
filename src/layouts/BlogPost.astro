@@ -1,18 +1,17 @@
 ---
 import Footer from "@components/Footer.astro";
-import ImageWithBlur from "@components/ImageWithBlur.astro";
 import Matomo from "@components/Matomo.astro";
 import Meta from "@components/Meta.astro";
 import {ActionBar} from "@features/action-bar/ActionBar";
 import {CommentsContainer} from "@features/comments/CommentsContainer";
 import DesignSystem from "@ui/DesignSystem.astro";
-import NavigationBar from "@ui/NavigationBar.astro";
 import Wrapper from "@ui/Wrapper.astro";
 import {type GeneratedImagePaths, getGeneratedImagePaths} from "@utils/getImagePaths";
 
 import type {CollectionEntry} from "astro:content";
 import FormattedDate from "../components/FormattedDate.astro";
 import {Image} from "astro:assets";
+import NavBarG from "@ui/NavBarG.astro";
 
 type Props = CollectionEntry<"blog">["data"];
 
@@ -105,7 +104,7 @@ if (heroImage.src) {
     </head>
 
     <body>
-        <NavigationBar/>
+        <NavBarG/>
         <main data-pagefind-body>
             <article class="blogpost">
                 {heroImage.src && (

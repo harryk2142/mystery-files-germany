@@ -1,22 +1,23 @@
 html {
-    overflow-x: hidden;
+  overflow-x: hidden;
+  scrollbar-gutter: stable;
 }
 
 body {
-    font-family: var(--font-base), system-ui, -apple-system, blinkmacsystemfont, "Segoe UI", sans-serif;
-    font-size: var(--text-base);
-    -webkit-font-smoothing: antialiased;
-    line-height: 1.5;
-    color: var(--color-text);
-    text-align: left;
-    overflow-wrap: break-word;
-    color-scheme: light;
-    background-color: var(--color-page);
+  font-family: var(--font-base), system-ui, -apple-system, blinkmacsystemfont, "Segoe UI", sans-serif;
+  font-size: var(--text-base);
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.5;
+  color: var(--color-text);
+  text-align: left;
+  overflow-wrap: break-word;
+  color-scheme: light;
+  background-color: var(--color-page);
 }
 
 img {
-    max-width: 100%;
-    height: auto;
+  max-width: 100%;
+  height: auto;
 }
 
 h1,
@@ -25,49 +26,50 @@ h3,
 h4,
 h5,
 h6 {
-    margin: 0;
-    font-family: var(--font-text), sans-serif;
-    line-height: 1.25;
-    /*cursor: default;*/
+  margin: 0;
+  font-family: var(--font-text), sans-serif;
+  line-height: 1.25;
+  /*cursor: default;*/
 }
 
 h1 {
-    font-size: clamp(1.5rem, 6vw, 2.5rem); /* Größer und auffälliger */
+  font-size: clamp(1.5rem, 6vw, 2.5rem); /* Größer und auffälliger */
 }
 
 h2 {
-    font-size: clamp(1.25rem, 5vw, 2.25rem); /* Etwas kleiner als h1 */
+  font-size: clamp(1.25rem, 5vw, 2.25rem); /* Etwas kleiner als h1 */
 }
 
 h3 {
-    font-size: clamp(1.125rem, 4.5vw, 1.75rem); /* Noch etwas kleiner */
+  font-size: clamp(1.125rem, 4.5vw, 1.75rem); /* Noch etwas kleiner */
 }
 
 h4 {
-    font-size: clamp(1rem, 4vw, 1.5rem); /* Ähnlich dem Body-Text, aber kann etwas hervorgehoben werden */
+  font-size: clamp(1rem, 4vw, 1.5rem); /* Ähnlich dem Body-Text, aber kann etwas hervorgehoben werden */
 }
 
 h5 {
-    font-size: clamp(0.875rem, 3.5vw, 1.25rem); /* Kleiner, für weniger wichtige Unterüberschriften */
+  font-size: clamp(0.875rem, 3.5vw, 1.25rem); /* Kleiner, für weniger wichtige Unterüberschriften */
 }
 
 h6 {
-    font-size: clamp(0.75rem, 3vw, 1rem); /* Sehr klein, für untergeordnete Informationen */
+  font-size: clamp(0.75rem, 3vw, 1rem); /* Sehr klein, für untergeordnete Informationen */
 }
 
 p {
-    margin-bottom: 1rem;
-    /*cursor: default;*/
+  margin-bottom: 1rem;
+  /*cursor: default;*/
 }
-span{
-    /*cursor: default;*/
+
+span {
+  /*cursor: default;*/
 }
 
 form {
-    margin-block:16px;
-    display: flex;
-    flex-direction: column;
-    gap:min(16px, 1rem);
+  display: flex;
+  flex-direction: column;
+  gap: min(16px, 1rem);
+  margin-block: 16px;
 }
 
 .button,
@@ -76,9 +78,9 @@ input,
 textarea,
 select,
 label {
-    display: block;
-    font: var(--font-base);
-    font-size: 1rem;
+  display: block;
+  font: var(--font-base);
+  font-size: 1rem;
 }
 
 .button,
@@ -86,12 +88,13 @@ button,
 input,
 textarea,
 select {
-    width: 100%;
-    padding: 8px 16px;
-    border-radius: 8px;
-    border: 2px solid var(--color-border);
+  width: 100%;
+  padding: 8px 16px;
+  border: 2px solid var(--color-border);
+  border-radius: 8px;
 
-    transition: box-shadow 0.2s,
+  transition:
+    box-shadow 0.2s,
     background-color 0.2s;
 }
 
@@ -100,10 +103,9 @@ button:hover,
 input:hover,
 textarea:hover,
 select:hover {
-    border-color: var(--color-text);
-    box-shadow: -4px 8px 16px 0 rgba(0, 0, 0, 0.3);
-    /*box-shadow: var(--shadow-soft);*/
-    transform: translateY(-2px);
+  border-color: var(--color-text);
+  box-shadow: -4px 8px 16px 0 rgba(0, 0, 0, 0.3);
+  transform: translateY(-2px);
 }
 
 .button:disabled,
@@ -111,28 +113,36 @@ button:disabled,
 input:disabled,
 textarea:disabled,
 select:disabled {
-    cursor: not-allowed;
-    background-color: var(--color-disabled);
+  cursor: not-allowed;
+  background-color: var(--color-disabled);
 }
+
 .button:focus-visible,
 button:focus-visible,
 input:focus-visible,
 textarea:focus-visible,
 select:focus-visible {
-    outline: 2px solid var(--color-element-water);
-    outline-offset: 2px;
+  outline: 2px solid var(--color-element-water);
+  outline-offset: 2px;
 }
+
 textarea {
-    resize: vertical;
+  resize: vertical;
 }
-.button,button, select, label {
-    cursor: pointer;
+
+.button,
+button,
+select,
+label {
+  cursor: pointer;
 }
-a{
-    text-decoration: none;
-    color: var(--color-text);
-    cursor: pointer;
+
+a {
+  color: var(--color-text);
+  text-decoration: none;
+  cursor: pointer;
 }
-.link:visited{
-    color: var(--color-link);
+
+.link:visited {
+  color: var(--color-link);
 }

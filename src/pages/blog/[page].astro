@@ -1,6 +1,5 @@
 ---
 import BlogpostCard from "@ui/BlogpostCard.astro";
-import NavigationBar from "@ui/NavigationBar.astro";
 import Wrapper from "@ui/Wrapper.astro";
 import Matomo from "@components/Matomo.astro";
 import Meta from "@components/Meta.astro";
@@ -11,6 +10,7 @@ import { type CollectionEntry, getCollection } from "astro:content";
 import Pagination, { type Props as PageProps } from "../../components/widgets/Pagination.astro";
 import DesignSystem from "@ui/DesignSystem.astro";
 import Footer from "@components/Footer.astro";
+import NavBarG from "@ui/NavBarG.astro";
 
 export async function getStaticPaths({paginate}) {
     const posts = (await getCollection("blog"))
@@ -53,7 +53,7 @@ const paginationProps: PageProps = {
         <DesignSystem/>
     </head>
     <body data-pagefind-ignore>
-        <NavigationBar/>
+        <NavBarG/>
         <main>
             <Wrapper>
                 <h1>

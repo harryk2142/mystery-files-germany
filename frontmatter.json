@@ -15,7 +15,7 @@
   "frontMatter.taxonomy.seoTitleLength": 90,
   "frontMatter.taxonomy.seoTitleField": "title",
   "frontMatter.taxonomy.seoSlugLength": 75,
-  "frontMatter.taxonomy.seoDescriptionLength": 180,
+  "frontMatter.taxonomy.seoDescriptionLength": 250,
   "frontMatter.taxonomy.seoContentLengh": 1760,
   "frontMatter.taxonomy.slugTemplate": "{{seoTitle}}",
   "frontMatter.content.supportedFileTypes": [
