@@ -49,6 +49,11 @@
       "@design-system/*": [
         "./src/design-system/*"
       ]
-    }
+    },
+    "plugins": [
+      {
+        "name": "@astrojs/ts-plugin"
+      },
+    ]
   }
 }
