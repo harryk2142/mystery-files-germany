@@ -15,7 +15,7 @@
     height: fit-content;
     padding: 16px;
     cursor: pointer;
-    border-color: var(--color-accent);
+    border-color: var(--color-primary);
 
     border-radius: var(--radius-l);
 
@@ -24,8 +24,11 @@
     backdrop-filter: blur(32px);
 
     button {
+      height: 4rem;
       aspect-ratio: 1;
-      background-color: var(--color-primary);
+    }
+    button > svg {
+      /*fill: var(--color-primary);*/
     }
 
     .action-text {
