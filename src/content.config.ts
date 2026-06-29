@@ -5,7 +5,10 @@ import { defineCollection } from "astro:content";
 
 const blog = defineCollection({
     // Load Markdown and MDX files in the `src/content/blog/` directory.
-    loader: glob({ base: "./src/content/blog", pattern: "**/*.{md,mdx}" }),
+    loader: glob({
+        base: "./src/content/blog",
+        pattern: "**/*.{md,mdx}",
+    }),
     // Type-check frontmatter using a schema
     schema: ({ image }) =>
         z.object({
@@ -14,6 +17,8 @@ const blog = defineCollection({
             headline: z.string(),
             place: z.string().optional(),
             tags: z.array(z.string()).optional(),
+            category: z.array(z.string()).optional(),
+            file: z.string().optional(),
 
             // Transform string to Date object
             pubDate: z.coerce.date(),
@@ -26,4 +31,6 @@ const blog = defineCollection({
         }),
 });
 
-export const collections = { blog };
+export const collections = {
+    blog,
+};
