@@ -116,6 +116,16 @@
           "title": "Tags",
           "name": "tags",
           "type": "tags"
+        },
+        {
+          "title": "Kategorie",
+          "name": "category",
+          "type": "categories"
+        },
+        {
+          "title": "Akte",
+          "name": "file",
+          "type": "string"
         }
       ]
     }
